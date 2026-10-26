@@ -1,0 +1,25 @@
+{
+  "all": {
+    "children": {
+      "helio_target": {
+        "hosts": {
+          "prod": {
+            "ansible_connection": "community.docker.docker",
+            "ansible_host": "helio-f31-prod",
+            "ansible_python_interpreter": "/usr/bin/python3"
+          },
+          "test": {
+            "ansible_connection": "community.docker.docker",
+            "ansible_host": "helio-f31-test",
+            "ansible_python_interpreter": "/usr/bin/python3"
+          },
+          "uat": {
+            "ansible_connection": "community.docker.docker",
+            "ansible_host": "helio-f31-uat",
+            "ansible_python_interpreter": "/usr/bin/python3"
+          }
+        }
+      }
+    }
+  }
+}

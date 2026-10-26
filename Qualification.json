@@ -1,0 +1,48 @@
+{
+  "status": "BLOCKED_OWNER",
+  "feature": "F31 reference fixture; not acceptance",
+  "repository": "helloangular/helio-f31-ansible-fixture-20261026",
+  "repository_id": 1434923306,
+  "manifest_path": "recipe/runtime-manifest.json",
+  "manifest_git_blob_sha": "8f416e57cb594a66e313b930c02991ab8438e781",
+  "source_commit": "Recorded externally in the helio-test preparation receipt to avoid self-reference",
+  "unit_tests": {
+    "tests": 7,
+    "failures": 0,
+    "errors": 0
+  },
+  "ansible_syntax_check": "PASS",
+  "actionlint": "PASS with explicit helio-f31 custom label configuration; shellcheck disabled",
+  "maven_package": "PASS; version 0.0.1-fixture-check, not published",
+  "tomcat_base": "tomcat:10.1.61-jdk21-temurin-noble@sha256:641f5c5e1a8181590f53cfbaac1ce56a8ef8bf6edf1c0194237f052e18ad53ae",
+  "target_image_id": "sha256:5015088b9a0e9faa9aa44350b8ca77b35fa50976c71ba28b6d69434dca5512ca",
+  "targets": {
+    "test": "127.0.0.1:3461",
+    "uat": "127.0.0.1:3462",
+    "prod": "127.0.0.1:3463"
+  },
+  "target_python": "3.12.3",
+  "controller_python": "3.12.12",
+  "ansible_core": "2.19.3",
+  "nexus": {
+    "status": 200,
+    "repository_list": "helio-releases: hosted maven2",
+    "directory_read": 200,
+    "write_policy": "Owner states redeploy refused; administrative config read returned 404 with CI identity, not independently verified"
+  },
+  "runner": {
+    "id": 2,
+    "name": "helio-f31-mac-20261026",
+    "label": "helio-f31",
+    "status": "offline",
+    "registered": true,
+    "started_by_agent": false
+  },
+  "proof_run_ids": [],
+  "proof_runs_executed": 0,
+  "owner_needs": [
+    "Ruling on read-only find for exact runtime source-file enumeration before any deployment",
+    "After preflight ruling and qualification: owner starts foreground repo-only runner"
+  ],
+  "no_vps_or_lab_changes": true
+}

@@ -1,0 +1,55 @@
+{
+  "ansible_core": "2.19.3",
+  "ansible_playbook": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook",
+  "collections": [
+    {
+      "files_sha256": "ffab81d04f57dac030a8aaece179cf4e8ba2713828bfe3def3068119bf26c57d",
+      "fqcn": "community.docker",
+      "manifest_sha256": "1ba1949dc1e2e57977d1cf441d07bef8dec812f2f6ac33779c37c9c51cea1644",
+      "version": "4.8.1"
+    },
+    {
+      "files_sha256": "d091b2f604ef4325c79f7d8da416c91c03686fabdfec30360e5b7c05c5f91f80",
+      "fqcn": "community.library_inventory_filtering_v1",
+      "manifest_sha256": "54250b53c47a747513146ea8c2b01260d0c69d6ded09b27929fb7c1a6e624168",
+      "version": "1.1.5"
+    }
+  ],
+  "connection_plugin": "community.docker.docker",
+  "files": {
+    "deploy-war.yml": {
+      "git_blob_sha": "51c5632de02ae129213efa2ad11a222ffac5941a"
+    },
+    "inventory.yml": {
+      "git_blob_sha": "e7c64a808110e6570c47a19e69dab2bc3f9760a3"
+    },
+    "recipe/inputs-prod.json": {
+      "git_blob_sha": "02d557bdd31768ed56e14da907519d166610553f"
+    },
+    "recipe/inputs-test.json": {
+      "git_blob_sha": "2e59a803d96266e214870cb701753e9de11eac39"
+    },
+    "recipe/inputs-uat.json": {
+      "git_blob_sha": "219848347ce48c8bc7c57774648d01c204c6ad85"
+    },
+    "recipe/runtime-files.json": {
+      "git_blob_sha": "1888c41153cc815c67bdd1df8d5ddb21719ba2f3"
+    }
+  },
+  "inventory": "inventory.yml",
+  "modules_used": [
+    "ansible.builtin.assert",
+    "ansible.builtin.copy",
+    "ansible.builtin.file",
+    "ansible.builtin.get_url",
+    "ansible.builtin.set_fact",
+    "ansible.builtin.stat",
+    "ansible.builtin.uri"
+  ],
+  "playbook": "deploy-war.yml",
+  "python": {
+    "binary_sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624",
+    "version": "3.12.12"
+  },
+  "schema": "helio_deploy_recipe_v1"
+}

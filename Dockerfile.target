@@ -1,0 +1,5 @@
+FROM tomcat:10.1.61-jdk21-temurin-noble@sha256:641f5c5e1a8181590f53cfbaac1ce56a8ef8bf6edf1c0194237f052e18ad53ae
+# Interpreter installation is target construction, never part of the deploy recipe.
+# The completed local image ID and installed Python version are recorded in the receipt.
+RUN apt-get update && apt-get install --yes --no-install-recommends python3 && rm -rf /var/lib/apt/lists/*
+ENV CATALINA_OPTS="-Xms32m -Xmx96m"

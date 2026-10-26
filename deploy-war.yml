@@ -1,0 +1,190 @@
+[
+  {
+    "gather_facts": false,
+    "hosts": "helio_target",
+    "name": "F31 pinned WAR deployment",
+    "pre_tasks": [
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "ansible_version.full == '2.19.3'"
+          ]
+        },
+        "delegate_to": "localhost",
+        "name": "Verify exact runtime versions",
+        "run_once": true
+      },
+      {
+        "ansible.builtin.stat": {
+          "checksum_algorithm": "sha256",
+          "get_attributes": false,
+          "get_mime": false,
+          "path": "{{ item.path }}"
+        },
+        "delegate_to": "localhost",
+        "loop": "{{ helio_runtime_files }}",
+        "name": "Hash the pinned controller runtime",
+        "no_log": true,
+        "register": "helio_runtime_checks",
+        "run_once": true
+      },
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "item.stat.isreg",
+            "item.stat.checksum == item.item.sha256"
+          ]
+        },
+        "delegate_to": "localhost",
+        "loop": "{{ helio_runtime_checks.results }}",
+        "name": "Refuse runtime drift before any download or installation",
+        "no_log": true,
+        "run_once": true
+      }
+    ],
+    "tasks": [
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "inventory_hostname == helio_target",
+            "helio_target in ['test', 'uat', 'prod']",
+            "helio_artifact_digest is match('^sha256:[0-9a-f]{64}$')",
+            "helio_artifact_uri is match('^https://localhost:9444/repository/helio-releases/[A-Za-z0-9/._-]+[.]war$')"
+          ]
+        },
+        "name": "Validate target and artifact inputs"
+      },
+      {
+        "ansible.builtin.file": {
+          "mode": "0700",
+          "path": "{{ playbook_dir }}/evidence/{{ helio_target }}",
+          "state": "directory"
+        },
+        "delegate_to": "localhost",
+        "name": "Prepare isolated controller download directory"
+      },
+      {
+        "ansible.builtin.get_url": {
+          "ca_path": "/Users/aaryakulkarni/.helio-tomcat/tls/local-tls/cert.pem",
+          "checksum": "{{ helio_artifact_digest }}",
+          "dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/app.war",
+          "mode": "0600",
+          "timeout": 20,
+          "unredirected_headers": [
+            "Authorization"
+          ],
+          "url": "{{ helio_artifact_uri }}",
+          "url_password": "{{ lookup('ansible.builtin.env', 'NEXUS_PASSWORD') }}",
+          "url_username": "{{ lookup('ansible.builtin.env', 'NEXUS_USERNAME') }}",
+          "validate_certs": true
+        },
+        "delegate_to": "localhost",
+        "name": "Download and verify before copying to Tomcat",
+        "no_log": true
+      },
+      {
+        "ansible.builtin.copy": {
+          "dest": "/usr/local/tomcat/webapps/ROOT.war",
+          "mode": "0644",
+          "src": "{{ playbook_dir }}/evidence/{{ helio_target }}/app.war"
+        },
+        "name": "Install only the verified WAR"
+      },
+      {
+        "ansible.builtin.uri": {
+          "return_content": true,
+          "timeout": 5,
+          "url": "http://127.0.0.1:8080/artifact-digest"
+        },
+        "delay": 2,
+        "name": "Wait for the installed digest",
+        "register": "helio_digest_read",
+        "retries": 45,
+        "until": "helio_digest_read.status == 200 and helio_digest_read.content == helio_artifact_digest"
+      },
+      {
+        "ansible.builtin.uri": {
+          "return_content": true,
+          "timeout": 5,
+          "url": "http://127.0.0.1:8080/version"
+        },
+        "delay": 2,
+        "name": "Verify the installed version",
+        "register": "helio_version_read",
+        "retries": 15,
+        "until": "helio_version_read.status == 200 and helio_version_read.content == helio_version"
+      },
+      {
+        "ansible.builtin.uri": {
+          "headers": {
+            "Authorization": "Bearer {{ lookup('ansible.builtin.env', 'GITHUB_TOKEN') }}"
+          },
+          "timeout": 15,
+          "url": "https://api.github.com/repos/helloangular/helio-f31-ansible-fixture-20261026/actions/runs/{{ lookup('ansible.builtin.env', 'GITHUB_RUN_ID') }}"
+        },
+        "delegate_to": "localhost",
+        "name": "Read exact GitHub run identity",
+        "no_log": true,
+        "register": "helio_run"
+      },
+      {
+        "ansible.builtin.uri": {
+          "headers": {
+            "Authorization": "Bearer {{ lookup('ansible.builtin.env', 'GITHUB_TOKEN') }}"
+          },
+          "timeout": 15,
+          "url": "https://api.github.com/repos/helloangular/helio-f31-ansible-fixture-20261026/actions/runs/{{ lookup('ansible.builtin.env', 'GITHUB_RUN_ID') }}/attempts/{{ lookup('ansible.builtin.env', 'GITHUB_RUN_ATTEMPT') }}/jobs?per_page=100"
+        },
+        "delegate_to": "localhost",
+        "name": "Read exact GitHub attempt jobs",
+        "no_log": true,
+        "register": "helio_jobs"
+      },
+      {
+        "ansible.builtin.set_fact": {
+          "helio_matching_jobs": "{{ helio_jobs.json.jobs | selectattr('name', 'equalto', helio_target) | list }}"
+        },
+        "name": "Select this one deployment job"
+      },
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "helio_matching_jobs | length == 1"
+          ]
+        },
+        "name": "Require a unique job identity"
+      },
+      {
+        "ansible.builtin.copy": {
+          "content": "{{ helio_deployment_report | to_json }}",
+          "dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/deployment.json",
+          "mode": "0600"
+        },
+        "delegate_to": "localhost",
+        "name": "Write deployment evidence on the controller",
+        "vars": {
+          "helio_deployment_report": {
+            "artifact_digest": "{{ helio_digest_read.content }}",
+            "artifact_uri": "{{ helio_artifact_uri }}",
+            "environment_name": "{{ helio_target }}",
+            "evidence_profile": "reported_not_pinned",
+            "job_id": "{{ helio_matching_jobs[0].id }}",
+            "kind": "catalog_deployment",
+            "provider_origin": "https://github.com",
+            "repository_id": "{{ helio_run.json.repository.id }}",
+            "run_attempt": "{{ helio_run.json.run_attempt }}",
+            "run_id": "{{ helio_run.json.id }}",
+            "schema_version": 1,
+            "version": "{{ helio_version_read.content }}",
+            "workflow_commit": "{{ helio_run.json.head_sha }}",
+            "workflow_id": "{{ helio_run.json.workflow_id }}",
+            "workflow_path": ".github/workflows/f31.yml"
+          }
+        }
+      }
+    ],
+    "vars_files": [
+      "recipe/runtime-files.json"
+    ]
+  }
+]

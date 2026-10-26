@@ -1,0 +1,7 @@
+__pycache__/
+app/target/
+publication.json
+deployment.json
+evidence/
+.env
+*.private

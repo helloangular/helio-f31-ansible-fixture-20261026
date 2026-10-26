@@ -1,0 +1,21 @@
+name: helio-f31-fixture
+x-target: &target
+  build:
+    context: .
+    dockerfile: Dockerfile.target
+  image: helio-f31-tomcat:10.1.61
+  mem_limit: 192m
+  cpus: 0.5
+services:
+  test:
+    <<: *target
+    container_name: helio-f31-test
+    ports: ["127.0.0.1:3461:8080"]
+  uat:
+    <<: *target
+    container_name: helio-f31-uat
+    ports: ["127.0.0.1:3462:8080"]
+  prod:
+    <<: *target
+    container_name: helio-f31-prod
+    ports: ["127.0.0.1:3463:8080"]

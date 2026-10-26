@@ -1,0 +1,2896 @@
+{
+  "helio_runtime_files": [
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/.azure-pipelines/scripts/combine-coverage.py",
+      "sha256": "49d3567c21d253290b5c075e250b1460ea46c3f33b7d25a8994447824aa19279"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/.azure-pipelines/scripts/publish-codecov.py",
+      "sha256": "31c38e5c2f6021b3762c52c5c55f9fb565586b69e998b36519d3072608564546"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/.azure-pipelines/scripts/time-command.py",
+      "sha256": "486dd0a00417773b1a8901b4d411cb82f7e3ffea636ed69163743c4b43bf683a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/FILES.json",
+      "sha256": "ffab81d04f57dac030a8aaece179cf4e8ba2713828bfe3def3068119bf26c57d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/MANIFEST.json",
+      "sha256": "1ba1949dc1e2e57977d1cf441d07bef8dec812f2f6ac33779c37c9c51cea1644"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/noxfile.py",
+      "sha256": "28e31f1fb7a5bac30cff004209402ac5150df7feab6c3bf708ff7c29e94c54d7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/action/docker_container_copy_into.py",
+      "sha256": "e79dbc67466ae588344ddd74a79d508c859252cf76b71a918cf066ac39fb7de1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/connection/docker.py",
+      "sha256": "a36c149844b6c1c8d5754501861bc5bbd65ac67d3fb14120e46a11ab35aa496a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/connection/docker_api.py",
+      "sha256": "a90f7247643ae1451ce966e60844808d346921f540dfad65248bfaf287135c86"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/connection/nsenter.py",
+      "sha256": "f2b6dfca16bbe5aef0519d2908199f121dd372757caf502a8405b0c909846964"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/doc_fragments/attributes.py",
+      "sha256": "8de0cb5fd6ec3b3581e640c253ea30a9f73e9d9d70813d2124e20ca1f9f152af"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/doc_fragments/compose_v2.py",
+      "sha256": "331f0039c4b8479b7bd45aba615ac2109198983dce5775a8c171cc3315dc18d7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/doc_fragments/docker.py",
+      "sha256": "5dc649932785ffb9e887f79b1976ac9be00f044f8826669fff3fd264587ce7f6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/inventory/docker_containers.py",
+      "sha256": "d76877af90ec6e8a4bdad6b3f44f21d049588895bb16e41ebe6147e197618eda"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/inventory/docker_machine.py",
+      "sha256": "332967dafb5d57fd730c92089631e3e7e3047ae37e15070931cc41cd181062ab"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/inventory/docker_swarm.py",
+      "sha256": "0dce1503beeacffa42ba590ddcf3c67ba9a4596ca8909d610f98491387c27a0f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/_import_helper.py",
+      "sha256": "aebba39d614e5ae22696382c9257d590338bb89b38d06dcc2c5fef59524cc1a2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/api/client.py",
+      "sha256": "69a0240e604895e74c5d1b6e4662507777ad4a5dea7a30cff6fe22ef5d2a9485"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/api/daemon.py",
+      "sha256": "3c2d5c163d1fad4f976bc72afcb515ba1d43fa9e09f412a18cdb0f7e3eba1587"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/auth.py",
+      "sha256": "6851a18b53645956963cd6fefb9c2c678afd98eb9e1ae437ac5435a40e5461c4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/constants.py",
+      "sha256": "c767e02e4d85656c31a874929314b2708ca98205de8ca4294705582684ce333d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/context/api.py",
+      "sha256": "4dc5671bb46417765a2eb8bbdd0d189a5274630d642d86df6e37fabb87410a59"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/context/config.py",
+      "sha256": "6d0df090a4b8e449cd1f330d3b108d758bcd24b3f4b84accb5869536f4a2e283"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/context/context.py",
+      "sha256": "80b4c07d93e7c1b312cde75bd4bc6b6980b986284b4ad7530464afb3cf214e1e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/credentials/constants.py",
+      "sha256": "e27e1fa309f05d152f1913e4bfa3148b5616f01026ec6bcc99c150d2bf287c22"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/credentials/errors.py",
+      "sha256": "9bbefc587e81919ee2742084789f5ec77dfbc7b71edce3d4b82e3ef79573adc4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/credentials/store.py",
+      "sha256": "a0e29289e6632cacd1ed0be5946b89a0f8b2722397cfbaa70fb7dcce269a36b8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/credentials/utils.py",
+      "sha256": "de07620fb8fa086b8209d41956deb804a59240cc0288fa01e75fd9b5395d381e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/errors.py",
+      "sha256": "12904c15c7d2aa65d6d466146036f991ff863a55bd01ea737873e7eef0e225d4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/tls.py",
+      "sha256": "f9f061aba4ca55a4649311b98b42e700e36b449a5f2ec117b470ef723050ad14"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/transport/basehttpadapter.py",
+      "sha256": "2e88df15eeb6be839c78e777bc093d3f2c727b185395d2616d0cd6d92a4675f5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/transport/npipeconn.py",
+      "sha256": "b8c8b3158e2b1d03f50de3fb6906356603fdadf6a985750c827f689383de54be"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/transport/npipesocket.py",
+      "sha256": "02cb6278308246f41f25cb0645df394a8b8ac27e9fd6d8e1a64fa3e9077e4ded"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/transport/sshconn.py",
+      "sha256": "a72e421ee34be8974b17ebe8b953f9d6dae865a58333bc16b3deabdd2363a16d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/transport/ssladapter.py",
+      "sha256": "738f88a17d1954f13ced5052a52f10f99c899ddf2a3e21944d2987bb600a0bb5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/transport/unixconn.py",
+      "sha256": "840aeb0f532317d27e1f9113b44fee8cb940452e1ed690981c33818e8fb2a498"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/types/daemon.py",
+      "sha256": "21677b39bfd0453e6412e0ee4990bab946d0c275536246eaafdf7671427f749c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/build.py",
+      "sha256": "2d1a79e446c735359098bcdcb172ab29a74a93f221e904681918ca80216d0778"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/config.py",
+      "sha256": "cc761f97d8399b099a6c788e3d60535e9caa61648b45ef7bf16f84a6b1249d2c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/decorators.py",
+      "sha256": "8908e147a40b06230a5e4792c4138f2ec56cc2aba5df18ae80e5746199b5d474"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/fnmatch.py",
+      "sha256": "92d79de95dedb8dc32101b555ef87a649df63612f68ed7738faedf8750041041"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/json_stream.py",
+      "sha256": "30a8f2d5f6a84b9f7fd0c47bd4c4378b2490380e1cd66bd3f3b6e470ac9aee87"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/ports.py",
+      "sha256": "ce0e92cc6663e0e58f0b34586ecc4c1436d2bf8d86b7d569a0a6cb65fc12000a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/proxy.py",
+      "sha256": "4f6df3b56b77ef65add7f795d445ddf88c74e12ab93f8880f2692c70915820ea"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/socket.py",
+      "sha256": "d6d89cefe38e7e59279b383eb34c5256aae411a526b771734d7b8c6316b02152"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_api/utils/utils.py",
+      "sha256": "7bdb8b5f73b9a05d10b748d6d81e758cc8c0165c45166e6a59a0ac6acb5aa90c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_logfmt.py",
+      "sha256": "83828f29e47da36c168e78a5ea7d17bf72fa20905e6678b6dbe1e445f3aa0f69"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_platform.py",
+      "sha256": "45b82a5a2cf3d9b279c5fa6e285cb91f783035abe888c0f1147ed4b427a81ac2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_scramble.py",
+      "sha256": "bcafd42fbc53eac809c68f05250c1cd22e1f0197ae1a1acb706456d4d0ccd12e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/_six.py",
+      "sha256": "029cee8d9dfa016c66fa554c700962429e4c02ef32646d189e64bab2bea645dc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/common.py",
+      "sha256": "a46bfdf5ea3d0a9e622e51c1ae3ebadde744e6fae82d6d5623440dff2c5c9b33"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/common_api.py",
+      "sha256": "5f0084138ae1575ce29f4dd13061a9b6117cc38fb21d0852b5016e175ab83f76"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/common_cli.py",
+      "sha256": "d3435ed4a0ce51161bbcea04a4ecd97c43a3b08f86a8856a35ec3ac6d8c3bb21"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/compose_v2.py",
+      "sha256": "b0220746ac405639f4d9dc02db9d7ad7b42ce08edd6c0aaa6872d42a92ffe7ab"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/copy.py",
+      "sha256": "dfc3a033585f0fb00252ac91f5cdc247dea11a3bd327a0197f2c509df1863b01"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/image_archive.py",
+      "sha256": "1fbf968198702f4f75c728f98cc7eecbe3fe59b1ea99a25566f6c9c970d9805a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/module_container/base.py",
+      "sha256": "11cd5170b0fecc86566a3fd3cb373ffc3a2970f13f52781fcf7c465a2d9dac60"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/module_container/docker_api.py",
+      "sha256": "3347967876572583d1a97c92cba57f0c0d3ec2a91bde1c1dc4206f7cc1c83ba6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/module_container/module.py",
+      "sha256": "6e097a332523a49e7bf059ea8dcfff8db60da7a8565818ca91298df07259bd88"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/selectors.py",
+      "sha256": "a48ff68d6dd79eb5d9509e3acae79a6179c9646c51654108ca6873d1eafdb817"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/socket_handler.py",
+      "sha256": "a60b5e2c120346f5eb219e3b95eeeb0275a55c944ff2ebf42d1627228957c8b4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/socket_helper.py",
+      "sha256": "b592dd8bcc9f3cc7d72a4875701d0f0131392cea8ea9fd81f6b14e1a774cd857"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/swarm.py",
+      "sha256": "3045e4e7bef80c90ac21b85247d489af34819488809f205568f099d08e3829bf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/util.py",
+      "sha256": "18d3c35ccfbb99001438cc61a844725f53aa6e5d003352f11b861ec1c2a4fb09"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/module_utils/version.py",
+      "sha256": "a268e43a41608edc704505f99463aa0396b94dc58d9dd58538bd80fa2c9d8a81"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/current_container_facts.py",
+      "sha256": "aeb74d5f4f6dca1fbd100951a3322f20997248f7f7fe7c21d7027152f7c7f27b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_compose_v2.py",
+      "sha256": "f7cb27c943609a3a94549aeaab798b67ac9bfa32aa7f28c2e580cd591472e805"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_compose_v2_exec.py",
+      "sha256": "667a608e858f6077564f2705ad0dc67e95e320a48cb7ba56b9416320f2883745"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_compose_v2_pull.py",
+      "sha256": "67394d9afbfd8d42c09faa399ca6071e876284457dd8c53d2075ca04804e30ff"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_compose_v2_run.py",
+      "sha256": "3e4ce8c35a5d5db4b307e5532c899b6486193b7394e5a8dcc44a9480d299360c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_config.py",
+      "sha256": "02f4039620e89c4d576632a2522338432dd96014d7ee49c8704d8bbf5b62e537"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_container.py",
+      "sha256": "ba8fa648de3c7892ea3ff24c45f1452b321a4c4323bb2bd1666f9de862acbc91"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_container_copy_into.py",
+      "sha256": "058251387730b8a07fc69e26a0f0da1171462436c5569fc16a18b2d5e59701f7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_container_exec.py",
+      "sha256": "c8aad78b63bd86b7db92b661ddcf229efdb7f46a7b6685288811cc95a50f197b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_container_info.py",
+      "sha256": "717755cc11c8654b1c35d52b9b5b3e92044dbcbab4bc3868ac51c89b2f49f009"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_context_info.py",
+      "sha256": "f04967f58c193a3794300bf3526590704558251a1331123a1175050c21f589f0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_host_info.py",
+      "sha256": "547893d5b4f72a311a302bcb1ece29837f1cb21fc7cbfd2a1cd1fe148fdfa068"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image.py",
+      "sha256": "c3063b2a4a78339e5388054fc51dbfb18bee85f884254f9eee938f049eaf03f5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_build.py",
+      "sha256": "3996e1ee0601df849217f7372b2c147799fd8ccc027c24ce66bf97e7b9bdcc54"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_export.py",
+      "sha256": "916ca5ed078bf18f1cc58cc7cbe4af350e30f834045ae93328d21373bebbd5c1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_info.py",
+      "sha256": "61c734ff2a6f07f6939a903aedb378ef4b0f9cde67f426d09db8ba96c58922fc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_load.py",
+      "sha256": "08f8d6f051c31941aebbddf38dd811ffa3a7ce9d4f268aee08aa2e636d9b823a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_pull.py",
+      "sha256": "89bee35031beef488b9b773997644b159c3d4370390b473142fa1a8437a184a8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_push.py",
+      "sha256": "ead50201bec07efcd30c721c54315c0c7f184a26ffd2d802af7810cb1198d402"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_remove.py",
+      "sha256": "af7425307ccb267ab296797fbfce96a0c76721a73d9634ef269faaa70353aa8e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_image_tag.py",
+      "sha256": "b9aff028bc1b5d801b3eaa618eaee6bfef6321d749faba651589de34dd928ce0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_login.py",
+      "sha256": "1382bdd651ac7f5e174fc46a4fcb4be3ee1602e6f856b5139008a3738feb62da"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_network.py",
+      "sha256": "9fbf2418ef3e3b0679cf3549e5463d0ad9f6b6d4f5d9ab98f198deb034eee4fb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_network_info.py",
+      "sha256": "b94ea53e46647c83f737d2a4063b16ba30ae1e8196d4e99e2095ff29bc9f81e3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_node.py",
+      "sha256": "ce449c63071d720fb9bb94c9e5a81644dee2c369e435a38a6b49ad83c6f7ef08"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_node_info.py",
+      "sha256": "26d1fd312073f0c068090c57c5af7b801769cd6c2a0b471ecc17da81b7147af9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_plugin.py",
+      "sha256": "2b94fec0aa3d9c8afd86f6dd15adf58d1c61a686ef64713556040a36eff255b2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_prune.py",
+      "sha256": "952f931a8dcbefeb1250ce429aac4c4dc10e919252a0b34b6140f850c32b4255"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_secret.py",
+      "sha256": "f8001a26cc174fb112a6e3f3c9661c3a3beb34878bb78d153eb0b5a00b4be989"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_stack.py",
+      "sha256": "e93f678daee4da13a1b3e5ceacf20483e8a36c898dc52049812d697f5db27bff"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_stack_info.py",
+      "sha256": "7cd62b885cb2d3761d917ccd43d397a28948ddceeba24a6135d74b9541714800"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_stack_task_info.py",
+      "sha256": "6b708f268872cf2e839ab52bf1c4f3de218746ed11a782f4ce32d1fbab9a03de"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_swarm.py",
+      "sha256": "b9488921f824561af4acfbc8847b93dca4dcba8e755c18033a8f41ab8dfc5789"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_swarm_info.py",
+      "sha256": "d349385d34af6cda6cd65b2fdce2a8ddb52dcfd9c5b645234c6d7e5e71e2ceb0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_swarm_service.py",
+      "sha256": "498ac6c5fabb3082da7e32391f5daf30f4da154df855b824d6b13cad50e47390"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_swarm_service_info.py",
+      "sha256": "12fe183979107d10998db2a373f0915823c32f9b7b0e6e7a61676577ba9bca0f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_volume.py",
+      "sha256": "6e253a87229b5abcfbd627125c22e606e334831728af8ad020f66c751e5eed41"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/modules/docker_volume_info.py",
+      "sha256": "44e024e5ec8d67ffb8f79c4c4045837c493bc6c0b50e7a32226140423c44732b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/plugin_utils/common.py",
+      "sha256": "bf79729abc4cd3044ffa6e70e76af83956d6c686d72388b901a2b32387a4787d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/plugin_utils/common_api.py",
+      "sha256": "c44fd85b990483fb4cbf59c881508bbd6dfde2b16cd0890bb157dda52dfc1b97"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/plugin_utils/socket_handler.py",
+      "sha256": "56157c15e13defbde6a392ba2804bdb2734316d559c2e61c08361d65deae3ae0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/plugins/plugin_utils/unsafe.py",
+      "sha256": "354cc26c8f39d582549acbf2c804abac77e3f6c8c3fc9d31ef415aeb0a2f50ff"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/integration/targets/docker_container/filter_plugins/ipaddr_tools.py",
+      "sha256": "60532ad91ec9ec288d9a6cc60e92e94828c681f23f4797af0fb687fad6adfe55"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/integration/targets/generic_connection_tests/filter_plugins/filter_attr.py",
+      "sha256": "1b0dd3b809d30ef9b8836388c0e36f336bb9e640cd633b41a90efdb1d7faad7b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/connection/test_docker.py",
+      "sha256": "d842844ff87ecbacaebb71a221e33037f3515460cd2035ff022765bfc79fe1a1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/inventory/test_docker_containers.py",
+      "sha256": "51003a12a51c74e610d08f099ef0e8e0ae61f9d4e1aef93c94f09b81c2d9a7c5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/api/test_client.py",
+      "sha256": "8705a25f44bb467a84b7190d6f271b05aa06c7e88e95710a4ec80daf4de658eb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/constants.py",
+      "sha256": "247a4855046db1ac90cdea6c5db78ca229abe543813488734eaff7bface261ea"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/fake_api.py",
+      "sha256": "7eb7fac244b3434d671340031e82eb5821694652f58f3c22f883caaf198a3282"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/fake_stat.py",
+      "sha256": "cb95a05c610164fdc6ccac0dcda57695d98f35a493e1d677b90b1b7d08681bc2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/test_auth.py",
+      "sha256": "86e10a21915fad656729eec85fe53df7f05d5319e331fdd6bacf8945faf45259"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/test_context.py",
+      "sha256": "cf7b155c02ae36231afc5b923f909a61475ae4c482bf2bdc2ff9fbc48fe4c286"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/test_errors.py",
+      "sha256": "9f5cbcd9c32d7182cf03773dff7a84840fa6f6431d936cadd9faaac9e52076de"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/transport/test_sshconn.py",
+      "sha256": "63f010ba9bae645f8c95ebbcb00beb53e0303ebd59b4043b336a692fd43eff8f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/transport/test_ssladapter.py",
+      "sha256": "493f208f91caa26637ce2b5d7d4b7bafe0a5702baaa71ce34c2159c3f56e4588"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_build.py",
+      "sha256": "958ce955e90bbec683cc490b2d9f50cb88d767ae8af6f9177923c45951472229"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_config.py",
+      "sha256": "d2471729eb522d44788b670e0b2483a371965af2acf53971b23f7c1246acdfe2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_decorators.py",
+      "sha256": "3c456a60344ff749271ff04b38b22d61af90e6d462204232bff8277c3d06a41a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_json_stream.py",
+      "sha256": "9d04daafc18ea5b41a9f4b99140cf9c41fdd756fde5cb82b4800a6cd2157b48b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_ports.py",
+      "sha256": "d881e823dbab6b2f9bd772ab5f01e367407a66a1074922c3abbd5e4a5ce738f0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_proxy.py",
+      "sha256": "bad097d44d0a44ff2023aad86161646aa28ac6e96c554d7b426204c58d3c3580"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/_api/utils/test_utils.py",
+      "sha256": "6155df2bd6ed7e1420670eb8aa865c1566dc5c1e1a20f0b31180dbf3247c0160"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/compose_v2_test_cases.py",
+      "sha256": "9668a0ca3720e8f93c39f4654d37097b186d2320465252506a4e291ce4860c22"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/test__logfmt.py",
+      "sha256": "7b9953396f57500b205a31805597a1c990d2aa80404ea2952494d5b129460758"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/test__scramble.py",
+      "sha256": "fe5598086a3826081072f676b57abaab9e302b056bda8b7bee6596134c5fa556"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/test_compose_v2.py",
+      "sha256": "eb0e6b2ed79d50f489aca3242039ea4d506251b4997e604a4da414f9a56f00ce"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/test_copy.py",
+      "sha256": "a56c05a45e5074482e451141bebb5e307b614686ba89731970742c4d9c9eddb1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/test_image_archive.py",
+      "sha256": "adc3bfeabab056280ee95e87ee52627f88e43961bdcb06f1df2896d04cc619b1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/module_utils/test_util.py",
+      "sha256": "f109a556b20a1459ebe1ab4444a29b23e6d34caa3d211bbb9617d986d0033959"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/modules/test_docker_container_copy_into.py",
+      "sha256": "cd52f8160e2cdc3605d4323908536d57eb3cdd6128474f98014b05c268ff6295"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/modules/test_docker_image.py",
+      "sha256": "88971516134166aba528faf1470a1538e2283e5bd90436a0493ced56264aac0e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/modules/test_docker_image_build.py",
+      "sha256": "c6a400fa0a6c4f112e487365dc3891c069c04b0635275c505f7c9a73e83b797b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/modules/test_docker_network.py",
+      "sha256": "8ec6ea2325a5e752dea2ef746ae7b4baf94f851053a148cdabbe1acd98d255ff"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/modules/test_docker_swarm_service.py",
+      "sha256": "5326d0c5adf3f14fbb623ac5efdb75b6f9dd7cd7e6fb5d8c8d099bc6ab58049c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/plugin_utils/test_unsafe.py",
+      "sha256": "4e329a20fd2677d7aa18ffd6036824817c7e9da1b5bba6b1ee87c0495ee4efff"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/docker/tests/unit/plugins/test_support/docker_image_archive_stubbing.py",
+      "sha256": "6efb38e3bdb69886aaf78359644361dade023060bc149c6ca7c67252792d4b56"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/library_inventory_filtering_v1/FILES.json",
+      "sha256": "d091b2f604ef4325c79f7d8da416c91c03686fabdfec30360e5b7c05c5f91f80"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/library_inventory_filtering_v1/MANIFEST.json",
+      "sha256": "54250b53c47a747513146ea8c2b01260d0c69d6ded09b27929fb7c1a6e624168"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/library_inventory_filtering_v1/noxfile.py",
+      "sha256": "28e31f1fb7a5bac30cff004209402ac5150df7feab6c3bf708ff7c29e94c54d7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/library_inventory_filtering_v1/plugins/doc_fragments/inventory_filter.py",
+      "sha256": "b2959c93d39f7a9e2ba00a899030ffe6deec911af6667a8a71ae0fe0f605fc91"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/library_inventory_filtering_v1/plugins/plugin_utils/inventory_filter.py",
+      "sha256": "64682784e41c4dca958f9de1b22ce65b917f6c91ed496132c80ff9d357c1b50c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections/community/library_inventory_filtering_v1/tests/unit/plugins/plugin_utils/test_inventory_filter.py",
+      "sha256": "f0d924f2c12b2e96382499811e34ba809843b01627090b7cb35a4c212ccbc598"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/__init__.py",
+      "sha256": "95c37a2b446f885f6727a6d4b6f9b0a76e86104cbb0b3c988af149e8922cce20"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/__main__.py",
+      "sha256": "db88feefe613e256767e657cd090fe551a18067c51ed8a0ffd53fea2b26d0edd"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/__init__.py",
+      "sha256": "277c8210066824bc311cc3c42161f05fab1e453090e12afb71f1d2c35d6293d9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_ansiballz/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_ansiballz/_builder.py",
+      "sha256": "6c2a33fb645fb81622cde0e8786073a28d6e83263cc2b03e5e7a8ab2931dc7d0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_ansiballz/_wrapper.py",
+      "sha256": "c568036d500fd7303aebf894040bccf4736d0c0c5855890e7cfa4901f9467655"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_collection_proxy.py",
+      "sha256": "577667b378dd591d614cfeaae26acd5a820a2faedaca24053c339be85ee282c7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_datatag/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_datatag/_tags.py",
+      "sha256": "f192d0517da0813425bb0b4b7c56cd29af6b28da71461a9a951cdea9251d6b66"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_datatag/_utils.py",
+      "sha256": "602b54bb3b04baefa6fd6b83932f092af6e9e37db127b4be50940fa9e6390a49"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_datatag/_wrappers.py",
+      "sha256": "30d17fbcad086f4dd4e7a4f95b4b056ec855e91955d607ee37a621a55c550088"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_display_utils.py",
+      "sha256": "d9d3a49ce429b7f196d809283142713ef99050201562ff75d4ac17e83c2b8747"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/_alarm_timeout.py",
+      "sha256": "dab3ee740984cc35c09d7059336b016bb2f7c34af7aab891721b68996addbfdc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/_captured.py",
+      "sha256": "48bab4179b072a54696e8a3925e7c13c5906c8f664236105672715c85e72d680"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/_error_factory.py",
+      "sha256": "9aee55d7a5df07d29bac7ca8e937d55ad5d5917340f06e6f83f215cd43416377"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/_error_utils.py",
+      "sha256": "3fcb167664316785052758df99156091d67fc43619de70cda887d934af728a16"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/_handler.py",
+      "sha256": "e195f6ec6fe3ac3b28991dbc3950b403d591a689e9b5ee55f901aae59703cde1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_errors/_task_timeout.py",
+      "sha256": "08de49d9e29ae367326a15c2d0832b962c10005ec333036f75a266cd2a8f06c9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_event_formatting.py",
+      "sha256": "70732cb988babf65b77e011874a2d27bc3b7e245b96d9136eb3ca3ec53addbaf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_json/__init__.py",
+      "sha256": "cedd5c695b2267c2f4f1bcf474075f6dc635e1ce32d3ef00b3c012f615b9c25a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_json/_legacy_encoder.py",
+      "sha256": "7255e23e7276691e4c72e49b6a3ba04cf5b6c1abf5c309258afc43296675885c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_json/_profiles/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_json/_profiles/_cache_persistence.py",
+      "sha256": "4954d0e7d91988ee18495a9ec13cf8a9c7e3fb989139c3b96c9ac4d039477a2d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_json/_profiles/_inventory_legacy.py",
+      "sha256": "5063cebafbbfc77675940be471adfa6515f4bf40f58ff14265ddbccb904afe33"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_json/_profiles/_legacy.py",
+      "sha256": "9c3c4e18258b91c1594f70467862ed6022958e67375bc1ae761ddb4959ca8f78"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_locking.py",
+      "sha256": "f23317b0a48d08a5594547ac6566f91f1e3983d515559f495d46bf7eadb4d384"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_plugins/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_plugins/_cache.py",
+      "sha256": "8f055e566f9924968da9dcaaeda4b866de350ba54ac913bf0ddc176950575867"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_ssh/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_ssh/_agent_launch.py",
+      "sha256": "9f7981bf7a4f4f3e734941f7f984083fa22650a3ba015dad08b129e129621811"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_ssh/_ssh_agent.py",
+      "sha256": "946013c82a9804adc9b580734f0c8f6b345f5f3a7169ab2c5717caea8191d621"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_task.py",
+      "sha256": "342105dec3f1b7df67e0693e7b4d00f427b9d9db9f7d38499b4aa59a0926d274"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/__init__.py",
+      "sha256": "efcc1b53c0ccd9693bb1f26aa7bd9b98424cb3b87243993e6be1bd40c37a933b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_access.py",
+      "sha256": "76c7b876bd1346965d45b64b7e0d1527bc2280d9b6892e0303e2442ba2e84cb7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_chain_templar.py",
+      "sha256": "540ad8b645696b499963602148bfd17b631c3f133f95c819ba97033706f8c01f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_datatag.py",
+      "sha256": "1ee39a62da665d86644c3555573e653b713ab6ba30008a7cd0fd8137e513c87b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_engine.py",
+      "sha256": "162bde62b2341eaedb8cdfd9dda163026dda3875d19e6e50484a7e687a4bee58"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_errors.py",
+      "sha256": "dddc4b1aed4d2dfb7ef460ee34a35cd4ae0e20369db80cc562434e6013406022"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_jinja_bits.py",
+      "sha256": "8fbdb7bffb6929fd6fd3d27afb75a40366000bfc7fd1d5bcac4a5595b08e83b5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_jinja_common.py",
+      "sha256": "aa0898d966cd7e9e978f9e4ff9afb6d3c515143b0500b24caa1ff694c33f4399"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_jinja_patches.py",
+      "sha256": "3bfd461d82c462dbb57f68348926f718306b40c93541b878dc7e025043fdc1c1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_jinja_plugins.py",
+      "sha256": "09e4966c5cdef78c678e3aaf611af8da30499227479a701831f6844bf4d082b2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_lazy_containers.py",
+      "sha256": "c476e4ee84ece7cf324e8bfe10e2b3d97d0c0b969fa75847bfca47021a5d9431"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_marker_behaviors.py",
+      "sha256": "10f430a2db8145a81a77993dac600b95f09257e09b3465d8ea803e0cfa7a749e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_template_vars.py",
+      "sha256": "9d0383cc4fd2782605b86a5d528108e9bdec68949d7435560a23ad63c9faa2e6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_transform.py",
+      "sha256": "d3bc28e391299be66fc202045a37858b85b72c72541176c3cd7ab8256ce2ab7b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_templating/_utils.py",
+      "sha256": "e6b6aad2b10d465b8e8eeb1e81db070e79ce29b7a994da86abad347f38ca931c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_testing.py",
+      "sha256": "582130664f3f34fd9fd8ba18db38e1e95230e9df1b3e816ca6f7cfdfe2903234"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_wrapt.py",
+      "sha256": "08b82ed92e55e0d989f693c520a6ab86a8a2c004319e2e484a0afe4f10115ae1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_yaml/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_yaml/_constructor.py",
+      "sha256": "f13f0c1a2a296d125ff2f50804f173417a8e966be2a1ec852c56abd1f57a1941"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_yaml/_dumper.py",
+      "sha256": "172c167cfd430d823b26878d2d43e92d438c873179d0c9b803c18405aaee4581"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_yaml/_errors.py",
+      "sha256": "ab1d158906d4746f639da73724e8abd997d3f41ffe37b28963e859bcfc3d1076"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/_yaml/_loader.py",
+      "sha256": "87aa46926155f1c60bad02891312f416455c1875cddaea02326257d9280fd3bf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/action/debug.py",
+      "sha256": "1e975df300e913937451ba906c2654546169cb0d352c3be6306e11eee3f6ec64"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/apply_trust.py",
+      "sha256": "ef45d6ffc36dff9951fc4bae2c6ee268aa61c1cf61fe8b33f7cc7f4bf2933ab6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/dump_object.py",
+      "sha256": "202527af338a9bd2f4471f34534f7d837eb07120dd6a10004a1f315527d94179"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/finalize.py",
+      "sha256": "0fa8d39a43d5413a6a4bc39259fb007b65cf5b3ef0e330de85a784a4752b6eeb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/origin.py",
+      "sha256": "4976a4e227a86951c12fd836ca9d8f4d68f02957e03d2ae158f12a8ec613df6d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/python_literal_eval.py",
+      "sha256": "8ee982822d81572f345a00321ccb9519322a20d375d69b754b96e4509b05fb2f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/tag_names.py",
+      "sha256": "7e14eb59dc62a34c43f58492fdec650c2dde5bb406136aa3dfc19e4b5e9521e2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/true_type.py",
+      "sha256": "b4db8241f764613ded9c7a3f890ec71497f17a783cf576b03c484bbd1c58eed4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/filter/unmask.py",
+      "sha256": "c9ddf31ddc5f83c449dd898a27d9493a04c539fa49cc1b83342773a1da0c38ac"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/lookup/config.py",
+      "sha256": "c2fba5175b790e8262c5ebafc7e05af316d42272a60c20404aa394f71c921e35"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/test/tagged.py",
+      "sha256": "66de9eb776a12e427a6e680b6c13fbc4585391abd4b93fb17cb85d29ae93fac7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_internal/ansible_collections/ansible/_protomatter/plugins/test/tagged_with.py",
+      "sha256": "03abcb22e64c8b4e47c33be79ba999d9b7ac341228386c5c6f2e1a336cdc0fc3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/_vendor/__init__.py",
+      "sha256": "d9005e0704fbb86eccdc0c3ea48742a6de973ed1cc0a96c429f00260a03bc488"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/__init__.py",
+      "sha256": "ba803ce9d731d102a3a698cfdc40becaa22dd6b7eab4c0255983b4f88ad55f50"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/_ssh_askpass.py",
+      "sha256": "7ca623a14900c61d6c9692a6f7af70b49c57efccd77b9edb80bb500e1c4c93f6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/adhoc.py",
+      "sha256": "9c8320ef1c6b25f9d9e483b2638a5645bd40e343b5de645c1f614823961b3576"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/arguments/__init__.py",
+      "sha256": "ff8b5a4fcda164a293ce17572a6220ab15b0b86db55d9c45f3be15da4d5edeeb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/arguments/option_helpers.py",
+      "sha256": "f27a158f739ab6f939ad0362e65d9ae09e4cc92fcde44b6c360e476c020b4764"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/config.py",
+      "sha256": "3c9f6140f84f697e0eb09dd8e81e4a3882346f4f5189e009460efe8c3de38370"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/console.py",
+      "sha256": "17d8cbe82dcb4d90410ffd0e21a9c6c8cf3a3dfc424807be81cbefedbaa6b79f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/doc.py",
+      "sha256": "681c6f4207f6f283334aaafd096827a39264a59cff8bc2a9e033bcfd030af5a6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/galaxy.py",
+      "sha256": "95d5ac991c5308df875e2a70d5366f0d126360b6433f04bf2d820a70465a6ea1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/inventory.py",
+      "sha256": "6ad45e93e0660ab04842aaaa27b497c54e6b6649a743846ff62298ba8d9f7591"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/playbook.py",
+      "sha256": "c8f398ab01f9a9c23ab82548da4e06ad2074b615902e395ab89383fac171d752"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/pull.py",
+      "sha256": "06f739f68f4a6cb46570a4c26ffa73afebdcb36a300ee4e1a502652b4e7160cf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/scripts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/scripts/ansible_connection_cli_stub.py",
+      "sha256": "5b3e35dcdca806e74425d42dea9c3650007822f7874266b85e81c1cc548436dd"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/cli/vault.py",
+      "sha256": "6c6ffc2d9ebdee88638c9a9beda0ebc9099cf5a85082089903620f9a0c930e70"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/collections/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/collections/list.py",
+      "sha256": "3e1414e9fefe6e27a0f3ddae5a74a0ffc0a0e1eb5b0e74146d1e5ae923a7c9d9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/compat/__init__.py",
+      "sha256": "0afca80ae27d11d7963b7fe78f97c1490e3de583f4b426d7850e9cada9817466"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/compat/importlib_resources.py",
+      "sha256": "ef9489029881cc12ae0439278fcd6f75fcd2252c5cd8f8b862f810926986b5ec"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/config/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/config/manager.py",
+      "sha256": "1a62fb2c82dfc1ffbd577b18aea36d6e33f883c41802d311242a521c296e0d57"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/constants.py",
+      "sha256": "a9e7f8e50a478bec8514cbe596f34a9aa1695dd28aaf7d387b97c46678e0c197"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/context.py",
+      "sha256": "a0a6327e37d6a72f2f0de3eba2da9f9ea4a6ba28ffb7be7fe5ee6dd14fe14358"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/errors/__init__.py",
+      "sha256": "5b5b35f4f6a17aa5cc236c8a9d90ae68a2a34802513e0535ff1176fc9f41d4d5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/__init__.py",
+      "sha256": "991bdb0893c0fbfbde486e646b7bf4e06e6fb1aacb543781dc4585b2eea07922"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/discovery/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/interpreter_discovery.py",
+      "sha256": "516780c671e49c909c8b6806df3b7a79dc79363e166c761f2557265bf0f322d6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/module_common.py",
+      "sha256": "b1730ebca8fff6e6de05a08f5411e1efab876916199bef263a1b121b9e5a5d0f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/play_iterator.py",
+      "sha256": "c9bba2f3dea1405278c0bb180b77d9a09638284b17ebd4240a831fa2643212a1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/playbook_executor.py",
+      "sha256": "e708efab0db6446e20fc99580d09cb16b5046bc69840159d80a844a4da2784a4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/powershell/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/powershell/module_manifest.py",
+      "sha256": "19b1160d5ca94a51dcdb8716d97756007197fa7ab0442f9319f60a09911592ba"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/process/__init__.py",
+      "sha256": "991bdb0893c0fbfbde486e646b7bf4e06e6fb1aacb543781dc4585b2eea07922"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/process/worker.py",
+      "sha256": "9da1c139cce8eb0d1a8768f77bce372b587345e429f56618f6fb29c74707e5c4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/stats.py",
+      "sha256": "470f90ef7c58bd79d83adf8b2459c7011d3736f551dc44a06cc9079d51a120f2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/task_executor.py",
+      "sha256": "c635b9a32da84516594b1a7591fa8ade18c32ded62bfb6f01ebea7d47244298d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/task_queue_manager.py",
+      "sha256": "4226a47c36540b2ae124b48dc5418d8d496caac70223e60cd46d9c2ea55bfd09"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/executor/task_result.py",
+      "sha256": "7bbdcfd75d23f21730f70bfc3bba7ecfa4ade5522fc8fea2395e1c5b8b2cc15f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/__init__.py",
+      "sha256": "e327c2adbc33f5f5be1c004c84a3c5d24a3dfef2f3ec431df5cfb3836b5fa965"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/api.py",
+      "sha256": "6e0ad074376f562df742526b7596eaca21da8c2deaa559a9393ba44fe1dbf305"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/collection/__init__.py",
+      "sha256": "544f359561a61d45a6a65f320d1fa6be1d0ded9c027be2c8cd57a0308cdadf87"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/collection/concrete_artifact_manager.py",
+      "sha256": "a8509f0c0d2078cee33e51a34b55e5035f80854b89f3db61c6ebce9dea9081c4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/collection/galaxy_api_proxy.py",
+      "sha256": "8abfc99d3c47e424ef9a09ecc0f91aa9b12030481a6735b7175d6dfcdae15ac7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/collection/gpg.py",
+      "sha256": "9b8fc0b593d9c8cfc3ef601166a00a6be1deafd5d62026f889ee8a704879d8cf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/__init__.py",
+      "sha256": "ff44ace78d71fc43e8720d5bfdaad4a6a169721003b5f430880c3ed41ee7a841"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/dataclasses.py",
+      "sha256": "640f61485c5c766e7e15b4847bfcfd6b3ba9affa4a877ab746d554fde676ad84"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/errors.py",
+      "sha256": "b7d452ca308d69e07d8a9cd6fd499903de920c794c874bf922ca9b3752ff2d0e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/providers.py",
+      "sha256": "3edb1848c8f82a755143bf742c881932badbaf14ab8b6dcdf2279b85cd28f022"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/reporters.py",
+      "sha256": "1ca613d257fab228424361217980f4ee6ea66793faf65d692d8063c7c56193e9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/resolvers.py",
+      "sha256": "354b4a4f020131e8283247e16f1280fc2385d1b4ac5cc08b929f1ca88d192860"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/dependency_resolution/versioning.py",
+      "sha256": "408a51c386a784085714559b47200b22b081460c2f5fb48c8030f0e2c1212505"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/role.py",
+      "sha256": "fef10ddd30d5565be3dfc35d712e4a53e7defa0292b24b3e1a0e8ed7aba47075"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/token.py",
+      "sha256": "1214a697e44656dc7b423228ddcb47a9494c59d9894c6ba32b44655909853e3c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/galaxy/user_agent.py",
+      "sha256": "fd5af864957c1cd5e149b870fddbd4af7efc3a315dca1b4b447cb2c028c653a8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/inventory/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/inventory/data.py",
+      "sha256": "1f2e3edfa09670a116bd39b9e5f2f0f3cf218e662f9867103749b221945ec790"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/inventory/group.py",
+      "sha256": "c7ab4f0d68168e922e3bcd89af745fd0bd0fff0e176597464bb745dead796374"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/inventory/helpers.py",
+      "sha256": "f0369511d32121f6a7e85cbae40a073b7ac82ed977983cf17a2e3f8fcaf87e9e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/inventory/host.py",
+      "sha256": "719c3dd3a2de3187baa05dd9c56e8ad875a85b641cd23c47b2c83f0bc711ba61"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/inventory/manager.py",
+      "sha256": "7f1836b2aeecf950499e7f53bc90a0bfec6f608bb40cb2538b1ff2df0d302dc7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/__init__.py",
+      "sha256": "cc25282b418f2016be3b8e60e422d99170404857302eb92e66787a96375622da"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ambient_context.py",
+      "sha256": "b197ba928be54827e2a999ba4fe017fe480ab9368b7fc28fedae604d57fd7d5f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_extensions/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_extensions/_coverage.py",
+      "sha256": "a4312a14ec4def1a0eeab4e38bc21cc5475cae666007adada76392694d0a45d8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_extensions/_debugpy.py",
+      "sha256": "889ab3eec251dec1d9ffa1d766dfc9d73af50049400e0029adda6f6e572aa56a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_extensions/_pydevd.py",
+      "sha256": "2032dd73907b1f00bac6eb05c6d331ccdd6174e938ad9ea8568c2853d756269e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_loader.py",
+      "sha256": "1695adabac997bfa1710939fe64d0d60dabd5dc2f79ac6ba633e30fc3928d2c8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_respawn.py",
+      "sha256": "821386b4b9102acb861afa53a22864b84e690f1d33e86045bacb6452efaefc0d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_ansiballz/_respawn_wrapper.py",
+      "sha256": "5f3eadea7f51af3110dc117049951d4f3050519383bde6d74041d63ac5079d03"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_concurrent/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_concurrent/_daemon_threading.py",
+      "sha256": "a2430fe503e853d62160c405df5b5427a0a1ca25c91c5fba4c3f6dea77e32961"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_concurrent/_futures.py",
+      "sha256": "6348691f54176af65b283b9d7b963ca189713ef3a141aac185341173dee8755b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_dataclass_validation.py",
+      "sha256": "4e63c12bdd20f15be2ce5beef9422ba1b8002c7d25dcb1eb1548b2b097f2442f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_datatag/__init__.py",
+      "sha256": "2a6fec51ae0b1b071295630e0973111ef45ae6de7459809e06631c53e955d918"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_datatag/_tags.py",
+      "sha256": "464cdefcba0fe7e05462ca00263bf9a23729947b06a7a321c0447de4742f46a6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_debugging.py",
+      "sha256": "b574f312e58db5e17b4a091d7976421d2668c6d2b21f0da19418e19519b0ee59"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_deprecator.py",
+      "sha256": "2c753752ab6e9630241a8f7a7edaee62e771b9ffe6b8b925c4843ce964df350b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_errors.py",
+      "sha256": "b4e09a7e8dd056bfe52caa2a7c3fbf1f85f340deb49ada66f7697d0ff345e272"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_event_utils.py",
+      "sha256": "b56f0305658b3403a6387fd79a39b6c9373ecc50a7dc03b920be1ff8e63aecd0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/__init__.py",
+      "sha256": "2ac70521ffdf977f934ccd9f7baf0cc044c76410b17fcde766bb1b561aa4a443"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_legacy_encoder.py",
+      "sha256": "433d9655b805c69ac4a4fd7be33acaecb20a10893f70bc0fb21da06da85abcaa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/__init__.py",
+      "sha256": "afb9d80f03a556b0d97fa49fd399f1667ac15feb02703aa2e0714606a3a75e7f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/_fallback_to_str.py",
+      "sha256": "ded94b7ff566437e6e911ca506f6c2073f3fa18804d6429ea80d6e1abfe29a9b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/_module_legacy_c2m.py",
+      "sha256": "0f619abb6c06544a6985cbe293c8f055a72bfb34925aaa339102c14db2744634"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/_module_legacy_m2c.py",
+      "sha256": "8965bf4764da74b8943f258392f1834707a15fa6fb2d63d692a758cc8010b258"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/_module_modern_c2m.py",
+      "sha256": "0befaf1b57607d577584b163f0ce138691adb13a793ac7dc7f9a13b5b9402e54"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/_module_modern_m2c.py",
+      "sha256": "5c55b53700ceea8b88ec3fc12ca15663ac055472ae670ba1ae4eecf053b0ea95"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_json/_profiles/_tagless.py",
+      "sha256": "ec873cf362113b3ded8bcaee04c079e2a869472591fd2f19621db786c58bf22e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_messages.py",
+      "sha256": "f2982fe152e7f82250674876c02469787ba1b7fb6ec13cb1031ce621b0f0ed7f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_patches/__init__.py",
+      "sha256": "ccd1161189ee432168bf14cddd4223cf0815360bacf390bf1b3564ed9396a604"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_patches/_dataclass_annotation_patch.py",
+      "sha256": "823f61872d9b83628252092b2041330302c9e11f84bc96e766cb9294ef9c2471"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_patches/_socket_patch.py",
+      "sha256": "def5720b2fab09e7444ce30589bce1a2892287eed8b1806cb9ef58bab7c87952"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_patches/_sys_intern_patch.py",
+      "sha256": "ca6f997001b9ea2e35b6be953299fc856acdb75d07b00bc017d122cb93d91d65"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_plugin_info.py",
+      "sha256": "d3d7819b52b479ed7590f4f967a4767fbfd23ead208c8d5fc1817c15389d50dc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_stack.py",
+      "sha256": "06f6ba949e80d75e773b72a485afbd8718050ea49b8a7cfe24462828c081dea1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_testing.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_text_utils.py",
+      "sha256": "8a5a790f9550c695a115d19ac938a837a82acd4a50954162b5eca0c19fa63ffa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_traceback.py",
+      "sha256": "10e17bba1c5d0f1a5d9aa76daa00cf92543e588321fbdfb41d5099b4b15cd5b5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_internal/_validation.py",
+      "sha256": "f022a073f85ae77120b6b3c2563394e86bec0118f4f54ebb62cdafbe14164ba7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/_text.py",
+      "sha256": "5645a002748d5426d342a66096550e6c116c1f7b8ce04516e6cae5d5447db758"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/ansible_release.py",
+      "sha256": "5e0af5f898df39e31f088bc909c38a1ff25e6035d659adfd104ed12ec689ffc0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/api.py",
+      "sha256": "f01982cd0b69f6b0a5b0b1a50e7e08f6226b5052c2767a04231617e7dfc82fd7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/basic.py",
+      "sha256": "c1d03b73e241727e286d395042e809ba224056d119b4e98c069574d88ce5fc23"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/_collections_compat.py",
+      "sha256": "e3be867e9e033f5839b2c396fcff8515a914c42ee96a523fd53201b670c1b1f9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/_utils.py",
+      "sha256": "f78d2fe6800d26203d5c9ea2fd1b4246f0357b918f261ddbf254576342a93922"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/arg_spec.py",
+      "sha256": "a9fa2ca1ea2a5614c9f6c8594f606f83bc61e5c152662aa369029778e6ac6d5e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/collections.py",
+      "sha256": "7e6aca17f75ab790d3ccc7e87956acea2196e43ad7fdf8e7850024e2305f0c1f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/dict_transformations.py",
+      "sha256": "3846fbbae5e9004ad1a7af5a316f0a167834a95058a88477d77ddc15643955e2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/file.py",
+      "sha256": "2f2069fc2fe76dcb1a958f1b8aa43fd9643f653d625def2e6f59cdbf96a523ce"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/json.py",
+      "sha256": "e0cff5063c45757e3af88ab594d99bfb848b4bbcf939748ba3afa59b8ba4c774"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/locale.py",
+      "sha256": "5fecffc2399dd62a5c59101a85f703297af7bb1311ab09ef00b512d5f4385da1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/network.py",
+      "sha256": "7df16b06b88d3c7143b253f9e0d44ddd0689003116046ede0a0bf973b45c387b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/parameters.py",
+      "sha256": "7133e81765dc796bdaa9caf50a4b34af8caadcf2cf8442c01a8a18e06d8c24e6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/process.py",
+      "sha256": "e086a7b6b875debffbd282a58e0a0c7988b80b41298ea41ac0b71b29cbf1c3da"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/respawn.py",
+      "sha256": "e989a8a6c55d90870ca04f4bd86401a72b907bc366dc2d0796a4aa49d48d8b3a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/sentinel.py",
+      "sha256": "68f5fb28fc353e27c95fdc2af2a7d2b44539a2210f98e2449fbe88ff4f2fb23a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/sys_info.py",
+      "sha256": "b057132b2ff78aead1301b01edaa1c5b3fc7fb23b8060abff79ce038c978b254"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/text/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/text/converters.py",
+      "sha256": "dfb7d27c642cdd78c7384326186e1254413c84c94db8ef900309fd44dff931fa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/text/formatters.py",
+      "sha256": "eabd601c519654b3c775496873cf6d523c7f4c9be3782f4d28999e9f8855e937"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/validation.py",
+      "sha256": "6099809818dbee5823faee85260695a179bc57f182e95edf2044f6676a71b58f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/warnings.py",
+      "sha256": "13de0527cf51430789b9ed99a9d1a55b2197b63f150265e69a208617d231f871"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/common/yaml.py",
+      "sha256": "540cf4d8ec65952519033721890d6aa7151258a0af116410ad4223509d04ada5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/compat/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/compat/datetime.py",
+      "sha256": "edec620079cc24449f7d748372aa2848b2f50b260899e152e623a9e02f1eac24"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/compat/paramiko.py",
+      "sha256": "5ff4809be5676a105ebc3f431c70b25e28178334d02668564caa9c196ff6c6d8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/compat/selinux.py",
+      "sha256": "f5bab650c4c4fcf20b10776f52c5cf93ff38a167ca88ca69cab66ceea1f88dd2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/compat/typing.py",
+      "sha256": "eb53a2118574d1d6a46f2608e0c8b603274b1ed0bfa32c0cb29ce51b5322177e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/compat/version.py",
+      "sha256": "89f724dcc1fd2e1c4c10da595ceae7b44a97e9bed7f2c8649eddc5c1e83a0334"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/connection.py",
+      "sha256": "670b5012cf93b53f9779ca049855a20debd29092c88f7e3c624896e8f3fb1bd1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/csharp/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/datatag.py",
+      "sha256": "b44c015e6ef91bf1eb93b234763fc1d61b4598814218307f89f3bedcc3cf487b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/distro/__init__.py",
+      "sha256": "bd98339aaef0870a125042ef53ee18140b93de9bb0cd4df381b951a08e4ac28f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/distro/_distro.py",
+      "sha256": "02e4b9aa0a428e79b548c26343c794919051fcfe7b35162bb33d715e16d70fcb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/errors.py",
+      "sha256": "70e5405196904de61a48684a9d8b13dcbf2fb216b24076c25f3913e872158bfa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/__init__.py",
+      "sha256": "5729dd9a8fbbad48c6f925f78501c6a2f8a4b02fc378a4a28d9dad1431122004"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/ansible_collector.py",
+      "sha256": "4306cf255e04c528796f9ebbe1087e9ec7a2741bbc899b310488a9d613740592"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/collector.py",
+      "sha256": "6e23116055251a97238159a1fb6c2ab1362a9aac116c52be698e5ea0d2f6ec02"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/compat.py",
+      "sha256": "0b2bd4f4af78e42a6e61a7dbd6e71c4d18c3c4d2e764060f30810f9197808cc0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/default_collectors.py",
+      "sha256": "8e6b230c4aff6a130f9e1ad1b8f3e506a864412181bcd530c2d6aa73b777b518"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/aix.py",
+      "sha256": "1e9eb85d02430d6b57e9ab9874a1ed79c1cb6a8fa1256f5ed3d20b2a35d5807d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/base.py",
+      "sha256": "336de07aeaf7efd10730c760a13f20d2fe44e9ca0b0b412a108fa1ff632115ae"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/darwin.py",
+      "sha256": "32f602a0ed98fc5e01a520ef687df2ce69af11a386a729634fee818c8a80329f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/dragonfly.py",
+      "sha256": "dcab1b509fbc21a3e715fdb6844e98397dfd89c8b7d7bb37b4ec3b4fec1b3d21"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/freebsd.py",
+      "sha256": "c00dedb04db70fe57bf4d4688ecc92aa90f3f6c0ee6a49dae114c4168ac6c686"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/hpux.py",
+      "sha256": "5bbd1966357efddbfd2597ecefb7b7d5360820611f183c49c5b54e21a737a2d8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/hurd.py",
+      "sha256": "12f47e72f84b6b341e7f4896b9c5978c142dda19e7b86e2512f1170c454aedd2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/linux.py",
+      "sha256": "04ca70477f62f008ee881d737f51596d382a369894d2e1f6b46e5c9273cef8e3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/netbsd.py",
+      "sha256": "bfe295eae390311c152272accb3cc1275a4811c26df686910a5cd4aea2d8cd36"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/openbsd.py",
+      "sha256": "4963d4a74f3ee4ec55cff399e6999ec5329afa6db2bf4a7f93a4a7fdf319851b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/hardware/sunos.py",
+      "sha256": "677bbcbad66206d7fb90a880c339f21110b34c166ce18f0fdaab24b1f4500e17"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/namespace.py",
+      "sha256": "838384a027e09b6311ba647988f3bb7d9452ee532fd80ad0404ecb15447cccf6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/aix.py",
+      "sha256": "7da39478819d0c9d7033ef256ac43179914f0cae64b3272e90989a539cf8a5ee"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/base.py",
+      "sha256": "3aec798a6c80426a1ccfd631058d8c5ee913b49522bfa3b9cc2ffe613353e169"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/darwin.py",
+      "sha256": "79e1f761e53dd37c378db0a2bb16138dee1bb619c31d9638de5853b681896a70"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/dragonfly.py",
+      "sha256": "bd4792d195c09fffc7235ffc060299024a8b325a20929a1a87fa5b00fac6f310"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/fc_wwn.py",
+      "sha256": "c0622d9b76e3baa31f699fd6d297036d97c74106d5f308a88c88ecd84b20f6a6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/freebsd.py",
+      "sha256": "2e97f5339ab9f46c6a6bfba7a7cfc77a1548bbbd5ac6ec0f8ab42a1e054fe220"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/generic_bsd.py",
+      "sha256": "66b21beb8cedbd637cd2bb2ea1028b95523b38c1c3bb4ef0a39cf3619407bbe9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/hpux.py",
+      "sha256": "ee344e4cccedc29c41ad2ddc6dd37a191485cc0b73c0fc2f141188e42cca6521"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/hurd.py",
+      "sha256": "1cab1d75b6aaf3d1e4511f20e5432c523bb6fd53d4ed585928d42029aa93bed6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/iscsi.py",
+      "sha256": "1a4d84ee2fc6b7de0220cf8ba7acb7ab4fe445ebe38656ac161555be4f680b45"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/linux.py",
+      "sha256": "696185a7789cb438b5e745117503577fb454eac52b5253d0b9dec7452078f6d2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/netbsd.py",
+      "sha256": "af7c88dbcee9a3f5a2612361191c72cff73961d16f470dedf0614d60a09b4146"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/nvme.py",
+      "sha256": "04bc292c140776b1e58493b95b6ae24937db22d1e475bfbd75f2914478dbbdf8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/openbsd.py",
+      "sha256": "67e384ec2ccf73bf357b01b8eba2dedd37a0bc836d34e91e25980f8b57efdac1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/network/sunos.py",
+      "sha256": "13537b08bd8f43150f3e20e689d93b1f9260ac7a6d56690ef4faabdedf559582"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/other/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/other/facter.py",
+      "sha256": "db0c29e972b846226dc233181757996f4151d33dd885036b4cd3f0dedba5c1d8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/other/ohai.py",
+      "sha256": "285113789a664273859bed296eed035b1e1c3168eb55bdddc99e228258fda2a9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/packages.py",
+      "sha256": "57ff79688730dd96af715c4d0916aa70b63a46fda0606de5d1165a80887a0298"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/sysctl.py",
+      "sha256": "7616f026dcd502620986cfb4783e1758f4c64a759f1b24bbf5387bec0963dd85"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/apparmor.py",
+      "sha256": "381e9fd873274d166aab025a4c590f69756116b2572a8c540837fd55e1f4682f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/caps.py",
+      "sha256": "39dc481a1a957581eb31f3deb1ec7df4f2eedbeee3379d1fb2ed70d86e759fdb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/chroot.py",
+      "sha256": "fbde54bc17a8c040fbff9fa533cfa56c1f1fb290af2b7ee89ae7eef88132ae6e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/cmdline.py",
+      "sha256": "8e506861d7a7194cb6a288804eeb9d3f8718b1555cca728e56500f3a94277404"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/date_time.py",
+      "sha256": "70583bdbd436c42b8ac740f79c2102afebb999b96d1a9f25e6dc57276e90f1f3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/distribution.py",
+      "sha256": "cd3f3db347803fe58babcf7950fc6976cf2015d19877d456d1f27712b6d06356"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/dns.py",
+      "sha256": "37f746add07a07b4cb7c3f9a88da994ecec19cd210a2980f9bec31cab1f68f1c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/env.py",
+      "sha256": "b7256f440f4e27159b38306edf4f42da7e83bda5c6f70ad01be6caae29760b7f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/fips.py",
+      "sha256": "f7374fdb7c977d8e2b7ba52de0e7905583b7d4990aa32d640fe1de41d48b6794"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/loadavg.py",
+      "sha256": "5fd6779e0c637e0fd8afbddd1b99b859c3161a9cefec34de17fb85ec6666cedf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/local.py",
+      "sha256": "9c073ac86248c67d53692385692805d48bcdd5774c072c1a8d2820cd840875da"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/lsb.py",
+      "sha256": "3af9bdfb1bce1f2347e28f7b23432908018ac436841e0c8219077f286614495c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/pkg_mgr.py",
+      "sha256": "abf772f54e3eddc0a1f9da3bd04fecfb5c22881973991af22ae1dc14aeed0eec"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/platform.py",
+      "sha256": "f7a4f79d92657d5a86f457ac2aed0bf61b5513f2de80d927bb77fc64d3ff06c2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/python.py",
+      "sha256": "5af3b625c165a9c8d2ce72e5a6323a0bee19deac42f4da8db369eae1b0670568"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/selinux.py",
+      "sha256": "a0065df7f1888592aeb1aaf0210f2f3174e6e556a74d97c2549b360d1d17bfdc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/service_mgr.py",
+      "sha256": "f47fdb1a52404a1374576f5f37ae96ccc5eb1ee992cffa036cdb80b33cccb84d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/ssh_pub_keys.py",
+      "sha256": "2749a5b8036c31b8003e94acbacd455393572bb6d37533a513ca6c76c81fd294"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/systemd.py",
+      "sha256": "4185010717ac0b348c7ab833adaf00b02529e6f6364164482459b7cfe67bcf0f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/system/user.py",
+      "sha256": "9c2ee544d05bddae82a5ca9829d168067b9236445a313b2ac9af0dcc6d56d49d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/timeout.py",
+      "sha256": "ac63a790c68b22fac20ca7c225e43cade7fd8da878b6c0f3776e0a67e0453d2f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/utils.py",
+      "sha256": "2d7bc904abed4c2a86b615a14e362b47116b1b907ebc0109cf48e7376d225526"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/base.py",
+      "sha256": "0628df48605e092743ccada379e436a329a0ba922d0aff8aaf46c501ef7c2569"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/dragonfly.py",
+      "sha256": "7f1f0c663cba16a7d2a6c8719cfc86b3907815ece6605aaa4ebd5789b59649e1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/freebsd.py",
+      "sha256": "59cde18ecc6b8d69cb6991415f7ccce25669786cb8652e414ce5d3b3d49137e2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/hpux.py",
+      "sha256": "34b41f5295c4ec687e79915f2f2ba0be79c98d61481aff71aa30bfcd5e032cac"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/linux.py",
+      "sha256": "1ca9be128d2624deb65788597c4cafc9f1e0d71ddd2fb900db6ff956be78fc81"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/netbsd.py",
+      "sha256": "e779f713dbe8c22f2409b1728fbbc378aa1c677394fd32d548a449454f127a71"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/openbsd.py",
+      "sha256": "27c3b0ef1dc9e59b8715386a03021d01d4cb57557dbcdfd4f7ae50df84c0bcd0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/sunos.py",
+      "sha256": "f70522abeda85e5ad96dab24548f5cf16986db4e801f68f928edc5e632a8dc47"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/facts/virtual/sysctl.py",
+      "sha256": "b2ebdf49d28be5efc000f0b113f110462a8d1f3a4c2584ae713e144729fc431c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/json_utils.py",
+      "sha256": "0f3910be55cc0ff72538fc515efeeb6700303005228b75c7fccbe14b869bdfd6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/parsing/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/parsing/convert_bool.py",
+      "sha256": "58df8bcd746c3bdea4362837727813bbfdec8ccdb1c67a125c0a947f29e11903"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/powershell/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/service.py",
+      "sha256": "b63b105bc8db6825ebee11be79c85c9c201275b76b96600ada47dbf5223b47f8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/six/__init__.py",
+      "sha256": "3bfb8d0ca74c33e6161ee6d63145e17eff417d0dd123442ac4c73c18d2813fb9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/splitter.py",
+      "sha256": "327bd0567119fdc7a2b28d49b1eb068da2be3d329c48f39dd851fd14a5fcc0b0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/testing.py",
+      "sha256": "05b41dbc789b72a0adcdedd7ad7ede5d86f2185dd429198da9f3ef8a8b1254d9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/urls.py",
+      "sha256": "a1948b600acddc0752eab44a2cf10a801c69357198299a77e33f42c4dffbcb00"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils/yumdnf.py",
+      "sha256": "760306d804a3e42756824c6df2c904c3d91332de9c4156a786be2854148c1fb3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/add_host.py",
+      "sha256": "559de073ea616399b2cc68a3a3a008075a260fdca47d6a68a91bf395e669dc35"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/apt.py",
+      "sha256": "c3c4cb9b8fb3b12a749a61e833d53a52af9591b287cb6473022ef9557549c3fc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/apt_key.py",
+      "sha256": "0e698d915751ae138212122db1b5d40374ee01f5d95b803408666ee097aa2fdd"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/apt_repository.py",
+      "sha256": "fa8a1a14cb18d248ce12c55f25c04bc7ffbfdc7b24d1545b5a05728fed346b6a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/assemble.py",
+      "sha256": "789ab002f9bd434dc0a995537cadb58ad2cd61a709c9efd0462f9a680c092634"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/assert.py",
+      "sha256": "078d465c074143a5db623f46f04371dbd7e1025727c815e6f330ea6ddd539cc5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/async_status.py",
+      "sha256": "127138f8a6d476e0949b8b1586998d94011b0a8e9f03c7d5e0af4c58d9ef1b6d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/async_wrapper.py",
+      "sha256": "be8bba8b126455e282a40664a8491082dc9cdbe40641280bf3f30194c4548851"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/blockinfile.py",
+      "sha256": "0a4cc2c3bdca6e4be06fbeb70b5c7fa943247fa51d249b32642fca8b2f39527c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/command.py",
+      "sha256": "7cb4a507f6610cb3776448ba4708f157a2c8ea8ba3f4e0db5cc286c512070f2d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/copy.py",
+      "sha256": "a9d2af2fd684e3de57fcdc96a8154449bfbd8c1f2801ab5085d92d3de0cd714f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/cron.py",
+      "sha256": "53f44e9e82be18a8f368a83ba6428f61f3a71187f2d00ab857101d1e927ef5ee"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/deb822_repository.py",
+      "sha256": "907059946190fdf03774cc71fcdce30be2f666e8641304d37cb4ba642eaaa61e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/debconf.py",
+      "sha256": "6004b5c9b6b4c9ac4fadf1422c52d0c2d1f1969ae23718898b0a439e69b724fd"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/debug.py",
+      "sha256": "1365000c5187812efc2b10a239d5e8a235f91b8a4000ccf7d9518781a3ce6cdb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/dnf.py",
+      "sha256": "e6b62d804458a04847b980db718115b2a4c461305659b1d30148c854168dda89"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/dnf5.py",
+      "sha256": "bd4fbd1fdcc44a49d4cc6f5de05ee0c95ed9357e68a4c7f9c3e3aac10491060f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/dpkg_selections.py",
+      "sha256": "456b73c4d34e7d0e527703309edff5abe20984b55bfa7c4d02b889c111cd56e2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/expect.py",
+      "sha256": "cc411ba0e496cce8360b36e9bc0bcecfb3649600684d58ac9163bd9c3c4f046b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/fail.py",
+      "sha256": "929a5a9bf71a06595c17921c28461df9773efa891200e58d1bd7556e99f60b03"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/fetch.py",
+      "sha256": "9447fce1d116d6a7cd246718851056c837093f0ccdd12be833968c8f729ea732"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/file.py",
+      "sha256": "82a5a3e97e88d0acdf1c2fc2ab7beb2a8be91549dac19cc54d82389b0d7ad079"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/find.py",
+      "sha256": "ef91f244fc3af694772e1c5cfbec67debd97caa8679ee932d60dab0f6874eb23"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/gather_facts.py",
+      "sha256": "deddbf5cc80ab81f94df9b673be25b184b10fc4df54a7671450f81fc356422ee"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/get_url.py",
+      "sha256": "45c973616eaaa26f4da32e7969564ff5ab4e4c3f45edf465cc33f7f7c202e87f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/getent.py",
+      "sha256": "b6adf3d12ceafe6da0a780ce800091bcd27387eb645c6cddd84c3c5f1ac64563"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/git.py",
+      "sha256": "36759832104f790b701da2c9f520e903d0a03f1b1cf53218eeb2bc84344bd454"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/group.py",
+      "sha256": "50a6d7cf0b200055963258055bc4770b2ced8495d7bb92479c79e3ec896a39a7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/group_by.py",
+      "sha256": "fd10d86cd252dbb7a8b1e7efc2704233ce86ca86da63e8776625a4774e2a53af"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/hostname.py",
+      "sha256": "ccc0a9b684ac28b49f28affadb2c4531b839f50879036458bdd9e9a81f402920"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/import_playbook.py",
+      "sha256": "40fe9c720280e517bc8e6a0b1cadf984a55eb899f34d10e065b128a3fbb21459"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/import_role.py",
+      "sha256": "2e419058346f5361142486a69fd39c7697297d53e9b3084b8a575c1def6ead2e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/import_tasks.py",
+      "sha256": "66194969f43711333d3e2dd0b7681f79d048faaef71da7898a004a851f1cf9e2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/include_role.py",
+      "sha256": "f45584c24d3d0d3d2e703e8e38c3ce4b58ba8e496524e9fb824cc991183cbf61"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/include_tasks.py",
+      "sha256": "4ab108933bfba34d465e646c5e658785a3497078aa37da9765e0ec340847ba8e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/include_vars.py",
+      "sha256": "eda237997a7244b3aa14c6718212d3f738df4a65c37c453a2ff4ddfa9ce65f9d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/iptables.py",
+      "sha256": "f7888332e569c7742ae767096945b477164edc513c72fb38a29f2dee7b2f366f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/known_hosts.py",
+      "sha256": "ebbd8610e6a5d6e1159f43fab82b38538c199846096ac04b2454cdb1138424e3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/lineinfile.py",
+      "sha256": "5c495b5787ca7c6ef43039e52b7802f219db5ec95b353b1ca5d3da0467ca4f54"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/meta.py",
+      "sha256": "d282dfbf275c8fc5de66c451f32a11ce04c835a3ec11f977fa3c69d53fa5cc33"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/mount_facts.py",
+      "sha256": "bf2f447aed7bfc432c25bc60736de96bb0c35f053cae0d75585253a9c2e3317a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/package.py",
+      "sha256": "c70884d120e8cf50ebae1fd48ec462ee768063d5e9e21a4efd36e62e2a361058"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/package_facts.py",
+      "sha256": "4efab750b47ca32231fa5089cd8fb0c1694bda01a2c0babd8d2e47f078e689c9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/pause.py",
+      "sha256": "57337f032f784d8bc13d34111b4b346139d726431387c084cb62a8b2d4b69d56"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/ping.py",
+      "sha256": "f34a70f1e2c1bd3da9c3c7f4577cf1a84c5085bb0a2a803a61f3c1bdc9dc4e78"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/pip.py",
+      "sha256": "b17fa91f657e0b9fce36c8331b9e53fbd643a39c3e07cc4106a3947e18d2bfe0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/raw.py",
+      "sha256": "11f10b1a4f833819b5a3c635d4c7e49f1f81e3539d6eff6c9cdbb703a9fa1514"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/reboot.py",
+      "sha256": "3f999b6838bf93e2128d1e4cd1a756eb27b2b2c6a1c3842f5d8a9237b7a5ca99"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/replace.py",
+      "sha256": "e2bc61f3272d6b3e441f4fc47adcd0e76e901008b23158194ccb81bc6724152b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/rpm_key.py",
+      "sha256": "f3f0e760738bd6500e95bfd5e58f13faa1f0a6d8c9c5f699c35237e6dc864fb4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/script.py",
+      "sha256": "5a6748363d4cc6971c5fd32ca6f5a0e9a3f93191a57e6d0a48fa6a358ee1d1f9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/service.py",
+      "sha256": "e1c0711a80eb27523bdfb2f0c4be3f72d60dfac219535947dce52cd2cc57b2c2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/service_facts.py",
+      "sha256": "8a66ce4508888b79946a53c165b41992b0616847af4b3a7f2f8bd5ec8fd0b3cb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/set_fact.py",
+      "sha256": "dcccac3f86f1d179d87afbb92fb88024f2eeabbca4a7a962c5e6ae5382ca1107"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/set_stats.py",
+      "sha256": "dd7de7a105bf410686dc76fdaecc520f0e873f7e0c8ea6096aa505ed150be3e1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/setup.py",
+      "sha256": "9474ae81ae7680df668270fe45bb3ab9fab392dec6be9cec4256f93ed7c8d9b6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/shell.py",
+      "sha256": "5abfcadb3ac7aa74f7030e08e3614fffeedd071340534e0e9cacc4b71572413e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/slurp.py",
+      "sha256": "5f03ba9311667a3a1dd95f8e1aa9369668672bb3829241612c498c71f182849d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/stat.py",
+      "sha256": "b2a23204ff88ab817c98f414bae9c6ccee90e861eb375fa6c3b4f7029145e448"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/subversion.py",
+      "sha256": "5c486c89b2476f9ae0ff28a8bde3ff73e4c7c5b87464c9b477ca80a64d363198"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/systemd.py",
+      "sha256": "c7b1d29d15849d8f3444e8d9d441d35d320b7dff9f8b1e48b842b0bea81dfede"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/systemd_service.py",
+      "sha256": "c7b1d29d15849d8f3444e8d9d441d35d320b7dff9f8b1e48b842b0bea81dfede"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/sysvinit.py",
+      "sha256": "36bb3980bc87299b2ab66ff29853b47b4c01d8a4835d87db0edfae365814885d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/tempfile.py",
+      "sha256": "dd99635cd3aed3a4f939b4c0cf92ad9bf58a16b240087c0b7fed3517b8ac7f90"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/template.py",
+      "sha256": "cb5ceef996743fe0a9c6375dce4e55e4656940d35f40bf04e6c55e01bda9951d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/unarchive.py",
+      "sha256": "f19cb3314b2743f7a362dda93421243efbc4adb9b68555ad0d59715f98dd3353"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/uri.py",
+      "sha256": "8a228ce374f92a534be65540efbfe3c2dd2398c7f66aa32fc241ff2ef1346565"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/user.py",
+      "sha256": "cba6c132893e06370f4ec8b519c754bd0154097c5e67ac0a78ebdcc4aa01aac7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/validate_argument_spec.py",
+      "sha256": "38c200184d8bd8564b121c95f9512954df303c0b897a8bd08693d5c1799d2f94"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/wait_for.py",
+      "sha256": "3c98a76664b5f58ec86ad6e92bc4fb777110d394042cbaa86b7c34261315d520"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/wait_for_connection.py",
+      "sha256": "a7399838d995defb9b77c4b1ac354cb28ada76aea7e60f9926992e120a6d5259"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules/yum_repository.py",
+      "sha256": "f8dd25b3dd6d93834920ab6d8cc7ff65b95e90f76cc50094dd82dae3a9704902"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/__init__.py",
+      "sha256": "34c3fd6642b9f5235d424b70efa6960175409b95363ce5cb8002bbc07fb58748"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/ajson.py",
+      "sha256": "9eff3659379662e29dcb82c4fd833a9e12d1ede6fe4f2af817a6ab8d33fc9e66"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/dataloader.py",
+      "sha256": "fc0cfe5c13cf7314b66f8d2fd8a58804efd7f4dd073495dd0ce3d2e83912d1ea"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/mod_args.py",
+      "sha256": "734cd8e9668a3982daa62bbc8512ae933be85f9886ab48a70b35bee9103a065d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/plugin_docs.py",
+      "sha256": "518583a4b085e05ac1534971811e82d9b9286bb37c4c1a6587829c5be07a7a79"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/quoting.py",
+      "sha256": "9b26311badb95caeab80d50b6c1b8aa76dc6d91f3773452296b1756489838c6b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/splitter.py",
+      "sha256": "860ae00d36bcbfa595bf26bc23ed8326bf477dc8197a0ea131bf69e274a713df"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/utils/__init__.py",
+      "sha256": "991bdb0893c0fbfbde486e646b7bf4e06e6fb1aacb543781dc4585b2eea07922"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/utils/addresses.py",
+      "sha256": "83175d7b57d688e886eabf30af006e412f4475b1f14d0240d697889749b3e3b6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/utils/jsonify.py",
+      "sha256": "9831690a4c5b9fb99942806d377a1c72ae04cda4b1766a25f4b2705c1d3e4f98"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/utils/yaml.py",
+      "sha256": "1773d02c3ee9b72201dc392eb453e8b636eec21434d980ed2b482e2cbb39ce9a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/vault/__init__.py",
+      "sha256": "749658df0394a107a7a220ddb6fdf4efbc5c1c04b64f5125930be8dfb48e0334"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/yaml/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/yaml/dumper.py",
+      "sha256": "fc6c8d895124fa2bf062d97daa43ded75ffa14903eb591a5b7a8ceab07504299"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/yaml/loader.py",
+      "sha256": "44403399a8dcc2ed9595df48125eb674f453307058fe224655813720a361c78a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/parsing/yaml/objects.py",
+      "sha256": "9ae3fcd4d84bbe124087d319e544d4a7c00c51391328ce0f93ec65ea039e575b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/__init__.py",
+      "sha256": "e452a726c073df952f05bc3288bae7880c2476c7bc8d34738ceac8d112d4d391"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/attribute.py",
+      "sha256": "9005ac7a52af16eadd182d0468a24b87c6fdcbb2160a16705c6eb8f1a1fa4bee"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/base.py",
+      "sha256": "b179fd12a0643ab7abc0f4ce48af32f81fc1ae5f704dd0436651a9099728327e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/block.py",
+      "sha256": "9be30626ed31ffc7fece61415b238136926ccaa0d71605b7f913afb31d2ed5e8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/collectionsearch.py",
+      "sha256": "5d0a754a25e12e9c7f2fd98830529b6c7343ff00f075970998583eae4fc56ed9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/conditional.py",
+      "sha256": "a2ad00766f0bc226cab810b42d39354ec41ca92d59c0f8d242e3361547a2a7c8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/delegatable.py",
+      "sha256": "041730d8653ce55ee899eeea5f429183ebd9ca3bf627cf749041e36103b2a139"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/handler.py",
+      "sha256": "a57237574fc2fa27ab5add3dfae1992a48e901ed76c292934e8d2f57d76b39ca"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/handler_task_include.py",
+      "sha256": "902ac14e1ce621158a69e70b97d50d07c541bed54f23476df1e1e906576c9e56"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/helpers.py",
+      "sha256": "894f3c26adddb1e3481b721cbf08146482022773da96c1927e1bb6da934b98e6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/included_file.py",
+      "sha256": "a911da57e6e8cf4b2467f7c706db0b205973579dc41cabf55596ba84226c08cb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/loop_control.py",
+      "sha256": "e6b673e9a597a6fbf0383e02ceb4bf6ff7275c8bb819fe7a733928997d4d4bbc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/notifiable.py",
+      "sha256": "310cf8559b8e81adf954b71d53155df45415cc583e763b50661b34f434b68ee0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/play.py",
+      "sha256": "447c5082c854e9ceedf2a14205d64ebad7578d18eb59ea9622d3c9252c361891"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/play_context.py",
+      "sha256": "eed97f39b2a037c82e2a4e86f51d68496a0599e3c3c211220c7c367849fbf079"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/playbook_include.py",
+      "sha256": "cd3cc4b12db40c1f614b345f53d0c8e3e06cb5e1f0cd656c85417f4a8215544d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/role/__init__.py",
+      "sha256": "93b119c51f3e16c63f496392e2501ab8139f5f6d65304b056ee360fe64ce3cb8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/role/definition.py",
+      "sha256": "e3821156aa2385e99fadd0bb6d4eda2226307059ba916af7d079f8c7407663c5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/role/include.py",
+      "sha256": "c860578254d00ed0a96765ced66571a7652db1d2e92d3b77d0a551d806c17b95"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/role/metadata.py",
+      "sha256": "878dfd1c652e72cda038c509969d8cd0e3b4ff09d65a54264ecfec39ef21e927"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/role/requirement.py",
+      "sha256": "08d80b6b427acd9936610fda7802e78d0bde8649055e1acaf0b41066ced9b737"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/role_include.py",
+      "sha256": "0d5ee7ba6e2e549be4218e081e0074b87984f3e81199a3586eea2a3f4fbb7536"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/taggable.py",
+      "sha256": "d3e3022d7e84fe2e4e8d08c7108b724313f01b3b5c440af2444edd25328085c7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/task.py",
+      "sha256": "2d8316fd410045cd482c821433d23fcb9cdb7b250651f45d7455b095b5bca67a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/playbook/task_include.py",
+      "sha256": "cbb8d22bb0aa6045e65d284938f522de5098b9923ce75f7b1a9e332d8b3250fc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/__init__.py",
+      "sha256": "47197b38f83f9dd44245cf66bd2f60c28832e304e5474d24689f4a9d448d09ea"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/__init__.py",
+      "sha256": "391fe2e186dd1180fc6104089b40dabffc835fdac768dd182921ec73dcd91891"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/add_host.py",
+      "sha256": "3e297af4b3da26952e971fb8f3732464145a88569fd780a44f4702570e9a6bfb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/assemble.py",
+      "sha256": "81a8b7dfa10dea2a4676844f93ab0b4c152b1d4cef8b23278fd51f32f6208356"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/assert.py",
+      "sha256": "df19e2b4038f456fbfe73b59f1e3c1ddfb37fae92ab0b6b4f61801c238585b1d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/async_status.py",
+      "sha256": "fe472a79527aaeb2ca4bf9c6af8cf5c00a550870bda4153ae9872e0937216ac8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/command.py",
+      "sha256": "374f557f6432a41319e8d4a9b5019b7fa10037e91fa8b0913863e4392815dd26"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/copy.py",
+      "sha256": "76af3019cf37c58c9173d5fcf3b427389c5d440b74ac1dbe349431bb1a300a5c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/debug.py",
+      "sha256": "28f5ad1843db735d7dfded6b350ced081fb0cde94939b02fd7aa893473d435be"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/dnf.py",
+      "sha256": "d8e6f3c412d13c13f2d890a9df0591cd1d5f2041f3852e72df80a80334d7a8dd"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/fail.py",
+      "sha256": "33321e7d86876917698e09ea73d78d81ed0fdf66ed9533f33ba4c1db68e469d9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/fetch.py",
+      "sha256": "91836dcb65522aa69cf9128b714ff74853279c003d687e6cfda7b24314bfacdd"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/gather_facts.py",
+      "sha256": "bebfb70498810cfdb968977d7b5bb27694b7afc369d93ea7b9b51b60096ce7cc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/group_by.py",
+      "sha256": "cdb908d80fba8f22bd531fbe4155993093a9d953718da01e6f0269306e986277"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/include_vars.py",
+      "sha256": "73b94a27baa571dc26d073fc5d19bef15c4af492c4e1f7a8f960f0d138dced14"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/normal.py",
+      "sha256": "7021eb677cf6901ff09e748d92624725670935181da319cb50d7877b1f8ff031"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/package.py",
+      "sha256": "178f6d020b10a5e5711e2ada2d05bf2f28c01f24c2699b72d464ba66fd94c181"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/pause.py",
+      "sha256": "765053de84ab78ffd6a7ce7431aaccb8db91385fd48817c9e9c71ec6457de335"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/raw.py",
+      "sha256": "e2498035d75c0705c5461bbccc8c01bb7f76404fa9ed645e3b80d60f56039c65"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/reboot.py",
+      "sha256": "1054e7f0ab5ac05238137f023a1e79ff28037b4be4a48fef31d1c3341281e5aa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/script.py",
+      "sha256": "f765a0cf2d8545149711c7f38525a1892595fdab429c21008321c3373c6ec662"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/service.py",
+      "sha256": "1f76f2454a0e2137c4bc80e78ee5fb2ee9c355ce8a8a58979f7993dd1d01c621"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/set_fact.py",
+      "sha256": "1b54341dc4da5c523290dbe3486eb9b459227f474cbaf32fb774f8e0e96b07a6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/set_stats.py",
+      "sha256": "c119a51b3a794c068bacf973d8eea42fa17fb9219805ac6d9c5e235a6077a9e6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/shell.py",
+      "sha256": "a5dec39ba80065758d02a00d77b1131d2b3dd257bb5570317bba41f7b4ffcf05"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/template.py",
+      "sha256": "83de4cb0a9aa908e423b65472d89992e0244aa8431edb0c3cf77da8e04db5857"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/unarchive.py",
+      "sha256": "f68729137427a6f9d94d0704fd17f57adde21b5b2a0a65bdcb3cb506f95b0c36"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/uri.py",
+      "sha256": "e5de24013827d9ba17ed8e1d7b2e7907f5a0df3a54fbc76b5610d0d99779c5fe"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/validate_argument_spec.py",
+      "sha256": "53e83c3ee8018374134ea90a430b4e4b734da2ed76c93e0d42d5ea275d2a070f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action/wait_for_connection.py",
+      "sha256": "00bbeaf379aa1666754bca6674ec1d56a43129ac7dd037b953775904a8c2fdd5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become/__init__.py",
+      "sha256": "a227d103c70abb1ac1c6a8b055d4f4517f2738466e5fe555ebe2352eabdb2356"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become/runas.py",
+      "sha256": "9c102eb900e9a961ece721853dae89bcf9a1399f49f2d94c337d9eb89238fe59"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become/su.py",
+      "sha256": "b644be9a9e3c658f779571438dc071e976cfae2ad36dc14ec929f1352e45be18"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become/sudo.py",
+      "sha256": "8068169f5b900d0615eaa6729138c2ff104802baf0a6c6579fb7139696e3d5c1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache/__init__.py",
+      "sha256": "aa9c9990b84a23be6982adbf0e187acaea31a5f98c8dc563858273c6801446b1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache/base.py",
+      "sha256": "6c14718e8c99e18d7c3b83061ff539b88f0d4223c3459cf158a8ccab2bed6b86"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache/jsonfile.py",
+      "sha256": "0559b0cbb2a0524103460ab57fcd8d413414129c67d0c21f6ed1311d23f9b3f2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache/memory.py",
+      "sha256": "033c4d4618a3b6cb1ddb166811060ee2489887c39065e134bc58278256be40f1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback/__init__.py",
+      "sha256": "ba8a0da07352fbcb495dca59759fc7829f827882b79a9382d691e19ed956f114"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback/default.py",
+      "sha256": "fe32b89560a870c31b034d5b2ed8ce91c8cc21aac0ba44dfa2d3c2a8c8af0070"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback/junit.py",
+      "sha256": "5437b80edf7bd93d98d0a0bd595a887f2e989692bf3e4f50c7163ee569fb6996"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback/minimal.py",
+      "sha256": "e0f3ac722f9d70d72a4b7e3f37a3877e7404756458368bb4829a7b9f621c8ecc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback/oneline.py",
+      "sha256": "1a802123d4d5b2b7fee1c5d77aee952b66bd3ddd1cfcaa3630fa74165cde7a92"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback/tree.py",
+      "sha256": "eff66ef39669865bdb175172c09839134fb6a9330ccb72d099369f4f2101f22f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cliconf/__init__.py",
+      "sha256": "826726c58eecb276de31244d3bc777a9a83f426a8cf6f91c7414f8d8028ccb51"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection/__init__.py",
+      "sha256": "e4393acdd58bfee0f02e4d48cb4595ca1a92e79ab2b47302af746df6951fc1f8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection/local.py",
+      "sha256": "a2833d8ece633e027bd14a57203371b5190a29fea7f54fd5ad105caec743764f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection/paramiko_ssh.py",
+      "sha256": "17ab2320b1bb9e70b87246beee4428b41713ff5cb353859e68e4cc29adfe3944"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection/psrp.py",
+      "sha256": "059adc73ac2ee6466b62cd12d2f4e79e85765d796df7cf8a708a11ef4b244a90"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection/ssh.py",
+      "sha256": "001d86bd09c15e3a0e3391de2c3666215047e4d4313de8f3df8be6fe8c387d57"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection/winrm.py",
+      "sha256": "f84e8ca670275e159ee97994039b7fe6b8186961ac52197d055cdbb23e589538"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/action_common_attributes.py",
+      "sha256": "5e3dba2658f34c3643f5a670ea7052bdd5be8b9cfc33b164eabcd0a8db182a6f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/action_core.py",
+      "sha256": "cbc499f1a4c8e089ab9bb4d93f21237b8329e7f41cfa2b64cbbcbd61f4a8fef1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/backup.py",
+      "sha256": "c510c29b341774fe49b8b343def55ca62fabfd95317df77ae51c9f0d0bc3bbaa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/checksum_common.py",
+      "sha256": "ec5be52b7f631f145f59998bc32a41cf563571cb0457d0b21c3377b807ba3fd4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/connection_pipelining.py",
+      "sha256": "a9a9052135a80dc5964bdd1f2d9ec76c48256f206baa083cf427f9527e24d9a2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/constructed.py",
+      "sha256": "332b2d55f1012124a92ab2060509572e1aa7357db9327e62dd97b60a162b62a5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/decrypt.py",
+      "sha256": "81345488d4c836123cd1ff7b2d5c4dce34ecd461204df710442b789cdfc25c3c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/default_callback.py",
+      "sha256": "c3caa7ceba458d6132401f0685d108095dd8867778158fab37416fbb9e64b0fe"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/files.py",
+      "sha256": "324cec4af9b62a726bf9886bbfe93cc4e8b6ad5c87f4deed00ce0c57dce8ce7d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/inventory_cache.py",
+      "sha256": "5dc15f2a03fd11e1cdff6421fc28decbde67f6c994ea2843699d046a7bf8989c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/result_format_callback.py",
+      "sha256": "de3721951aed1467ab5bf69e7935af3386d958fa4145899bae1e373c96c3559d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/return_common.py",
+      "sha256": "6b1cb537f28864dbdf65901900f8a8aed3f10ad0d8dcc5e948320cfa2ae81179"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/shell_common.py",
+      "sha256": "c1bc50df7028611280b656e30ce127ae2a66ef1a19eeedbb6e5d1beb1cbc7753"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/shell_windows.py",
+      "sha256": "df15ea27bd82891012e059450622f8d5618dfb471f4ec9d601db8f5c2b1b1c16"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/template_common.py",
+      "sha256": "df3bb20b716c1228cb6e52dec00f0ea14076f9ad9db26742d07c3d4ac0367670"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/url.py",
+      "sha256": "7bb582a3b73aef5d8c8f66bc52a0b81e3395a89957470a429f821943152ee15f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/url_windows.py",
+      "sha256": "65e69bd3300e6d401a9e4d1873c266696f8c5aa576b9f7c5ad28b0ac329ec3d6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/validate.py",
+      "sha256": "b8db9571939d01a46b933eaca364adf068cfd3a75ad150b602f8ffae8f26c440"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/doc_fragments/vars_plugin_staging.py",
+      "sha256": "59897f33d17c06f0914c33cc4fd42fc11fee27c01d98f89814c9ab67363f3cf2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter/__init__.py",
+      "sha256": "4be34e4aad398b54276b3a9e5835701fac90fd4f52ecd3df07f83c01f22f55cc"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter/core.py",
+      "sha256": "88cbcaeb07c49d0e779c1668b3d6e823bdab13119e427f089a0037016fc4dbec"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter/encryption.py",
+      "sha256": "808622ca83c6b0c75ccf138aa8375fcd27d6586e6eae71a080463f41f9a28eb7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter/mathstuff.py",
+      "sha256": "aa6a13a041c4a84eb83bc19d6cfbb4606abc7769a0223640b9922e4327ec4323"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter/urls.py",
+      "sha256": "cef487b3ab2695a8b93962f4ad2962c59d29150013cbc697b16d04f5497aadbb"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter/urlsplit.py",
+      "sha256": "be8f8b739f826295d854d0afadfee66e141ece6d42bd10e7f11650f9bed09efa"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/httpapi/__init__.py",
+      "sha256": "9396055cf2bb82e83ee8b908e608a135947970c63a375b91293e3039845674e1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/__init__.py",
+      "sha256": "342f69ab354326caee87b3a2a4cd27e6616664bf151b5de51aedcbf6056c4e0d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/advanced_host_list.py",
+      "sha256": "f4f959b52efc0bbb88ed8fb2a5fc0fdaef6c71c93a840eb84d55405fa3afb3e2"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/auto.py",
+      "sha256": "6c6ce784de117c52f39e7b61d82e10c427db55dc73c90b26a13eaca7cb677886"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/constructed.py",
+      "sha256": "375a23e080c4eab5ea4dddebd321adbb02cd62dbb36c145b845906f896b08628"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/generator.py",
+      "sha256": "f746619addcc2b9fcd7f3e252f78e3a333b4a7c7a2225cf65aaa321fb213ca02"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/host_list.py",
+      "sha256": "0d96b2af5e79fc8cdf6f9606bf32fb38cc9673e410c32834e21e5e0da16af0ff"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/ini.py",
+      "sha256": "ee49324864189170c84a487626b2b48b323c1df78c9d2cc3f27636f19ba74289"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/script.py",
+      "sha256": "91841d347335e9365738634d1c45d80b4c6e683927ca5719723dc34011c56a14"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/toml.py",
+      "sha256": "c599e9cd5b71b42119d5a041d12a408f2da23b4aa92f4d7e4159c28a188205f4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory/yaml.py",
+      "sha256": "67a00da3a136d0333a031b3571deb3ee352fe53babf9d1c4b51b31d0b9869b9f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/list.py",
+      "sha256": "c9f020f31b1e5324d21faf0857835b6d7463609c43703c9f557803f25e4487da"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/loader.py",
+      "sha256": "d13551a48bc017fa414ce24e0850233f07fe075cc0a2c502935f2a5622352195"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/__init__.py",
+      "sha256": "f798a574fa078b6d4bdf850b0f587a98d927b90df2ae364205a139acf74e0e2f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/config.py",
+      "sha256": "f481c85a101c7e50be1a6fb54553dc2153266942d88546f0a0a2d3041ceac640"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/csvfile.py",
+      "sha256": "1efcd048dd85e8bb7fa32a75d8fceb70b0104ca73534f58db33130f169e2226a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/dict.py",
+      "sha256": "f4b4de2bd619386e14f65fb6832e49a75b03aac5d195fe05dd66d42d5d7ba631"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/env.py",
+      "sha256": "204319b34a7facb4788dc7c9fac36a253f2f8a39c7e3e30dc8d5ccfedb6ea89e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/file.py",
+      "sha256": "987cd554a85285155e5c60682f882dfd0f832c1b537f79426d548c36b105cbe4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/fileglob.py",
+      "sha256": "143be688a56efb04b0ceb4f8935e2a54738568e4405055219163ef5f6f7527db"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/first_found.py",
+      "sha256": "fbe20b8d7b5931f7f3839c302b6bbc3435fa023e46352d93089879e4d0800dde"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/indexed_items.py",
+      "sha256": "f348224ea47dd27706d1adbd7a66130029828abe1d318ed0044c90774e87155c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/ini.py",
+      "sha256": "70a246f3b16b0f39769fbf7d4cca884229929106e67b60d2204e67798d0fdc3b"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/inventory_hostnames.py",
+      "sha256": "2614246a078420c7a6ad8b717339edf9e51eab1c923c9f31c13dfbc1775c9f47"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/items.py",
+      "sha256": "23a700813786dee74d5cd8d43a31c991856087dee72e0e1967e3c25a94c6b0e7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/lines.py",
+      "sha256": "7add197fe0341b8a54b6a5a718bfb6af2925110caf88da78b0fe5ca708a39e43"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/list.py",
+      "sha256": "2846488c80d05593d97ea6354e81b96bac7113b95632df4218b9460c9a5b5775"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/nested.py",
+      "sha256": "690915662d2d0dca322ff7293ab1c7edea4b0e8c855c33bc1f972ca7f69c5ab9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/password.py",
+      "sha256": "c01f5ea68a9a80e7bdf6fe93cfa3497c0dd8e02ec4acd955e08d178f9519e2f4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/pipe.py",
+      "sha256": "e944433e460b8b99e66b3d42e4aa8be34a3f0b1c109e74ebf7327ded9dfd1412"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/random_choice.py",
+      "sha256": "77ba0a59f131b2f1ca036b4eb3ef145a758d945c6edf2de40e484a69a6933b1a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/sequence.py",
+      "sha256": "2d0b9b66aad980bdb464293caebe96a8b799afce8e6870b2cb3d0c1e8c371213"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/subelements.py",
+      "sha256": "44f8181dab92e6ff35b9cfcf44082448e7e3931ad60d2d47fcac049568b62a5f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/template.py",
+      "sha256": "46a163dbe745c5f950366014e3af35be5638fb7bfdfa79a143682aa69c6563ab"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/together.py",
+      "sha256": "580b49da36a01c80cbd0668e867002035521e2356d0064d9aa093ad61cff7a0a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/unvault.py",
+      "sha256": "10c4be74e8396fddb7464bb495757ed86cbf1a1efe30b3704f52e3f61372f035"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/url.py",
+      "sha256": "1333332694772544450ee6428e9bf02b85bc7139198ffe60e69efbb7798a3b23"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/varnames.py",
+      "sha256": "e162921febb4667403e3baf6d1ce4e7a7686e9595a9a9ea7c1e219485389d1bf"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup/vars.py",
+      "sha256": "831003563daf745fc003ad763628526371db69c73339dafdd54aa479a4bbc6ee"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/netconf/__init__.py",
+      "sha256": "e74c35836ae1528e8bfb1b62313db48db47c5b23a787035245dd8844d4a3357e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/shell/__init__.py",
+      "sha256": "cb1044a82da033b943e9dd4136bcdc3968066d926722cbcd01171b3bcdcd844e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/shell/cmd.py",
+      "sha256": "b47d4e67d44ab4d3b33a3209fd794f727cf44f6f4b2e4225ed7eaa9435d91c60"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/shell/powershell.py",
+      "sha256": "5c891a1f571108b5ad57a26687196378019564866fe8ab46f843ff92b89c90df"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/shell/sh.py",
+      "sha256": "5a1857047d194c17a850712d4874b937d8de931cd13599127be7750581a57b5d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy/__init__.py",
+      "sha256": "9d1c9f75d1b8c3f366b5a1a35461789a1a58750c31d8298a9fc09327a6014878"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy/debug.py",
+      "sha256": "2c969a6a5b3d190abcd8876ae03dfd36726b6193dc6622dcbb5e06b086f7488f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy/free.py",
+      "sha256": "8271f4535073073bd4d12b8e62016dec0df5e5742222fbe01e6c51f5c2f2c680"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy/host_pinned.py",
+      "sha256": "b1507fa9bdba6c1c992a3afc01dbc1acb1e4b7ee95c851a315c563d6e75c16f9"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy/linear.py",
+      "sha256": "0a03f4497ef173717a9aa619dda2f482d7169d4fd71f6ea364a6844592b621c3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/terminal/__init__.py",
+      "sha256": "1d21beb5693993b0ba21fe236c292049c09a1ec79da11072062c8eef461737f8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test/__init__.py",
+      "sha256": "182a2d2e21ff230efc2cd1b8c3b10be51efe5c2cb3f8d64b83f85df5911707f6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test/core.py",
+      "sha256": "4971cdb5891454bd62f227a161e16eb05a490ff7fff013338ac2fecb215dded4"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test/files.py",
+      "sha256": "62f76b359db710e288b6d4418b04e18a3e2c3e06c5be03af81cd94c3d46230ce"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test/mathstuff.py",
+      "sha256": "6142a70063a576e7f8fb3b7e66b4eed5c3e130df8c6813371000fc835cca47e1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test/uri.py",
+      "sha256": "8f559953b7827cd12ede6dae7735533fc9c86c9e9316c1b70e63bad85228b0ce"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/vars/__init__.py",
+      "sha256": "0f763054a0017ac0706a0f5eec6b0b3b19515aa10ee4d81f1c39984aad33ff59"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/vars/host_group_vars.py",
+      "sha256": "208d77db690108231b06d2cbdf503274a27aa668c364daf969be9f23bad63575"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/release.py",
+      "sha256": "5e0af5f898df39e31f088bc909c38a1ff25e6035d659adfd104ed12ec689ffc0"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/template/__init__.py",
+      "sha256": "1b8ecbb85913e29a162b9b5a6b5c525e22d36cf2608a4592fc30c4f2057a68f6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/_junit_xml.py",
+      "sha256": "e68a7b72318aec4b743928dc000b9412a356340bf9668348d2b90bc761115f03"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/cmd_functions.py",
+      "sha256": "5661ace67b5d55a6aa0091dc093a461b7ad8000713365d5bdbe230e1854eb7d6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/collection_loader/__init__.py",
+      "sha256": "9702eed4b2615b3ddc47314b7cd5ae15d4be461a1db3a6917aa39aaa855a0da3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/collection_loader/_collection_config.py",
+      "sha256": "eabe4363fe24286433e2a93bbbdbecacdabffd49861650a3b4057e1f026c15a3"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/collection_loader/_collection_finder.py",
+      "sha256": "82532c947d82bdb9e4f60f2d56fad14e396ce44537d25905e2245e1c91b4eba5"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/collection_loader/_collection_meta.py",
+      "sha256": "a7679902bb0ef110a5e0f94dd71d88fbb03b43c1d9a5d1687aa7cc3556918225"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/color.py",
+      "sha256": "2e324eff5d8eb0989abc1c70483557b4bc5d4f3770776616529d4e27a29c3368"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/context_objects.py",
+      "sha256": "bd8ba5489933477cf1b1017febf02a6cf082332f16182e5d4aa2c55c966a188a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/display.py",
+      "sha256": "47f1904aeb397da52c2f4261c99293f47c91c903c7bc9a0f451dd38906bc8f7e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/encrypt.py",
+      "sha256": "ebb27943bad1939c33d6635336e32eef058e19b30c6494bb547149a8c7cca9d8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/fqcn.py",
+      "sha256": "ff03cd58c911d26a91764afa7e7f45460124682407c38d326ab7567bdec57c47"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/galaxy.py",
+      "sha256": "c5d7d81ab1c0cf4289076374cef005031e595cd95d0d99c0f05e0bdeda3b438d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/hashing.py",
+      "sha256": "bbd9eab33ff92a0783d2ed352f745daaa07a7a5bc3fce39810f8d0661ebe7a4d"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/helpers.py",
+      "sha256": "6f83b8446b30b1047f95b71f42c397a70ec0a9a5edf769f252f6f63c40de1564"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/jsonrpc.py",
+      "sha256": "372548b71f7ea69082b279fce7a546a1e49e45dbbef9ef22799e96ceb0fee022"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/listify.py",
+      "sha256": "4028be8ef4da925aaf1e92b408ab87fe6864e44f752e1fbf5239a319da98ba71"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/lock.py",
+      "sha256": "68fe8c7ebbd61dd3bf57be7a87016c246d48f50690c8526af56d2d7fba423772"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/multiprocessing.py",
+      "sha256": "5e0b37917a9bcd5ba35da874f91fc3e9e51c42889aa5b43ed32725369900bece"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/path.py",
+      "sha256": "e9e3c61afa5a88cd3413e333b4a429d2ed0cb0ea83bf8b0eac33d75d2e0776d6"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/plugin_docs.py",
+      "sha256": "035172e6a699b8e9eb126f3de807478b7ce726454c16f7aee02d0c42e8d20691"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/py3compat.py",
+      "sha256": "97f7216b53ba28fcbc2af39f49ad786ec492254aa1deebcd255773fc516d808c"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/sentinel.py",
+      "sha256": "dd306306568e07a35fa17b793052c21d540b6cf205c74dcdfe095c377718763a"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/shlex.py",
+      "sha256": "794099d15931312128c97083b294bd138708f294169fcdce142b7bb1b54b07a8"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/singleton.py",
+      "sha256": "ea760a433d339ac97268ebdbcc2486d04b9dd5e220b108923d9d43c98eed5ed7"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/ssh_functions.py",
+      "sha256": "299f49ddba4e0b3f9bbf1d66a806f259a9ff720e4bf02dce8cf0e5f7ccbd426f"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/unicode.py",
+      "sha256": "fffcdb74496b312f51aeaa3d1fbb45f33923285402154f244ed8f97152084f13"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/unsafe_proxy.py",
+      "sha256": "2af2f861e2a4ddc8f15434dc2bdfa28c15277890ce3119e0a8b39321314004f1"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/vars.py",
+      "sha256": "cc113c961381241655651285fb13409c6600b1adbf9bb5d85eed7626111a1c62"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/utils/version.py",
+      "sha256": "4ca992ce6fcc1595495a9be63a7204199cd17de1cbc1699eb878f5eb31aa6f67"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/vars/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/vars/clean.py",
+      "sha256": "63d177832075b30c4d562c6930e306a46d245511400f638764b9fddd63ca82ca"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/vars/hostvars.py",
+      "sha256": "7112bfe1db2c53020de1a0f1c585c48fb2b34dacebca44383db268b677b9a097"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/vars/manager.py",
+      "sha256": "d523467303134fb9bc68f0b8e431dd90e651b677fb38472e13106da1c26eb2ae"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/vars/plugins.py",
+      "sha256": "f2cbc40014b6c813f311dca676cad9fb40fbd1ba14a0236f7209166acbed54da"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/vars/reserved.py",
+      "sha256": "360c653019bfb65a2a0d56f94c45f878686962ccff00eebe166ca2de42692059"
+    },
+    {
+      "path": "/usr/local/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+      "sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook",
+      "sha256": "8b400cf5f3cece111e980270054950e5251b9a1bea92e3ec0e5974c8a9ab304f"
+    }
+  ]
+}

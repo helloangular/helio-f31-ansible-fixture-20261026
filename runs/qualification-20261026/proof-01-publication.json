@@ -1,0 +1,15 @@
+{
+  "artifact_digest": "sha256:8caf421497565cdea2231a01259e444ddc5dfb7daffabf334e42cd4170a3ccb2",
+  "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.1.0-f31-20261026-p01/app-0.1.0-f31-20261026-p01.war",
+  "job_id": 121863795790,
+  "kind": "catalog_publication",
+  "provider_origin": "https://github.com",
+  "repository_id": 1434923306,
+  "run_attempt": 1,
+  "run_id": 40406002434,
+  "schema_version": 1,
+  "source_commit": "c2471d092eb4f42df829ecf94961bbf9411d25a1",
+  "version": "0.1.0-f31-20261026-p01",
+  "workflow_id": 397557145,
+  "workflow_path": ".github/workflows/f31.yml"
+}

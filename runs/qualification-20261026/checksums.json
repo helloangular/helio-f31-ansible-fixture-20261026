@@ -1,0 +1,54 @@
+[
+  {
+    "path": "Harness-Faults.md",
+    "sha256": "99a2e5b47345893c4c73671296f8f4c590f04db120f0e401c8399eaf294d74f3"
+  },
+  {
+    "path": "Receipt.json",
+    "sha256": "419a999046ad1eb4527adacd439a5a8eee2ee8fca9468911860d0321f52c4041"
+  },
+  {
+    "path": "proof-01-build-all.json",
+    "sha256": "3297260c90a4f3afedcd896362ace4b5bb491834abe36975421a8203b720dd8e"
+  },
+  {
+    "path": "proof-01-no-war-copied.json",
+    "sha256": "c4fdd355f92072e188baedbbf89dff163de65ef77dc42dd6e55975830cf951b3"
+  },
+  {
+    "path": "proof-01-publication.json",
+    "sha256": "9321af0404e516d5ba33a88b600b4e44bd9d0df8ee3194c46077fb63f9e4e0bd"
+  },
+  {
+    "path": "proof-01b-build-all.json",
+    "sha256": "fadae51ca9a486794be07bd9ab2482dd07e687fc1c0a580f39ba355f39b8032e"
+  },
+  {
+    "path": "proof-01b-prod-deployment.json",
+    "sha256": "d42eed2e7bbf3ef09dc0f7b2773f4fb30fc6922676aad403ae81763918b50deb"
+  },
+  {
+    "path": "proof-01b-publication.json",
+    "sha256": "5b573ccfb28b3226de40f0773060d9c9b98c20cb9e728905c427ec19589b66fb"
+  },
+  {
+    "path": "proof-01b-test-deployment.json",
+    "sha256": "8cb2a5cd3d54c35c82ccf4b3a65171d8a60c2d37e74c93e964dd8035663e3e98"
+  },
+  {
+    "path": "proof-01b-uat-deployment.json",
+    "sha256": "847c4ecf60e3a3d366e5e3846ef80364c60e3c956dadf3c2c0bd526359ed67fc"
+  },
+  {
+    "path": "proof-02-deploy-only-uat.json",
+    "sha256": "ecd5e0a393a3218c79237c443f41d1b4968430d7d5285475abca456f4b7903a0"
+  },
+  {
+    "path": "proof-02-uat-deployment.json",
+    "sha256": "691b3ffc46c21bc0308cd0de9166f66604ed988f8af2ceb5f8f63740ab4ef42f"
+  },
+  {
+    "path": "proof-03-wrong-digest-uat.json",
+    "sha256": "a525e4dbe8589c31b2ea56fc0d21baf291d02951dd2c29dcba203582fd237986"
+  }
+]

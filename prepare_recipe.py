@@ -6,6 +6,8 @@ The manifest excludes its own blob identity to avoid a self-reference; registrat
 must pin the manifest blob from the externally selected immutable commit.
 """
 import hashlib
+import argparse
+import re
 import compileall
 import json
 import os
@@ -32,7 +34,9 @@ def task(name, module, args, **rest):
     return dict(name=name, **{module: args}, **rest)
 
 
-def generate():
+def generate(template_commit):
+    if not re.fullmatch(r"[0-9a-f]{40}", template_commit):
+        raise ValueError("An immutable template commit is required")
     import ansible
     collection = COLLECTIONS / "ansible_collections/community/docker"
     collection_roots = sorted((COLLECTIONS / "ansible_collections").glob("*/*/MANIFEST.json"))
@@ -86,7 +90,7 @@ def generate():
         task("Verify the installed version", "ansible.builtin.uri", {"url": "http://127.0.0.1:8080/version", "return_content": True, "timeout": 5}, register="helio_version_read", until="helio_version_read.status == 200 and helio_version_read.content == helio_version", retries=15, delay=2),
         task("Read exact GitHub run identity", "ansible.builtin.uri", {"url": "https://api.github.com/repos/helloangular/helio-f31-ansible-fixture-20261026/actions/runs/{{ lookup('ansible.builtin.env', 'GITHUB_RUN_ID') }}", "headers": {"Authorization": "Bearer {{ lookup('ansible.builtin.env', 'GITHUB_TOKEN') }}"}, "timeout": 15}, register="helio_run", delegate_to="localhost", no_log=True),
         task("Read exact GitHub attempt jobs", "ansible.builtin.uri", {"url": "https://api.github.com/repos/helloangular/helio-f31-ansible-fixture-20261026/actions/runs/{{ lookup('ansible.builtin.env', 'GITHUB_RUN_ID') }}/attempts/{{ lookup('ansible.builtin.env', 'GITHUB_RUN_ATTEMPT') }}/jobs?per_page=100", "headers": {"Authorization": "Bearer {{ lookup('ansible.builtin.env', 'GITHUB_TOKEN') }}"}, "timeout": 15}, register="helio_jobs", delegate_to="localhost", no_log=True),
-        task("Select this one deployment job", "ansible.builtin.set_fact", {"helio_matching_jobs": "{{ helio_jobs.json.jobs | selectattr('name', 'equalto', helio_target) | list }}"}),
+        task("Select this one deployment job", "ansible.builtin.set_fact", {"helio_matching_jobs": "{{ helio_jobs.json.jobs | selectattr('name', 'equalto', 'F31 catalog / ' ~ helio_target) | list }}"}),
         task("Require a unique job identity", "ansible.builtin.assert", {"that": ["helio_matching_jobs | length == 1"]}),
         task("Write deployment evidence on the controller", "ansible.builtin.copy", {"dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/deployment.json", "mode": "0600", "content": "{{ helio_deployment_report | to_json }}"}, delegate_to="localhost", vars={"helio_deployment_report": {
             "schema_version": 1, "kind": "catalog_deployment", "evidence_profile": "reported_not_pinned", "provider_origin": "https://github.com", "repository_id": "{{ helio_run.json.repository.id }}", "workflow_id": "{{ helio_run.json.workflow_id }}", "workflow_path": ".github/workflows/f31.yml", "workflow_commit": "{{ helio_run.json.head_sha }}", "run_id": "{{ helio_run.json.id }}", "run_attempt": "{{ helio_run.json.run_attempt }}", "job_id": "{{ helio_matching_jobs[0].id }}", "environment_name": "{{ helio_target }}", "artifact_uri": "{{ helio_artifact_uri }}", "artifact_digest": "{{ helio_digest_read.content }}", "version": "{{ helio_version_read.content }}"}})
@@ -100,6 +104,12 @@ def generate():
         name = "recipe/inputs-" + t + ".json"
         save(name, {"helio_target": t, "helio_version": "{{ lookup('ansible.builtin.env', 'HELIO_VERSION') }}", "helio_artifact_uri": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_URI') }}", "helio_artifact_digest": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_DIGEST') }}"})
         input_files.append(ROOT / name)
+    save("recipe/inputs-catalog.json", {
+        "helio_target": "{{ lookup('ansible.builtin.env', 'HELIO_TARGET') }}",
+        "helio_version": "{{ lookup('ansible.builtin.env', 'HELIO_VERSION') }}",
+        "helio_artifact_uri": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_URI') }}",
+        "helio_artifact_digest": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_DIGEST') }}"})
+    input_files.append(ROOT / "recipe/inputs-catalog.json")
     files = {str(p.relative_to(ROOT)): {"git_blob_sha": subprocess.check_output(["git", "hash-object", str(p)], cwd=ROOT, text=True).strip()} for p in [ROOT / "deploy-war.yml", ROOT / "inventory.yml", ROOT / "recipe/runtime-files.json"] + input_files}
     collections = []
     for p in collection_roots:
@@ -111,22 +121,70 @@ def generate():
                 "modules_used": ["ansible.builtin.assert", "ansible.builtin.copy", "ansible.builtin.file", "ansible.builtin.find", "ansible.builtin.get_url", "ansible.builtin.set_fact", "ansible.builtin.stat", "ansible.builtin.uri"],
                 "runtime_preflight_modules": ["ansible.builtin.assert", "ansible.builtin.find", "ansible.builtin.stat"], "runtime_preflight_entry_limit": 8192}
     save("recipe/runtime-manifest.json", manifest)
-    deploy_jobs = {}
-    for t in ("test", "uat", "prod"):
-        deploy_jobs[t] = {"name": t, "needs": ["build"], "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == '" + t + "')) }}", "runs-on": ["self-hosted", "helio-f31"], "environment": t,
-            "steps": [{"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False}},
-                      {"name": "Install and verify pinned WAR", "run": str(VENV / "bin/ansible-playbook") + " -i inventory.yml deploy-war.yml --limit " + t + " --extra-vars @recipe/inputs-" + t + ".json", "env": {"ANSIBLE_COLLECTIONS_PATH": str(COLLECTIONS), "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}", "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}", "GITHUB_TOKEN": "${{ github.token }}", "HELIO_VERSION": "${{ inputs.version }}", "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}", "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}"}},
-                      {"uses": UPLOAD, "with": {"name": "helio-catalog-deployment-" + t + "-${{ github.run_attempt }}", "path": "evidence/" + t + "/deployment.json", "if-no-files-found": "error"}}]}
-    workflow = {"name": "F31 reference build and WAR deployments", "on": {"workflow_dispatch": {"inputs": {"version": {"required": True, "type": "string"}, "deployment_only": {"type": "boolean", "default": False}, "target": {"type": "choice", "options": ["test", "uat", "prod"], "default": "uat"}, "artifact_uri": {"type": "string"}, "artifact_digest": {"type": "string"}}}},
-                "permissions": {"contents": "read", "actions": "read"}, "concurrency": {"group": "f31-local-targets", "cancel-in-progress": False}, "jobs": {
-                    "build": {"name": "build", "if": "${{ !inputs.deployment_only }}", "runs-on": ["self-hosted", "helio-f31"], "outputs": {"artifact_uri": "${{ steps.publish.outputs.artifact_uri }}", "artifact_digest": "${{ steps.publish.outputs.artifact_digest }}"}, "steps": [
-                        {"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False}},
-                        {"name": "Package and publish immutable WAR", "id": "publish", "run": str(VENV / "bin/python") + " fixture.py build --version \"$F31_VERSION\"", "env": {"F31_VERSION": "${{ inputs.version }}", "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}", "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}", "GITHUB_TOKEN": "${{ github.token }}"}},
-                        {"uses": UPLOAD, "with": {"name": "helio-catalog-publication-${{ github.run_attempt }}", "path": "publication.json", "if-no-files-found": "error"}}]}, **deploy_jobs}}
-    for job in workflow["jobs"].values():
-        job.setdefault("env", {})["PYTHONDONTWRITEBYTECODE"] = "1"
-    save(".github/workflows/f31.yml", workflow)
+    shared_inputs = {
+        "version": {"required": True, "type": "string"},
+        "helio_target_environment": {"type": "string", "default": ""},
+        "artifact_uri": {"type": "string", "default": ""},
+        "artifact_digest": {"type": "string", "default": ""}}
+    secret_inputs = {"NEXUS_USERNAME": {"required": True}, "NEXUS_PASSWORD": {"required": True}}
+    build = {
+        "name": "build", "if": "${{ inputs.helio_target_environment == '' }}",
+        "runs-on": ["self-hosted", "helio-f31"], "env": {"PYTHONDONTWRITEBYTECODE": "1"},
+        "outputs": {"artifact_uri": "${{ steps.publish.outputs.artifact_uri }}",
+                    "artifact_digest": "${{ steps.publish.outputs.artifact_digest }}"},
+        "steps": [
+            {"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False}},
+            {"name": "Package and publish immutable WAR", "id": "publish",
+             "run": str(VENV / "bin/python") + ' fixture.py build --version "$F31_VERSION"',
+             "env": {"F31_VERSION": "${{ inputs.version }}", "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
+                     "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}", "GITHUB_TOKEN": "${{ github.token }}",
+                     "F31_BUILD_JOB_NAME": "F31 catalog / build"}},
+            {"uses": UPLOAD, "with": {"name": "helio-catalog-publication-${{ github.run_attempt }}",
+                                      "path": "publication.json", "if-no-files-found": "error"}}]}
+    jobs = {"build": build}
+    for stage in ("test", "uat", "production"):
+        matrix = ("${{ inputs.helio_target_environment != '' && "
+                  "fromJSON(format('[\"{0}\"]', inputs.helio_target_environment)) || "
+                  "fromJSON(vars.HELIO_ENVIRONMENTS)." + stage + " }}")
+        guard = ("${{ !cancelled() && (inputs.helio_target_environment == '' || "
+                 "contains(fromJSON(vars.HELIO_ENVIRONMENTS)." + stage + ", inputs.helio_target_environment)) && "
+                 "(needs.build.result == 'success' || inputs.helio_target_environment != '') }}")
+        jobs["deploy_" + stage] = {
+            "name": "${{ matrix.environment }}", "needs": ["build"], "if": guard,
+            "strategy": {"fail-fast": False, "matrix": {"environment": matrix}},
+            "environment": "${{ matrix.environment }}",
+            "runs-on": "${{ fromJSON(vars.HELIO_ENVIRONMENTS).runs_on[matrix.environment] }}",
+            "env": {"PYTHONDONTWRITEBYTECODE": "1"},
+            "steps": [
+                {"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False}},
+                {"name": "Install and verify pinned WAR",
+                 "run": str(VENV / "bin/ansible-playbook") + ' -i inventory.yml deploy-war.yml --limit "$HELIO_TARGET" --extra-vars @recipe/inputs-catalog.json',
+                 "env": {"ANSIBLE_COLLECTIONS_PATH": str(COLLECTIONS), "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
+                         "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}", "GITHUB_TOKEN": "${{ github.token }}",
+                         "HELIO_TARGET": "${{ matrix.environment }}", "HELIO_VERSION": "${{ inputs.version }}",
+                         "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
+                         "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}"}},
+                {"uses": UPLOAD, "with": {"name": "helio-catalog-deployment-${{ matrix.environment }}-${{ github.run_attempt }}",
+                                          "path": "evidence/${{ matrix.environment }}/deployment.json", "if-no-files-found": "error"}}]}
+    template = {"name": "F31 catalog Ansible WAR template",
+                "on": {"workflow_call": {"inputs": shared_inputs, "secrets": secret_inputs}},
+                "permissions": {"contents": "read", "actions": "read"}, "jobs": jobs}
+    caller = {"name": "F31 catalog reference", "on": {"workflow_dispatch": {"inputs": shared_inputs}},
+              "permissions": {"contents": "read", "actions": "read"},
+              "concurrency": {"group": "f31-local-targets", "cancel-in-progress": False},
+              "jobs": {"catalog": {"name": "F31 catalog",
+                        "uses": "helloangular/helio-f31-ansible-fixture-20261026/.github/workflows/f31-template.yml@" + template_commit,
+                        "with": {k: "${{ inputs." + k + " }}" for k in shared_inputs},
+                        "secrets": {k: "${{ secrets." + k + " }}" for k in secret_inputs}}}}
+    save(".github/workflows/f31-template.yml", template)
+    save(".github/workflows/f31.yml", caller)
+    for path in (".github/workflows/f31.yml", ".github/workflows/f31-template.yml"):
+        manifest["files"][path] = {"git_blob_sha": subprocess.check_output(
+            ["git", "hash-object", str(ROOT / path)], cwd=ROOT, text=True).strip()}
+    save("recipe/runtime-manifest.json", manifest)
 
 
 if __name__ == "__main__":
-    generate()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--template-commit", required=True)
+    generate(parser.parse_args().template_commit)

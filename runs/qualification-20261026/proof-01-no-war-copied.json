@@ -1,0 +1,14 @@
+{
+  "test": {
+    "exists": false,
+    "sha256": null
+  },
+  "uat": {
+    "exists": false,
+    "sha256": null
+  },
+  "prod": {
+    "exists": false,
+    "sha256": null
+  }
+}

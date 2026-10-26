@@ -1,0 +1,111 @@
+{
+  "proof": "wrong-digest-uat-refused-before-copy",
+  "source_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+  "workflow_tag": "helio/workflow/4c4b164679402071b889b50d9792ea73cec6aeab",
+  "version": "0.1.0-f31-20261026-p02",
+  "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.1.0-f31-20261026-p02/app-0.1.0-f31-20261026-p02.war",
+  "expected_actual_digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+  "supplied_wrong_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "target": "uat",
+  "deployment_only": true,
+  "before": {
+    "test": {
+      "sha256": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+      "size": 4205,
+      "mtime_ns": 1793051418134210314,
+      "inode": 2489890
+    },
+    "uat": {
+      "sha256": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+      "size": 4205,
+      "mtime_ns": 1793051333869030080,
+      "inode": 2489865
+    },
+    "prod": {
+      "sha256": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+      "size": 4205,
+      "mtime_ns": 1793051241038589194,
+      "inode": 1434707
+    }
+  },
+  "previous_run_ids": [
+    40407927416,
+    40407083127,
+    40406002434
+  ],
+  "dispatch_started_utc": "2026-10-26T21:54:38.314424+00:00",
+  "status": "PASS",
+  "dispatch_command_exit": 0,
+  "run_id": 40408267590,
+  "run_attempt": 1,
+  "run_url": "https://github.com/helloangular/helio-f31-ansible-fixture-20261026/actions/runs/40408267590",
+  "conclusion": null,
+  "selected": true,
+  "expected_workflow_conclusion": "failure",
+  "actual_workflow_conclusion": "failure",
+  "checksum_mismatch_witness": [
+    "2026-10-26T21:55:39.2245320Z [ERROR]: Task failed: Module failed: The checksum for /Users/aaryakulkarni/.ansible/tmp/ansible-tmp-1793051738.391108-25880-1544285520628/tmpg6vs5zd_ did not match 0000000000000000000000000000000000000000000000000000000000000000; it was 183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e."
+  ],
+  "copy_task_not_started": true,
+  "no_publication_or_deployment_artifact": true,
+  "after": {
+    "test": {
+      "sha256": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+      "size": 4205,
+      "mtime_ns": 1793051418134210314,
+      "inode": 2489890
+    },
+    "uat": {
+      "sha256": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+      "size": 4205,
+      "mtime_ns": 1793051333869030080,
+      "inode": 2489865
+    },
+    "prod": {
+      "sha256": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+      "size": 4205,
+      "mtime_ns": 1793051241038589194,
+      "inode": 1434707
+    }
+  },
+  "served_after": {
+    "test": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+    "uat": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+    "prod": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e"
+  },
+  "job_log_sha256": "b3831528051f2a141c75968034d01d8174bdbe3a7a06d9ff7ec9ee55649d19fd",
+  "jobs": [
+    {
+      "id": 121871573363,
+      "name": "uat",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-26T21:54:43Z",
+      "completed_at": "2026-10-26T21:55:43Z"
+    },
+    {
+      "id": 121871574224,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-26T21:54:41Z",
+      "completed_at": "2026-10-26T21:54:41Z"
+    },
+    {
+      "id": 121871635602,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-26T21:54:49Z",
+      "completed_at": "2026-10-26T21:54:41Z"
+    },
+    {
+      "id": 121871641410,
+      "name": "prod",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-10-26T21:54:50Z",
+      "completed_at": "2026-10-26T21:54:41Z"
+    }
+  ]
+}

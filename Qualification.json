@@ -1,11 +1,11 @@
 {
-  "status": "PROOF_QUALIFICATION_IN_PROGRESS",
+  "status": "REFERENCE_FIXTURE_DONE",
   "feature": "F31 reference fixture; not acceptance",
   "repository": "helloangular/helio-f31-ansible-fixture-20261026",
   "repository_id": 1434923306,
   "manifest_path": "recipe/runtime-manifest.json",
   "manifest_git_blob_sha": "1be72839c9b9fb7c39cb68928857fac32f561358",
-  "source_commit": "Recorded externally in the helio-test preparation receipt to avoid self-reference",
+  "source_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
   "unit_tests": {
     "tests": 11,
     "failures": 0,
@@ -34,14 +34,16 @@
     "id": 2,
     "name": "helio-f31-mac-20261026",
     "label": "helio-f31",
-    "status": "online",
+    "status": "offline",
     "registered": true,
     "started_by_agent": false
   },
   "proof_run_ids": [
-    40406002434
+    40407083127,
+    40407927416,
+    40408267590
   ],
-  "proof_runs_executed": 1,
+  "proof_runs_executed": 4,
   "owner_needs": [],
   "no_vps_or_lab_changes": true,
   "runtime_find_ruling": "Owner approved find only in fixed-root controller preflight; forbidden in deployment tasks",
@@ -64,7 +66,7 @@
     }
   },
   "runtime_manifest_entries": 4973,
-  "local_services_running": true,
+  "local_services_running": false,
   "credential_scan": {
     "findings": 0,
     "scan": "gitleaks, no exclusions"
@@ -84,7 +86,18 @@
       "cause": "get_url does not accept ca_path on the pinned Ansible version; no WAR copy reached",
       "correction": "Use task-scoped SSL_CERT_FILE; keep validate_certs true; pin the public CA hash",
       "read_only_dry_run_exit": 0,
-      "unit_regression_test": "test_download_options_are_supported_by_the_exact_installed_module"
+      "unit_regression_test": "test_download_options_are_supported_by_the_exact_installed_module",
+      "provider_conclusion": "cancelled"
     }
-  ]
+  ],
+  "selected_proofs": 3,
+  "harness_fault_attempts": 1,
+  "completed_pt": "2026-10-26T14:58:27.451814-07:00",
+  "cleanup": {
+    "runner_process_stopped": true,
+    "owned_containers_stopped_or_removed": true,
+    "nexus_volume_preserved": true,
+    "public_repository_preserved": true,
+    "runner_registration_preserved": true
+  }
 }

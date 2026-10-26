@@ -80,7 +80,7 @@ def build(artifact_version):
     run_id, attempt = int(os.environ["GITHUB_RUN_ID"]), int(os.environ["GITHUB_RUN_ATTEMPT"])
     run = github("/actions/runs/" + str(run_id))
     jobs = github("/actions/runs/" + str(run_id) + "/attempts/" + str(attempt) + "/jobs?per_page=100")["jobs"]
-    matches = [j for j in jobs if j["name"] == "build"]
+    matches = [j for j in jobs if j["name"] == os.environ.get("F31_BUILD_JOB_NAME", "build")]
     if len(matches) != 1:
         raise ValueError("A unique build job is required")
     document = publication(dict(repository_id=run["repository"]["id"], workflow_id=run["workflow_id"],

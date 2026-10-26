@@ -1,0 +1,230 @@
+{
+  "jobs": {
+    "build": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "if": "${{ inputs.helio_target_environment == '' }}",
+      "name": "build",
+      "outputs": {
+        "artifact_digest": "${{ steps.publish.outputs.artifact_digest }}",
+        "artifact_uri": "${{ steps.publish.outputs.artifact_uri }}"
+      },
+      "runs-on": [
+        "self-hosted",
+        "helio-f31"
+      ],
+      "steps": [
+        {
+          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "with": {
+            "persist-credentials": false,
+            "ref": "${{ github.sha }}"
+          }
+        },
+        {
+          "env": {
+            "F31_BUILD_JOB_NAME": "F31 catalog / build",
+            "F31_VERSION": "${{ inputs.version }}",
+            "GITHUB_TOKEN": "${{ github.token }}",
+            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+          },
+          "id": "publish",
+          "name": "Package and publish immutable WAR",
+          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/python fixture.py build --version \"$F31_VERSION\""
+        },
+        {
+          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "with": {
+            "if-no-files-found": "error",
+            "name": "helio-catalog-publication-${{ github.run_attempt }}",
+            "path": "publication.json"
+          }
+        }
+      ]
+    },
+    "deploy_production": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "environment": "${{ matrix.environment }}",
+      "if": "${{ !cancelled() && (inputs.helio_target_environment == '' || contains(fromJSON(vars.HELIO_ENVIRONMENTS).production, inputs.helio_target_environment)) && (needs.build.result == 'success' || inputs.helio_target_environment != '') }}",
+      "name": "${{ matrix.environment }}",
+      "needs": [
+        "build"
+      ],
+      "runs-on": "${{ fromJSON(vars.HELIO_ENVIRONMENTS).runs_on[matrix.environment] }}",
+      "steps": [
+        {
+          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "with": {
+            "persist-credentials": false,
+            "ref": "${{ github.sha }}"
+          }
+        },
+        {
+          "env": {
+            "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
+            "GITHUB_TOKEN": "${{ github.token }}",
+            "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
+            "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
+            "HELIO_TARGET": "${{ matrix.environment }}",
+            "HELIO_VERSION": "${{ inputs.version }}",
+            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+          },
+          "name": "Install and verify pinned WAR",
+          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit \"$HELIO_TARGET\" --extra-vars @recipe/inputs-catalog.json"
+        },
+        {
+          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "with": {
+            "if-no-files-found": "error",
+            "name": "helio-catalog-deployment-${{ matrix.environment }}-${{ github.run_attempt }}",
+            "path": "evidence/${{ matrix.environment }}/deployment.json"
+          }
+        }
+      ],
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "environment": "${{ inputs.helio_target_environment != '' && fromJSON(format('[\"{0}\"]', inputs.helio_target_environment)) || fromJSON(vars.HELIO_ENVIRONMENTS).production }}"
+        }
+      }
+    },
+    "deploy_test": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "environment": "${{ matrix.environment }}",
+      "if": "${{ !cancelled() && (inputs.helio_target_environment == '' || contains(fromJSON(vars.HELIO_ENVIRONMENTS).test, inputs.helio_target_environment)) && (needs.build.result == 'success' || inputs.helio_target_environment != '') }}",
+      "name": "${{ matrix.environment }}",
+      "needs": [
+        "build"
+      ],
+      "runs-on": "${{ fromJSON(vars.HELIO_ENVIRONMENTS).runs_on[matrix.environment] }}",
+      "steps": [
+        {
+          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "with": {
+            "persist-credentials": false,
+            "ref": "${{ github.sha }}"
+          }
+        },
+        {
+          "env": {
+            "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
+            "GITHUB_TOKEN": "${{ github.token }}",
+            "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
+            "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
+            "HELIO_TARGET": "${{ matrix.environment }}",
+            "HELIO_VERSION": "${{ inputs.version }}",
+            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+          },
+          "name": "Install and verify pinned WAR",
+          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit \"$HELIO_TARGET\" --extra-vars @recipe/inputs-catalog.json"
+        },
+        {
+          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "with": {
+            "if-no-files-found": "error",
+            "name": "helio-catalog-deployment-${{ matrix.environment }}-${{ github.run_attempt }}",
+            "path": "evidence/${{ matrix.environment }}/deployment.json"
+          }
+        }
+      ],
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "environment": "${{ inputs.helio_target_environment != '' && fromJSON(format('[\"{0}\"]', inputs.helio_target_environment)) || fromJSON(vars.HELIO_ENVIRONMENTS).test }}"
+        }
+      }
+    },
+    "deploy_uat": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "environment": "${{ matrix.environment }}",
+      "if": "${{ !cancelled() && (inputs.helio_target_environment == '' || contains(fromJSON(vars.HELIO_ENVIRONMENTS).uat, inputs.helio_target_environment)) && (needs.build.result == 'success' || inputs.helio_target_environment != '') }}",
+      "name": "${{ matrix.environment }}",
+      "needs": [
+        "build"
+      ],
+      "runs-on": "${{ fromJSON(vars.HELIO_ENVIRONMENTS).runs_on[matrix.environment] }}",
+      "steps": [
+        {
+          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "with": {
+            "persist-credentials": false,
+            "ref": "${{ github.sha }}"
+          }
+        },
+        {
+          "env": {
+            "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
+            "GITHUB_TOKEN": "${{ github.token }}",
+            "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
+            "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
+            "HELIO_TARGET": "${{ matrix.environment }}",
+            "HELIO_VERSION": "${{ inputs.version }}",
+            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+          },
+          "name": "Install and verify pinned WAR",
+          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit \"$HELIO_TARGET\" --extra-vars @recipe/inputs-catalog.json"
+        },
+        {
+          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "with": {
+            "if-no-files-found": "error",
+            "name": "helio-catalog-deployment-${{ matrix.environment }}-${{ github.run_attempt }}",
+            "path": "evidence/${{ matrix.environment }}/deployment.json"
+          }
+        }
+      ],
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "environment": "${{ inputs.helio_target_environment != '' && fromJSON(format('[\"{0}\"]', inputs.helio_target_environment)) || fromJSON(vars.HELIO_ENVIRONMENTS).uat }}"
+        }
+      }
+    }
+  },
+  "name": "F31 catalog Ansible WAR template",
+  "on": {
+    "workflow_call": {
+      "inputs": {
+        "artifact_digest": {
+          "default": "",
+          "type": "string"
+        },
+        "artifact_uri": {
+          "default": "",
+          "type": "string"
+        },
+        "helio_target_environment": {
+          "default": "",
+          "type": "string"
+        },
+        "version": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "secrets": {
+        "NEXUS_PASSWORD": {
+          "required": true
+        },
+        "NEXUS_USERNAME": {
+          "required": true
+        }
+      }
+    }
+  },
+  "permissions": {
+    "actions": "read",
+    "contents": "read"
+  }
+}

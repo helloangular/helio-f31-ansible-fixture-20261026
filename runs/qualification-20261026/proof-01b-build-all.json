@@ -1,0 +1,150 @@
+{
+  "proof": "build-and-deploy-all",
+  "source_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+  "workflow_tag": "helio/workflow/4c4b164679402071b889b50d9792ea73cec6aeab",
+  "version": "0.1.0-f31-20261026-p02",
+  "dispatch_started_utc": "2026-10-26T21:45:54.922223+00:00",
+  "previous_run_ids": [
+    40406002434
+  ],
+  "status": "PASS",
+  "run_id": 40407083127,
+  "harness_rerun": 1,
+  "previous_attempt": 40406002434,
+  "reason": "Corrected unsupported get_url parameter after installed-module regression test and read-only dry run; no remote WAR copied before correction.",
+  "dispatch_command_exit": 0,
+  "run_attempt": 1,
+  "run_url": "https://github.com/helloangular/helio-f31-ansible-fixture-20261026/actions/runs/40407083127",
+  "conclusion": "success",
+  "publication_artifact_id": 12690269110,
+  "publication": {
+    "artifact_digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+    "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.1.0-f31-20261026-p02/app-0.1.0-f31-20261026-p02.war",
+    "job_id": 121867502317,
+    "kind": "catalog_publication",
+    "provider_origin": "https://github.com",
+    "repository_id": 1434923306,
+    "run_attempt": 1,
+    "run_id": 40407083127,
+    "schema_version": 1,
+    "source_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+    "version": "0.1.0-f31-20261026-p02",
+    "workflow_id": 397557145,
+    "workflow_path": ".github/workflows/f31.yml"
+  },
+  "selected": true,
+  "jobs": [
+    {
+      "id": 121867502317,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-26T21:45:59Z",
+      "completed_at": "2026-10-26T21:46:21Z"
+    },
+    {
+      "id": 121867692468,
+      "name": "prod",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-26T21:46:23Z",
+      "completed_at": "2026-10-26T21:47:47Z"
+    },
+    {
+      "id": 121867692532,
+      "name": "test",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-26T21:49:20Z",
+      "completed_at": "2026-10-26T21:50:37Z"
+    },
+    {
+      "id": 121867692534,
+      "name": "uat",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-26T21:47:49Z",
+      "completed_at": "2026-10-26T21:49:18Z"
+    }
+  ],
+  "deployments": {
+    "test": {
+      "artifact_id": 12691956244,
+      "document": {
+        "artifact_digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+        "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.1.0-f31-20261026-p02/app-0.1.0-f31-20261026-p02.war",
+        "environment_name": "test",
+        "evidence_profile": "reported_not_pinned",
+        "job_id": 121867692532,
+        "kind": "catalog_deployment",
+        "provider_origin": "https://github.com",
+        "repository_id": 1434923306,
+        "run_attempt": 1,
+        "run_id": 40407083127,
+        "schema_version": 1,
+        "version": "0.1.0-f31-20261026-p02",
+        "workflow_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+        "workflow_id": 397557145,
+        "workflow_path": ".github/workflows/f31.yml"
+      }
+    },
+    "uat": {
+      "artifact_id": 12691409586,
+      "document": {
+        "artifact_digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+        "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.1.0-f31-20261026-p02/app-0.1.0-f31-20261026-p02.war",
+        "environment_name": "uat",
+        "evidence_profile": "reported_not_pinned",
+        "job_id": 121867692534,
+        "kind": "catalog_deployment",
+        "provider_origin": "https://github.com",
+        "repository_id": 1434923306,
+        "run_attempt": 1,
+        "run_id": 40407083127,
+        "schema_version": 1,
+        "version": "0.1.0-f31-20261026-p02",
+        "workflow_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+        "workflow_id": 397557145,
+        "workflow_path": ".github/workflows/f31.yml"
+      }
+    },
+    "prod": {
+      "artifact_id": 12691698017,
+      "document": {
+        "artifact_digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e",
+        "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.1.0-f31-20261026-p02/app-0.1.0-f31-20261026-p02.war",
+        "environment_name": "prod",
+        "evidence_profile": "reported_not_pinned",
+        "job_id": 121867692468,
+        "kind": "catalog_deployment",
+        "provider_origin": "https://github.com",
+        "repository_id": 1434923306,
+        "run_attempt": 1,
+        "run_id": 40407083127,
+        "schema_version": 1,
+        "version": "0.1.0-f31-20261026-p02",
+        "workflow_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+        "workflow_id": 397557145,
+        "workflow_path": ".github/workflows/f31.yml"
+      }
+    }
+  },
+  "targets": {
+    "test": {
+      "health": "{\"status\":\"UP\"}",
+      "version": "0.1.0-f31-20261026-p02",
+      "artifact-digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e"
+    },
+    "uat": {
+      "health": "{\"status\":\"UP\"}",
+      "version": "0.1.0-f31-20261026-p02",
+      "artifact-digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e"
+    },
+    "prod": {
+      "health": "{\"status\":\"UP\"}",
+      "version": "0.1.0-f31-20261026-p02",
+      "artifact-digest": "sha256:183f203cc53323ee8a764d7b61f422edc957712680a919f2dbae7ae22ce3db7e"
+    }
+  },
+  "nexus_sha256_verified": true
+}

@@ -246,7 +246,7 @@
       },
       {
         "ansible.builtin.set_fact": {
-          "helio_matching_jobs": "{{ helio_jobs.json.jobs | selectattr('name', 'equalto', helio_target) | list }}"
+          "helio_matching_jobs": "{{ helio_jobs.json.jobs | selectattr('name', 'equalto', 'F31 catalog / ' ~ helio_target) | list }}"
         },
         "name": "Select this one deployment job"
       },

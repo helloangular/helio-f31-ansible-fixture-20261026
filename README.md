@@ -8,6 +8,23 @@ Repository: `helloangular/helio-f31-ansible-fixture-20261026`, public, `main`.
 The source in this directory is mirrored to that repository's root. Every push
 uses an atomic branch + `helio/workflow/<full commit>` tag push.
 
+## Current status — F31-I4
+
+The owner requires the existing catalog caller/reusable-template mechanism.
+The earlier one-file qualification below remains mechanism evidence only and
+is **not** the current F31 integration reference. The rebuilt caller forwards
+`helio_target_environment` to a full-SHA-pinned reusable template; every deploy
+job uses HELIO_ENVIRONMENTS matrix environment/runner expressions and the
+existing per-stage targeting guard. A nonempty target skips the build job.
+One-file workflows are outside F31's scope. Three new proof runs and local
+catalog-template registration are pending; no new run has started.
+
+`prepare_recipe.py --template-commit <full-sha>` first prepares the template
+commit, then prepares the caller commit pointing at that immutable template.
+Both commits receive their workflow tag atomically with the branch push.
+`recipe/runtime-manifest.json` pins both caller/template files and all existing
+deployment/runtime inputs by blob SHA. Its schema is unchanged.
+
 ## Private inputs (paths only)
 
 - Existing Nexus CI credential: `~/.helio-release-secrets/nexus-ci.token`.
@@ -25,7 +42,7 @@ uses an atomic branch + `helio/workflow/<full commit>` tag push.
 Use Python 3.12.12; create the dedicated venv, install `requirements.lock.txt`,
 then install `community.docker:4.8.1` and its pinned dependency
 `community.library_inventory_filtering_v1:1.1.5` into the dedicated collections
-directory. Run the venv's `python prepare_recipe.py`. It records every file, directory and symlink in the dedicated venv/collection roots
+directory. Run the venv's `python prepare_recipe.py --template-commit <full-template-sha>`. It records every file, directory and symlink in the dedicated venv/collection roots
 (including bytecode and pyvenv.cfg), plus the external Python and Docker binary
 hashes. It pins every deployed
 playbook, inventory and extra-vars file by Git blob identity. The manifest's own
@@ -66,7 +83,7 @@ uses a SHA-256 checksum and TLS verification; a failed download cannot reach the
 copy to Tomcat. `/artifact-digest` hashes installed `ROOT.war` bytes rather than an
 expected digest supplied by the workflow.
 
-## Required proof (pending owner-started runner)
+## Required proof (completed; see the qualification receipt below)
 
 Record exact source SHA, manifest blob, image ID, run IDs, attempts and evidence:
 
@@ -109,3 +126,16 @@ that CA file in the external fingerprint checks. No system/keychain setting is
 changed. The actual installed module’s documented options are checked by a unit
 test; the corrected task passed a read-only check-mode HEAD against the published
 WAR before another workflow dispatch. The retry uses a new immutable version.
+
+
+## Completed reference qualification
+
+Qualified executable source: `helloangular/helio-f31-ansible-fixture-20261026@4c4b164679402071b889b50d9792ea73cec6aeab`,
+manifest `recipe/runtime-manifest.json`. Build/all-target proof: **40407083127**;
+UAT deploy-only (build skipped): **40407927416**; wrong-digest refusal before copy:
+**40408267590**. All three passed their predicates. Preserved unselected harness
+fault: **40406002434**. Full structured evidence and limitations are in
+`runs/qualification-20261026/Receipt.json` on the helio-test fixture branch.
+The public source snapshot predates these proof results; this external receipt
+binds them without changing the qualified executable commit. All fixture services
+and the owned foreground runner were stopped; Nexus data and source remain.

@@ -4,207 +4,36 @@
     "group": "f31-local-targets"
   },
   "jobs": {
-    "build": {
-      "env": {
-        "PYTHONDONTWRITEBYTECODE": "1"
+    "catalog": {
+      "name": "F31 catalog",
+      "secrets": {
+        "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
+        "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
       },
-      "if": "${{ !inputs.deployment_only }}",
-      "name": "build",
-      "outputs": {
-        "artifact_digest": "${{ steps.publish.outputs.artifact_digest }}",
-        "artifact_uri": "${{ steps.publish.outputs.artifact_uri }}"
-      },
-      "runs-on": [
-        "self-hosted",
-        "helio-f31"
-      ],
-      "steps": [
-        {
-          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
-          "with": {
-            "persist-credentials": false,
-            "ref": "${{ github.sha }}"
-          }
-        },
-        {
-          "env": {
-            "F31_VERSION": "${{ inputs.version }}",
-            "GITHUB_TOKEN": "${{ github.token }}",
-            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
-          },
-          "id": "publish",
-          "name": "Package and publish immutable WAR",
-          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/python fixture.py build --version \"$F31_VERSION\""
-        },
-        {
-          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
-          "with": {
-            "if-no-files-found": "error",
-            "name": "helio-catalog-publication-${{ github.run_attempt }}",
-            "path": "publication.json"
-          }
-        }
-      ]
-    },
-    "prod": {
-      "env": {
-        "PYTHONDONTWRITEBYTECODE": "1"
-      },
-      "environment": "prod",
-      "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == 'prod')) }}",
-      "name": "prod",
-      "needs": [
-        "build"
-      ],
-      "runs-on": [
-        "self-hosted",
-        "helio-f31"
-      ],
-      "steps": [
-        {
-          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
-          "with": {
-            "persist-credentials": false,
-            "ref": "${{ github.sha }}"
-          }
-        },
-        {
-          "env": {
-            "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
-            "GITHUB_TOKEN": "${{ github.token }}",
-            "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
-            "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
-            "HELIO_VERSION": "${{ inputs.version }}",
-            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
-          },
-          "name": "Install and verify pinned WAR",
-          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit prod --extra-vars @recipe/inputs-prod.json"
-        },
-        {
-          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
-          "with": {
-            "if-no-files-found": "error",
-            "name": "helio-catalog-deployment-prod-${{ github.run_attempt }}",
-            "path": "evidence/prod/deployment.json"
-          }
-        }
-      ]
-    },
-    "test": {
-      "env": {
-        "PYTHONDONTWRITEBYTECODE": "1"
-      },
-      "environment": "test",
-      "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == 'test')) }}",
-      "name": "test",
-      "needs": [
-        "build"
-      ],
-      "runs-on": [
-        "self-hosted",
-        "helio-f31"
-      ],
-      "steps": [
-        {
-          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
-          "with": {
-            "persist-credentials": false,
-            "ref": "${{ github.sha }}"
-          }
-        },
-        {
-          "env": {
-            "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
-            "GITHUB_TOKEN": "${{ github.token }}",
-            "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
-            "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
-            "HELIO_VERSION": "${{ inputs.version }}",
-            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
-          },
-          "name": "Install and verify pinned WAR",
-          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit test --extra-vars @recipe/inputs-test.json"
-        },
-        {
-          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
-          "with": {
-            "if-no-files-found": "error",
-            "name": "helio-catalog-deployment-test-${{ github.run_attempt }}",
-            "path": "evidence/test/deployment.json"
-          }
-        }
-      ]
-    },
-    "uat": {
-      "env": {
-        "PYTHONDONTWRITEBYTECODE": "1"
-      },
-      "environment": "uat",
-      "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == 'uat')) }}",
-      "name": "uat",
-      "needs": [
-        "build"
-      ],
-      "runs-on": [
-        "self-hosted",
-        "helio-f31"
-      ],
-      "steps": [
-        {
-          "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
-          "with": {
-            "persist-credentials": false,
-            "ref": "${{ github.sha }}"
-          }
-        },
-        {
-          "env": {
-            "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
-            "GITHUB_TOKEN": "${{ github.token }}",
-            "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
-            "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
-            "HELIO_VERSION": "${{ inputs.version }}",
-            "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
-          },
-          "name": "Install and verify pinned WAR",
-          "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit uat --extra-vars @recipe/inputs-uat.json"
-        },
-        {
-          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
-          "with": {
-            "if-no-files-found": "error",
-            "name": "helio-catalog-deployment-uat-${{ github.run_attempt }}",
-            "path": "evidence/uat/deployment.json"
-          }
-        }
-      ]
+      "uses": "helloangular/helio-f31-ansible-fixture-20261026/.github/workflows/f31-template.yml@4c4b164679402071b889b50d9792ea73cec6aeab",
+      "with": {
+        "artifact_digest": "${{ inputs.artifact_digest }}",
+        "artifact_uri": "${{ inputs.artifact_uri }}",
+        "helio_target_environment": "${{ inputs.helio_target_environment }}",
+        "version": "${{ inputs.version }}"
+      }
     }
   },
-  "name": "F31 reference build and WAR deployments",
+  "name": "F31 catalog reference",
   "on": {
     "workflow_dispatch": {
       "inputs": {
         "artifact_digest": {
+          "default": "",
           "type": "string"
         },
         "artifact_uri": {
+          "default": "",
           "type": "string"
         },
-        "deployment_only": {
-          "default": false,
-          "type": "boolean"
-        },
-        "target": {
-          "default": "uat",
-          "options": [
-            "test",
-            "uat",
-            "prod"
-          ],
-          "type": "choice"
+        "helio_target_environment": {
+          "default": "",
+          "type": "string"
         },
         "version": {
           "required": true,

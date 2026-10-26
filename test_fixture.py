@@ -81,15 +81,37 @@ class FixtureContractTest(unittest.TestCase):
                       {p["path"] for p in pins})
 
     def test_deploy_jobs_have_only_three_steps_and_no_shell_input_interpolation(self):
-        workflow = json.loads((ROOT / ".github/workflows/f31.yml").read_text())
-        for name in ("test", "uat", "prod"):
-            steps = workflow["jobs"][name]["steps"]
+        workflow = json.loads((ROOT / ".github/workflows/f31-template.yml").read_text())
+        for stage in ("test", "uat", "production"):
+            steps = workflow["jobs"]["deploy_" + stage]["steps"]
             self.assertEqual(len(steps), 3)
             self.assertTrue(steps[0]["uses"].startswith("actions/checkout@"))
             self.assertTrue(steps[2]["uses"].startswith("actions/upload-artifact@"))
             self.assertNotIn("${{", steps[1]["run"])
-            self.assertIn("--extra-vars @recipe/inputs-" + name + ".json", steps[1]["run"])
+            self.assertIn("--extra-vars @recipe/inputs-catalog.json", steps[1]["run"])
             self.assertNotIn("mvn", steps[1]["run"])
+
+    def test_catalog_caller_and_template_preserve_the_existing_targeting_contract(self):
+        caller = json.loads((ROOT / ".github/workflows/f31.yml").read_text())
+        template = json.loads((ROOT / ".github/workflows/f31-template.yml").read_text())
+        self.assertIn("helio_target_environment", caller["on"]["workflow_dispatch"]["inputs"])
+        call = caller["jobs"]["catalog"]
+        self.assertEqual(call["with"]["helio_target_environment"], "${{ inputs.helio_target_environment }}")
+        self.assertRegex(call["uses"], r"^helloangular/helio-f31-ansible-fixture-20261026/\.github/workflows/f31-template\.yml@[0-9a-f]{40}$")
+        self.assertEqual(template["jobs"]["build"]["if"], "${{ inputs.helio_target_environment == '' }}")
+        self.assertIn("helio_target_environment", template["on"]["workflow_call"]["inputs"])
+        for stage in ("test", "uat", "production"):
+            job = template["jobs"]["deploy_" + stage]
+            self.assertNotIn("uses", job)
+            self.assertEqual(job["environment"], "${{ matrix.environment }}")
+            self.assertEqual(job["runs-on"], "${{ fromJSON(vars.HELIO_ENVIRONMENTS).runs_on[matrix.environment] }}")
+            self.assertEqual(set(job["strategy"]["matrix"]), {"environment"})
+            self.assertIn("inputs.helio_target_environment", job["strategy"]["matrix"]["environment"])
+            self.assertIn("fromJSON(vars.HELIO_ENVIRONMENTS)." + stage, job["strategy"]["matrix"]["environment"])
+            self.assertIn("contains(fromJSON(vars.HELIO_ENVIRONMENTS)." + stage, job["if"])
+        manifest = json.loads((ROOT / "recipe/runtime-manifest.json").read_text())
+        for path in (".github/workflows/f31.yml", ".github/workflows/f31-template.yml"):
+            self.assertIn(path, manifest["files"])
 
     def test_checksum_precedes_install_and_has_no_error_escape(self):
         play = json.loads((ROOT / "deploy-war.yml").read_text())[0]

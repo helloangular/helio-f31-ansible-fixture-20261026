@@ -17,11 +17,20 @@
   ],
   "connection_plugin": "community.docker.docker",
   "files": {
+    ".github/workflows/f31-template.yml": {
+      "git_blob_sha": "3019e81107cdc5bed0dd5678e69071aaf00dbf84"
+    },
+    ".github/workflows/f31.yml": {
+      "git_blob_sha": "66045ede9708afa66412155438b74ff6651102c0"
+    },
     "deploy-war.yml": {
-      "git_blob_sha": "8f9f87c8a22a6d2552a57e573067979b3e259581"
+      "git_blob_sha": "0b3e2c4c961231fcb3365503ccaa108ba252eab5"
     },
     "inventory.yml": {
       "git_blob_sha": "e7c64a808110e6570c47a19e69dab2bc3f9760a3"
+    },
+    "recipe/inputs-catalog.json": {
+      "git_blob_sha": "fe89c8690763f0952b765eca775330a316f5ed4f"
     },
     "recipe/inputs-prod.json": {
       "git_blob_sha": "02d557bdd31768ed56e14da907519d166610553f"

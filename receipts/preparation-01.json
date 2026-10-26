@@ -1,0 +1,27 @@
+{
+  "repository": "helloangular/helio-f31-ansible-fixture-20261026",
+  "source_commit": "1b08762f7d234b4ecb6be15e75bc84dc00b73f48",
+  "workflow_tag": "helio/workflow/1b08762f7d234b4ecb6be15e75bc84dc00b73f48",
+  "manifest_path": "recipe/runtime-manifest.json",
+  "manifest_git_blob_sha": "8f416e57cb594a66e313b930c02991ab8438e781",
+  "status": "BLOCKED_OWNER",
+  "proof_run_ids": [],
+  "unit_tests": 7,
+  "unit_failures": 0,
+  "syntax_check": "PASS",
+  "actionlint": "PASS (custom label; shellcheck disabled)",
+  "maven_package": "PASS",
+  "credential_findings": 0,
+  "runner_registered": true,
+  "runner_started": false,
+  "targets_built_and_booted": true,
+  "owner_ruling_pending": "Allow read-only fixed-root bounded ansible.builtin.find only for runtime preflight; deployment-task allowlist unchanged",
+  "cleanup": "Own targets removed, Nexus/local-tls/dependent datadog-stub stopped; volume preserved. Runner remains offline.",
+  "product_checkpoint_commit": "941c85d8",
+  "product_suite": {
+    "tests": 6527,
+    "assertions": 60513,
+    "failures": 0,
+    "errors": 0
+  }
+}

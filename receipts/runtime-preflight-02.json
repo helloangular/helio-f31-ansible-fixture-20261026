@@ -1,0 +1,39 @@
+{
+  "feature": "F31 reference runtime preflight, not acceptance",
+  "status": "WAITING_OWNER_RUNNER_START",
+  "source_repository": "helloangular/helio-f31-ansible-fixture-20261026",
+  "source_commit": "c2471d092eb4f42df829ecf94961bbf9411d25a1",
+  "workflow_tag": "helio/workflow/c2471d092eb4f42df829ecf94961bbf9411d25a1",
+  "manifest_path": "recipe/runtime-manifest.json",
+  "manifest_git_blob_sha": "5993f81dc733dd222b5a9e6c8051b2c534512a18",
+  "unit_tests": 10,
+  "unit_failures": 0,
+  "unit_errors": 0,
+  "preflight": {
+    "clean": {
+      "exit": 0,
+      "seconds": 35.785
+    },
+    "added_file": {
+      "exit": 2,
+      "seconds": 5.47
+    },
+    "changed_file": {
+      "exit": 2,
+      "seconds": 8.093
+    },
+    "restored": {
+      "exit": 0,
+      "seconds": 36.47
+    }
+  },
+  "credential_scan_findings": 0,
+  "entry_budget": 8192,
+  "runtime_entries": 4973,
+  "ruling": "find is permitted only in fixed-root controller runtime preflight; deployment tasks retain the prior allowlist",
+  "proof_run_ids": [],
+  "runner_started": false,
+  "canaries_removed": true,
+  "services_started_in_this_block": false,
+  "owner_start_command": "bash \"$HOME/.helio-f31-fixture/repository/start-owned-runner.sh\""
+}

@@ -1,0 +1,13 @@
+{
+  "ruling": "F31-I4 option 2",
+  "status": "prepared; not qualified",
+  "previous_standalone_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
+  "caller": ".github/workflows/f31.yml",
+  "template": ".github/workflows/f31-template.yml",
+  "manifest": "recipe/runtime-manifest.json",
+  "unit_tests": 12,
+  "actionlint": "passed",
+  "new_proof_runs": [],
+  "owner_runner_start_required": true,
+  "local_catalog_registration": "pending"
+}

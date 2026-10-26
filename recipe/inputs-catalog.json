@@ -1,0 +1,6 @@
+{
+  "helio_artifact_digest": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_DIGEST') }}",
+  "helio_artifact_uri": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_URI') }}",
+  "helio_target": "{{ lookup('ansible.builtin.env', 'HELIO_TARGET') }}",
+  "helio_version": "{{ lookup('ansible.builtin.env', 'HELIO_VERSION') }}"
+}

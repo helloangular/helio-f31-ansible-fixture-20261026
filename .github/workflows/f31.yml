@@ -10,7 +10,7 @@
         "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
         "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
       },
-      "uses": "helloangular/helio-f31-ansible-fixture-20261026/.github/workflows/f31-template.yml@4c4b164679402071b889b50d9792ea73cec6aeab",
+      "uses": "helloangular/helio-f31-ansible-fixture-20261026/.github/workflows/f31-template.yml@8c23e2d21e9032351e31a5bd52e906c3cc4a4846",
       "with": {
         "artifact_digest": "${{ inputs.artifact_digest }}",
         "artifact_uri": "${{ inputs.artifact_uri }}",

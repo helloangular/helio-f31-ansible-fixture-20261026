@@ -1,6 +1,6 @@
 {
   "ruling": "F31-I4 option 2",
-  "status": "prepared; not qualified",
+  "status": "catalog caller/template prepared; owner-runner proofs pending",
   "previous_standalone_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
   "caller": ".github/workflows/f31.yml",
   "template": ".github/workflows/f31-template.yml",
@@ -9,5 +9,6 @@
   "actionlint": "passed",
   "new_proof_runs": [],
   "owner_runner_start_required": true,
-  "local_catalog_registration": "pending"
+  "local_catalog_registration": "pending",
+  "template_commit": "8c23e2d21e9032351e31a5bd52e906c3cc4a4846"
 }

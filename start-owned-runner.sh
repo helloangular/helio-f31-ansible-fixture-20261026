@@ -21,5 +21,28 @@ cleanup() {
 trap cleanup EXIT
 (cd "$product_dir" && docker compose up -d nexus local-tls)
 docker compose -f "$fixture_dir/compose.yml" up -d
+ready=false
+for attempt in {1..90}; do
+  status="$(curl --silent --cacert "$HOME/.helio-tomcat/tls/local-tls/cert.pem" --max-time 3 --output /dev/null --write-out '%{http_code}' https://localhost:9444/service/rest/v1/status || true)"
+  if [[ "$status" == 200 ]]; then ready=true; break; fi
+  sleep 2
+done
+if [[ "$ready" != true ]]; then
+  echo 'Local Nexus did not become ready; runner remains stopped.' >&2
+  exit 1
+fi
+for port in 3461 3462 3463; do
+  ready=false
+  for attempt in {1..30}; do
+    status="$(curl --silent --max-time 3 --output /dev/null --write-out '%{http_code}' "http://127.0.0.1:$port/" || true)"
+    if [[ "$status" == 200 || "$status" == 404 ]]; then ready=true; break; fi
+    sleep 2
+  done
+  if [[ "$ready" != true ]]; then
+    echo "Owned Tomcat on $port did not become ready; runner remains stopped." >&2
+    exit 1
+  fi
+done
+echo 'F31 local services ready. Starting the repo-only runner in this foreground terminal.'
 cd "$runner_dir"
 ./run.sh

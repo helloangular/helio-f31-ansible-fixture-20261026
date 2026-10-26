@@ -12,7 +12,100 @@
         },
         "delegate_to": "localhost",
         "name": "Verify exact runtime versions",
-        "run_once": true
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
+      },
+      {
+        "ansible.builtin.find": {
+          "checksum_algorithm": "sha256",
+          "file_type": "any",
+          "follow": false,
+          "get_checksum": true,
+          "hidden": true,
+          "limit": 8193,
+          "paths": [
+            "/Users/aaryakulkarni/.helio-f31-fixture/venv",
+            "/Users/aaryakulkarni/.helio-f31-fixture/collections/ansible_collections"
+          ],
+          "recurse": true
+        },
+        "delegate_to": "localhost",
+        "name": "Enumerate and hash only the reviewed controller roots",
+        "no_log": true,
+        "register": "helio_runtime_found",
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
+      },
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "helio_runtime_found.skipped_paths | length == 0",
+            "helio_runtime_found.matched <= 8192",
+            "helio_runtime_found.files | map(attribute='path') | sort == helio_runtime_entries | sort"
+          ]
+        },
+        "delegate_to": "localhost",
+        "name": "Require the exact bounded runtime file set",
+        "no_log": true,
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
+      },
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "helio_runtime_found.files | selectattr('isreg') | map(attribute='path') | sort == helio_runtime_regular_entries | sort",
+            "helio_runtime_found.files | selectattr('isdir') | map(attribute='path') | sort == helio_runtime_directory_entries | sort",
+            "helio_runtime_found.files | selectattr('islnk') | map(attribute='path') | sort == helio_runtime_links | map(attribute='path') | sort",
+            "helio_runtime_found.files | selectattr('isreg') | map(attribute='checksum') | list == helio_runtime_found.files | selectattr('isreg') | map(attribute='path') | map('extract', helio_runtime_checksums) | list"
+          ]
+        },
+        "delegate_to": "localhost",
+        "name": "Refuse changed file content or type",
+        "no_log": true,
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
+      },
+      {
+        "ansible.builtin.stat": {
+          "follow": false,
+          "get_attributes": false,
+          "get_checksum": false,
+          "get_mime": false,
+          "path": "{{ item.path }}"
+        },
+        "delegate_to": "localhost",
+        "loop": "{{ helio_runtime_links }}",
+        "name": "Read pinned interpreter link targets",
+        "no_log": true,
+        "register": "helio_runtime_link_checks",
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
+      },
+      {
+        "ansible.builtin.assert": {
+          "that": [
+            "item.stat.islnk",
+            "item.stat.lnk_target == item.item.target"
+          ]
+        },
+        "delegate_to": "localhost",
+        "loop": "{{ helio_runtime_link_checks.results }}",
+        "name": "Refuse changed interpreter links",
+        "no_log": true,
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
       },
       {
         "ansible.builtin.stat": {
@@ -22,11 +115,14 @@
           "path": "{{ item.path }}"
         },
         "delegate_to": "localhost",
-        "loop": "{{ helio_runtime_files }}",
-        "name": "Hash the pinned controller runtime",
+        "loop": "{{ helio_runtime_external }}",
+        "name": "Hash the external Python and Docker executables",
         "no_log": true,
         "register": "helio_runtime_checks",
-        "run_once": true
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
       },
       {
         "ansible.builtin.assert": {
@@ -37,9 +133,12 @@
         },
         "delegate_to": "localhost",
         "loop": "{{ helio_runtime_checks.results }}",
-        "name": "Refuse runtime drift before any download or installation",
+        "name": "Refuse external executable drift",
         "no_log": true,
-        "run_once": true
+        "run_once": true,
+        "tags": [
+          "runtime_preflight"
+        ]
       }
     ],
     "tasks": [
@@ -183,6 +282,9 @@
         }
       }
     ],
+    "vars": {
+      "helio_runtime_checksums": "{{ dict(helio_runtime_files | map(attribute='path') | zip(helio_runtime_files | map(attribute='sha256'))) }}"
+    },
     "vars_files": [
       "recipe/runtime-files.json"
     ]

@@ -25,8 +25,9 @@ uses an atomic branch + `helio/workflow/<full commit>` tag push.
 Use Python 3.12.12; create the dedicated venv, install `requirements.lock.txt`,
 then install `community.docker:4.8.1` and its pinned dependency
 `community.library_inventory_filtering_v1:1.1.5` into the dedicated collections
-directory. Run the venv's `python prepare_recipe.py`. It records every installed
-Ansible/collection Python source and MANIFEST/FILES hash, and pins every deployed
+directory. Run the venv's `python prepare_recipe.py`. It records every file, directory and symlink in the dedicated venv/collection roots
+(including bytecode and pyvenv.cfg), plus the external Python and Docker binary
+hashes. It pins every deployed
 playbook, inventory and extra-vars file by Git blob identity. The manifest's own
 blob must be pinned externally at registration, avoiding a self-referential hash.
 Changes to this Mac's interpreter or installed dependencies require re-qualification.
@@ -50,13 +51,17 @@ After the product test JVM stops and swap is below 8 GiB:
 Owner start command (foreground; leave open for the three proof runs):
 
 ```sh
-cd "$HOME/.helio-actions-runner-f31" && ./run.sh
+bash "$HOME/.helio-f31-fixture/repository/start-owned-runner.sh"
 ```
+
+The owner command starts only the fixture services, waits for readiness, and then
+runs the repo-only runner in the foreground. Ctrl-C removes the owned targets and
+stops only Nexus-front services started by that invocation.
 
 The deployment jobs call the venv's absolute `ansible-playbook` path. They use
 only checkout, that command, and upload-artifact. Untrusted workflow input values
 are environment values read by fixed extra-vars documents, never shell or JSON
-source interpolation. Known installed-file hash checks run before artifact download. Exact installed-file **set** comparison is pending the owner ruling on bounded controller-side enumeration; until then this reference is BLOCKED and must not run proof deployments. Download
+source interpolation. The owner approved `ansible.builtin.find` **only in the controller runtime preflight**. It uses two fixed owned roots, does not follow links, includes hidden files and bytecode, and stops at 8,193 entries; more than 8,192 refuses. Skipped reads, any path/type difference, changed file bytes or retargeted interpreter links refuse before download. `find` remains forbidden in deployment tasks. `qualify_runtime.py` proves clean / added-file refusal / changed-file refusal / restored behavior using a harmless canary that is removed in a finally block. All preflight tasks have the `runtime_preflight` tag; this qualification starts no containers and performs no provider/deployment calls. Download
 uses a SHA-256 checksum and TLS verification; a failed download cannot reach the
 copy to Tomcat. `/artifact-digest` hashes installed `ROOT.war` bytes rather than an
 expected digest supplied by the workflow.

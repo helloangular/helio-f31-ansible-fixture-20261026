@@ -18,7 +18,7 @@
   "connection_plugin": "community.docker.docker",
   "files": {
     "deploy-war.yml": {
-      "git_blob_sha": "51c5632de02ae129213efa2ad11a222ffac5941a"
+      "git_blob_sha": "71cf70bbdde77ace9c2493c3a3497e7cde50bd1a"
     },
     "inventory.yml": {
       "git_blob_sha": "e7c64a808110e6570c47a19e69dab2bc3f9760a3"
@@ -33,7 +33,7 @@
       "git_blob_sha": "219848347ce48c8bc7c57774648d01c204c6ad85"
     },
     "recipe/runtime-files.json": {
-      "git_blob_sha": "1888c41153cc815c67bdd1df8d5ddb21719ba2f3"
+      "git_blob_sha": "292bcca574034446c3374080bd28bc08b0b0c292"
     }
   },
   "inventory": "inventory.yml",
@@ -41,6 +41,7 @@
     "ansible.builtin.assert",
     "ansible.builtin.copy",
     "ansible.builtin.file",
+    "ansible.builtin.find",
     "ansible.builtin.get_url",
     "ansible.builtin.set_fact",
     "ansible.builtin.stat",
@@ -51,5 +52,11 @@
     "binary_sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624",
     "version": "3.12.12"
   },
+  "runtime_preflight_entry_limit": 8192,
+  "runtime_preflight_modules": [
+    "ansible.builtin.assert",
+    "ansible.builtin.find",
+    "ansible.builtin.stat"
+  ],
   "schema": "helio_deploy_recipe_v1"
 }

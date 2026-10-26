@@ -1,13 +1,13 @@
 {
-  "status": "BLOCKED_OWNER",
+  "status": "WAITING_OWNER_RUNNER_START",
   "feature": "F31 reference fixture; not acceptance",
   "repository": "helloangular/helio-f31-ansible-fixture-20261026",
   "repository_id": 1434923306,
   "manifest_path": "recipe/runtime-manifest.json",
-  "manifest_git_blob_sha": "8f416e57cb594a66e313b930c02991ab8438e781",
+  "manifest_git_blob_sha": "5993f81dc733dd222b5a9e6c8051b2c534512a18",
   "source_commit": "Recorded externally in the helio-test preparation receipt to avoid self-reference",
   "unit_tests": {
-    "tests": 7,
+    "tests": 10,
     "failures": 0,
     "errors": 0
   },
@@ -41,8 +41,38 @@
   "proof_run_ids": [],
   "proof_runs_executed": 0,
   "owner_needs": [
-    "Ruling on read-only find for exact runtime source-file enumeration before any deployment",
-    "After preflight ruling and qualification: owner starts foreground repo-only runner"
+    "Start the repo-only foreground runner with start-owned-runner.sh; no proof run has been dispatched"
   ],
-  "no_vps_or_lab_changes": true
+  "no_vps_or_lab_changes": true,
+  "runtime_find_ruling": "Owner approved find only in fixed-root controller preflight; forbidden in deployment tasks",
+  "runtime_preflight": {
+    "clean": {
+      "exit": 0,
+      "seconds": 35.785
+    },
+    "added_file": {
+      "exit": 2,
+      "seconds": 5.47
+    },
+    "changed_file": {
+      "exit": 2,
+      "seconds": 8.093
+    },
+    "restored": {
+      "exit": 0,
+      "seconds": 36.47
+    }
+  },
+  "runtime_manifest_entries": 4973,
+  "local_services_running": false,
+  "credential_scan": {
+    "findings": 0,
+    "scan": "gitleaks, no exclusions"
+  },
+  "owner_start_command": "bash \"$HOME/.helio-f31-fixture/repository/start-owned-runner.sh\"",
+  "development_notes": [
+    "Initial per-file assertion implementation stopped by its owner for performance; replaced by bounded batch comparison, no provider/deployment action.",
+    "An attempted /dev/null configuration override was rejected before preflight; removed, no provider/deployment action.",
+    "Scanner false positives for filename-keyed hashes were resolved using explicit path/sha256 pairs; no scanner suppression."
+  ]
 }

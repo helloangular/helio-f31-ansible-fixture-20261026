@@ -5,6 +5,9 @@
   },
   "jobs": {
     "build": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
       "if": "${{ !inputs.deployment_only }}",
       "name": "build",
       "outputs": {
@@ -45,6 +48,9 @@
       ]
     },
     "prod": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
       "environment": "prod",
       "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == 'prod')) }}",
       "name": "prod",
@@ -87,6 +93,9 @@
       ]
     },
     "test": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
       "environment": "test",
       "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == 'test')) }}",
       "name": "test",
@@ -129,6 +138,9 @@
       ]
     },
     "uat": {
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
       "environment": "uat",
       "if": "${{ !cancelled() && (needs.build.result == 'success' || (inputs.deployment_only && inputs.target == 'uat')) }}",
       "name": "uat",

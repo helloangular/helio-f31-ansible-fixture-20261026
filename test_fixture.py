@@ -46,6 +46,40 @@ class FixtureContractTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.kit.target(bad)
 
+    def test_preflight_enumerates_only_fixed_controller_roots(self):
+        play = json.loads((ROOT / "deploy-war.yml").read_text())[0]
+        finds = [t for t in play["pre_tasks"] if "ansible.builtin.find" in t]
+        self.assertEqual(len(finds), 1)
+        if finds:
+            self.assertEqual(finds[0]["delegate_to"], "localhost")
+            args = finds[0]["ansible.builtin.find"]
+            self.assertEqual(args["limit"], 8193)
+            self.assertFalse(args["follow"])
+            self.assertTrue(args["get_checksum"])
+            self.assertEqual(args["checksum_algorithm"], "sha256")
+            self.assertIsInstance(args["paths"], list)
+            for path in args["paths"]:
+                self.assertTrue(path.startswith(str(Path.home() / ".helio-f31-fixture") + "/"))
+                self.assertNotIn("{{", path)
+        self.assertFalse(any("ansible.builtin.find" in t for t in play["tasks"]))
+
+    def test_exact_set_assertion_precedes_every_download(self):
+        play = json.loads((ROOT / "deploy-war.yml").read_text())[0]
+        comparisons = [t for t in play["pre_tasks"]
+                       if "helio_runtime_entries" in json.dumps(t.get("ansible.builtin.assert", {}))]
+        self.assertEqual(len(comparisons), 1)
+        if comparisons:
+            assertions = json.dumps(comparisons[0]["ansible.builtin.assert"])
+            self.assertIn("skipped_paths", assertions)
+            self.assertIn("8192", assertions)
+            self.assertIn("==", assertions)
+            self.assertNotIn("difference", assertions)
+
+    def test_virtualenv_configuration_is_in_the_hashed_set(self):
+        pins = json.loads((ROOT / "recipe/runtime-files.json").read_text())["helio_runtime_files"]
+        self.assertIn(str(Path.home() / ".helio-f31-fixture/venv/pyvenv.cfg"),
+                      {p["path"] for p in pins})
+
     def test_deploy_jobs_have_only_three_steps_and_no_shell_input_interpolation(self):
         workflow = json.loads((ROOT / ".github/workflows/f31.yml").read_text())
         for name in ("test", "uat", "prod"):

@@ -164,7 +164,6 @@
       },
       {
         "ansible.builtin.get_url": {
-          "ca_path": "/Users/aaryakulkarni/.helio-tomcat/tls/local-tls/cert.pem",
           "checksum": "{{ helio_artifact_digest }}",
           "dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/app.war",
           "mode": "0600",
@@ -178,8 +177,14 @@
           "validate_certs": true
         },
         "delegate_to": "localhost",
+        "environment": {
+          "SSL_CERT_FILE": "/Users/aaryakulkarni/.helio-tomcat/tls/local-tls/cert.pem"
+        },
         "name": "Download and verify before copying to Tomcat",
-        "no_log": true
+        "no_log": true,
+        "tags": [
+          "fixture_download"
+        ]
       },
       {
         "ansible.builtin.copy": {

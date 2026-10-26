@@ -18,7 +18,7 @@
   "connection_plugin": "community.docker.docker",
   "files": {
     "deploy-war.yml": {
-      "git_blob_sha": "71cf70bbdde77ace9c2493c3a3497e7cde50bd1a"
+      "git_blob_sha": "8f9f87c8a22a6d2552a57e573067979b3e259581"
     },
     "inventory.yml": {
       "git_blob_sha": "e7c64a808110e6570c47a19e69dab2bc3f9760a3"
@@ -33,7 +33,7 @@
       "git_blob_sha": "219848347ce48c8bc7c57774648d01c204c6ad85"
     },
     "recipe/runtime-files.json": {
-      "git_blob_sha": "292bcca574034446c3374080bd28bc08b0b0c292"
+      "git_blob_sha": "59310fee97756a18c90009830e093a2bf7cd9a52"
     }
   },
   "inventory": "inventory.yml",

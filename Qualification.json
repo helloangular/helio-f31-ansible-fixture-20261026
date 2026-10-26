@@ -1,13 +1,13 @@
 {
-  "status": "WAITING_OWNER_RUNNER_START",
+  "status": "PROOF_QUALIFICATION_IN_PROGRESS",
   "feature": "F31 reference fixture; not acceptance",
   "repository": "helloangular/helio-f31-ansible-fixture-20261026",
   "repository_id": 1434923306,
   "manifest_path": "recipe/runtime-manifest.json",
-  "manifest_git_blob_sha": "5993f81dc733dd222b5a9e6c8051b2c534512a18",
+  "manifest_git_blob_sha": "1be72839c9b9fb7c39cb68928857fac32f561358",
   "source_commit": "Recorded externally in the helio-test preparation receipt to avoid self-reference",
   "unit_tests": {
-    "tests": 10,
+    "tests": 11,
     "failures": 0,
     "errors": 0
   },
@@ -34,15 +34,15 @@
     "id": 2,
     "name": "helio-f31-mac-20261026",
     "label": "helio-f31",
-    "status": "offline",
+    "status": "online",
     "registered": true,
     "started_by_agent": false
   },
-  "proof_run_ids": [],
-  "proof_runs_executed": 0,
-  "owner_needs": [
-    "Start the repo-only foreground runner with start-owned-runner.sh; no proof run has been dispatched"
+  "proof_run_ids": [
+    40406002434
   ],
+  "proof_runs_executed": 1,
+  "owner_needs": [],
   "no_vps_or_lab_changes": true,
   "runtime_find_ruling": "Owner approved find only in fixed-root controller preflight; forbidden in deployment tasks",
   "runtime_preflight": {
@@ -64,7 +64,7 @@
     }
   },
   "runtime_manifest_entries": 4973,
-  "local_services_running": false,
+  "local_services_running": true,
   "credential_scan": {
     "findings": 0,
     "scan": "gitleaks, no exclusions"
@@ -74,5 +74,17 @@
     "Initial per-file assertion implementation stopped by its owner for performance; replaced by bounded batch comparison, no provider/deployment action.",
     "An attempted /dev/null configuration override was rejected before preflight; removed, no provider/deployment action.",
     "Scanner false positives for filename-keyed hashes were resolved using explicit path/sha256 pairs; no scanner suppression."
+  ],
+  "proof_attempts": [
+    {
+      "run_id": 40406002434,
+      "source_commit": "c2471d092eb4f42df829ecf94961bbf9411d25a1",
+      "selected": false,
+      "status": "HARNESS_FAULT",
+      "cause": "get_url does not accept ca_path on the pinned Ansible version; no WAR copy reached",
+      "correction": "Use task-scoped SSL_CERT_FILE; keep validate_certs true; pin the public CA hash",
+      "read_only_dry_run_exit": 0,
+      "unit_regression_test": "test_download_options_are_supported_by_the_exact_installed_module"
+    }
   ]
 }

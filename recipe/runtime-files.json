@@ -5863,6 +5863,10 @@
       "sha256": "a6be810e04bf995f94c90a3825b1c7c114e353e79cc2aad2ed9291f42b04eb98"
     },
     {
+      "path": "/Users/aaryakulkarni/.helio-tomcat/tls/local-tls/cert.pem",
+      "sha256": "530ad0ce91137598f4a4c2ee6c6fe97b52b726ec65ca2a73957434c188fc88ff"
+    },
+    {
       "path": "/usr/local/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
       "sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624"
     }
@@ -22135,6 +22139,10 @@
     {
       "path": "/Users/aaryakulkarni/.helio-f31-fixture/venv/pyvenv.cfg",
       "sha256": "da7b762bba9d5fec4812931a58222fa90549446bd877fdae4a4710bbd7ce250e"
+    },
+    {
+      "path": "/Users/aaryakulkarni/.helio-tomcat/tls/local-tls/cert.pem",
+      "sha256": "530ad0ce91137598f4a4c2ee6c6fe97b52b726ec65ca2a73957434c188fc88ff"
     },
     {
       "path": "/usr/local/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/bin/python3.12",

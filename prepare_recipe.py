@@ -51,7 +51,7 @@ def generate():
     docker = shutil.which("docker")
     if not docker:
         raise ValueError("The pinned Docker CLI must be installed")
-    external = sorted({Path(sys.executable).resolve(), Path(docker).resolve()})
+    external = sorted({Path(sys.executable).resolve(), Path(docker).resolve(), HOME / ".helio-tomcat/tls/local-tls/cert.pem"})
     paths = sorted(set(paths + external))
     pins = [{"path": str(p), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths]
     save("recipe/runtime-files.json", {"helio_runtime_files": pins, "helio_runtime_entries": [str(p) for p in entries],
@@ -80,7 +80,7 @@ def generate():
     tasks = [
         task("Validate target and artifact inputs", "ansible.builtin.assert", {"that": ["inventory_hostname == helio_target", "helio_target in ['test', 'uat', 'prod']", "helio_artifact_digest is match('^sha256:[0-9a-f]{64}$')", "helio_artifact_uri is match('^https://localhost:9444/repository/helio-releases/[A-Za-z0-9/._-]+[.]war$')"]}),
         task("Prepare isolated controller download directory", "ansible.builtin.file", {"path": "{{ playbook_dir }}/evidence/{{ helio_target }}", "state": "directory", "mode": "0700"}, delegate_to="localhost"),
-        task("Download and verify before copying to Tomcat", "ansible.builtin.get_url", {"url": "{{ helio_artifact_uri }}", "dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/app.war", "checksum": "{{ helio_artifact_digest }}", "url_username": "{{ lookup('ansible.builtin.env', 'NEXUS_USERNAME') }}", "url_password": "{{ lookup('ansible.builtin.env', 'NEXUS_PASSWORD') }}", "ca_path": str(HOME / ".helio-tomcat/tls/local-tls/cert.pem"), "validate_certs": True, "unredirected_headers": ["Authorization"], "mode": "0600", "timeout": 20}, delegate_to="localhost", no_log=True),
+        task("Download and verify before copying to Tomcat", "ansible.builtin.get_url", {"url": "{{ helio_artifact_uri }}", "dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/app.war", "checksum": "{{ helio_artifact_digest }}", "url_username": "{{ lookup('ansible.builtin.env', 'NEXUS_USERNAME') }}", "url_password": "{{ lookup('ansible.builtin.env', 'NEXUS_PASSWORD') }}", "validate_certs": True, "unredirected_headers": ["Authorization"], "mode": "0600", "timeout": 20}, delegate_to="localhost", no_log=True, environment={"SSL_CERT_FILE": str(HOME / ".helio-tomcat/tls/local-tls/cert.pem")}, tags=["fixture_download"]),
         task("Install only the verified WAR", "ansible.builtin.copy", {"src": "{{ playbook_dir }}/evidence/{{ helio_target }}/app.war", "dest": "/usr/local/tomcat/webapps/ROOT.war", "mode": "0644"}),
         task("Wait for the installed digest", "ansible.builtin.uri", {"url": "http://127.0.0.1:8080/artifact-digest", "return_content": True, "timeout": 5}, register="helio_digest_read", until="helio_digest_read.status == 200 and helio_digest_read.content == helio_artifact_digest", retries=45, delay=2),
         task("Verify the installed version", "ansible.builtin.uri", {"url": "http://127.0.0.1:8080/version", "return_content": True, "timeout": 5}, register="helio_version_read", until="helio_version_read.status == 200 and helio_version_read.content == helio_version", retries=15, delay=2),

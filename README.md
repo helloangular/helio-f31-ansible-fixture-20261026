@@ -97,3 +97,15 @@ qualification; runner credentials remain only in its private directory.
 
 Current state and immutable identities are in `Qualification.json`. A fixture is
 not DONE until all three proof runs pass; an owner-started runner is a prerequisite.
+
+
+## Qualification correction: get_url TLS trust
+
+The first workflow proof, run `40406002434`, published its WAR but stopped before
+copy: ansible-core 2.19.3 get_url does not support `ca_path`. It is preserved as
+an unselected harness-fault attempt. The correction supplies the same public CA
+through task-scoped `SSL_CERT_FILE`, with `validate_certs: true`, and includes
+that CA file in the external fingerprint checks. No system/keychain setting is
+changed. The actual installed module’s documented options are checked by a unit
+test; the corrected task passed a read-only check-mode HEAD against the published
+WAR before another workflow dispatch. The retry uses a new immutable version.

@@ -102,6 +102,20 @@ class FixtureContractTest(unittest.TestCase):
         for key in ("ignore_errors", "failed_when", "rescue", "when"):
             self.assertNotIn(key, tasks[download])
 
+    def test_download_options_are_supported_by_the_exact_installed_module(self):
+        import subprocess
+        import os
+        document = json.loads(subprocess.check_output(
+            [str(Path.home() / ".helio-f31-fixture/venv/bin/ansible-doc"), "--json", "ansible.builtin.get_url"],
+            env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1")))
+        options = document["ansible.builtin.get_url"]["doc"]["options"]
+        play = json.loads((ROOT / "deploy-war.yml").read_text())[0]
+        task = next(t for t in play["tasks"] if "ansible.builtin.get_url" in t)
+        self.assertEqual(set(task["ansible.builtin.get_url"]) - set(options), set())
+        self.assertTrue(task["ansible.builtin.get_url"]["validate_certs"])
+        self.assertEqual(task.get("environment", {}).get("SSL_CERT_FILE"),
+                         str(Path.home() / ".helio-tomcat/tls/local-tls/cert.pem"))
+
     def test_manifest_covers_exact_deploy_files_and_installed_runtime(self):
         import subprocess
         manifest = json.loads((ROOT / "recipe/runtime-manifest.json").read_text())

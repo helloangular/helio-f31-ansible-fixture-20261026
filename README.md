@@ -16,8 +16,10 @@ is **not** the current F31 integration reference. The rebuilt caller forwards
 `helio_target_environment` to a full-SHA-pinned reusable template; every deploy
 job uses HELIO_ENVIRONMENTS matrix environment/runner expressions and the
 existing per-stage targeting guard. A nonempty target skips the build job.
-One-file workflows are outside F31's scope. Three new proof runs and local
-catalog-template registration are pending; no new run has started.
+One-file workflows are outside F31's scope. All three catalog workflow proofs passed;
+the source identities, proof runs and registration status are recorded in
+`Catalog-Requalification.json`. Local catalog-template registration is separate
+from direct GitHub workflow qualification.
 
 `prepare_recipe.py --template-commit <full-sha>` first prepares the template
 commit, then prepares the caller commit pointing at that immutable template.
@@ -83,13 +85,13 @@ uses a SHA-256 checksum and TLS verification; a failed download cannot reach the
 copy to Tomcat. `/artifact-digest` hashes installed `ROOT.war` bytes rather than an
 expected digest supplied by the workflow.
 
-## Required proof (completed; see the qualification receipt below)
+## Required catalog proof
 
 Record exact source SHA, manifest blob, image ID, run IDs, attempts and evidence:
 
 1. Unique immutable version, normal build + test/uat/prod deployment. All three
    served digests must equal the published WAR digest.
-2. `deployment_only=true`, target `uat`, the same version/URI/digest. Build job
+2. `helio_target_environment=uat`, the same version/URI/digest. Build job
    must be skipped and served digest must remain identical.
 3. Same UAT input but a deliberately wrong SHA-256. `get_url` must fail before
    the install task; compare installed WAR hash before/after and preserve task
@@ -112,7 +114,8 @@ Nexus volume and immutable published version. Never use `down -v` in the product
 checkout. Leave runner registration and public source available for the next
 qualification; runner credentials remain only in its private directory.
 
-Current state and immutable identities are in `Qualification.json`. A fixture is
+Historical standalone evidence is in `Qualification.json`; the current catalog
+reference and its immutable identities are in `Catalog-Requalification.json`. A fixture is
 not DONE until all three proof runs pass; an owner-started runner is a prerequisite.
 
 
@@ -139,3 +142,20 @@ fault: **40406002434**. Full structured evidence and limitations are in
 The public source snapshot predates these proof results; this external receipt
 binds them without changing the qualified executable commit. All fixture services
 and the owned foreground runner were stopped; Nexus data and source remain.
+
+
+Catalog proof runs on caller `43edc3c9141728293436f8406b82c56ce21cc157` / template
+`8c23e2d21e9032351e31a5bd52e906c3cc4a4846`: build/all targets **40417805114**,
+UAT only/build skipped **40418409522**, wrong digest refused before copy
+**40418600931** (GitHub failure is expected). All three are PASS. The product
+recipe adapter, maker/checker registration and local catalog operation qualification
+remain pending; direct workflow proof does not establish those claims.
+
+
+### Reviewed runtime closure
+
+The deployment checkout contains only the registered files. `recipe/ansible.cfg` and the job environment pin plugin, collection, role, library, Python and executable search paths. The foreground runner wrapper drops inherited execution overrides. Collection MANIFEST/FILES documents are retained with their hashes. External interpreter aliases are checked at their actual path as well as the resolved binary.
+
+`qualify_runtime.py` runs only the controller preflight under the shared lock: clean success, added-file refusal, changed-file refusal, restored success. It removes the harmless canary and restores changed metadata in `finally`; no deployment occurs. Receipt: `runs/runtime-closure-20261026/Receipt.json`. Python tests: 18 passed. New immutable template/caller commits and three fresh GitHub proofs are required for this revision; earlier proof receipts are not reused.
+
+Environment variables contain private file paths only in the setup recipe; never copy credentials into this directory. The owner starts `bash "$HOME/.helio-f31-fixture/repository/start-owned-runner.sh"` in a foreground terminal. Ctrl-C stops that owned runner and tears down its Tomcats. Helio connection registration still requires a dedicated repository-selected fixture App or an explicitly approved repository-limited PAT; shared lead Apps remain off limits.

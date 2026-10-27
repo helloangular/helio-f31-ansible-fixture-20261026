@@ -1,0 +1,16 @@
+{
+  "targetable": true,
+  "forwards_target": true,
+  "stages": [
+    "production",
+    "test",
+    "uat"
+  ],
+  "caller_commit": "43edc3c9141728293436f8406b82c56ce21cc157",
+  "template_commit": "8c23e2d21e9032351e31a5bd52e906c3cc4a4846",
+  "product_base": "b2d2f150",
+  "product_guard_changes": false,
+  "fixture_unit_tests": 12,
+  "actionlint": "passed",
+  "proof_runs": "pending owner-started runner"
+}

@@ -18,16 +18,31 @@
   "connection_plugin": "community.docker.docker",
   "files": {
     ".github/workflows/f31-template.yml": {
-      "git_blob_sha": "3019e81107cdc5bed0dd5678e69071aaf00dbf84"
+      "git_blob_sha": "2bef90a362d9a0c9495e381dd2f149b8d982962f"
     },
     ".github/workflows/f31.yml": {
       "git_blob_sha": "4bdee956194911daf198551df9b51ff5e38eff53"
     },
     "deploy-war.yml": {
-      "git_blob_sha": "0b3e2c4c961231fcb3365503ccaa108ba252eab5"
+      "git_blob_sha": "4e76d1414ea4abbfa2953dd2ee3577fc8dafba30"
     },
     "inventory.yml": {
       "git_blob_sha": "e7c64a808110e6570c47a19e69dab2bc3f9760a3"
+    },
+    "recipe/ansible.cfg": {
+      "git_blob_sha": "117458b5a14222db31e9ae2a98b33f50f62b7954"
+    },
+    "recipe/collections/community.docker/FILES.json": {
+      "git_blob_sha": "ff8f88162a6f09da103800b33df1f79898df5f09"
+    },
+    "recipe/collections/community.docker/MANIFEST.json": {
+      "git_blob_sha": "53d2d3eed8be03d99a4343009e79d20214a961b6"
+    },
+    "recipe/collections/community.library_inventory_filtering_v1/FILES.json": {
+      "git_blob_sha": "8ce91ba1435aa8fd8477dcc7002e75e90e1f6b60"
+    },
+    "recipe/collections/community.library_inventory_filtering_v1/MANIFEST.json": {
+      "git_blob_sha": "0f8097fa53c1fcec6a393a0a3c0350751c4f2579"
     },
     "recipe/inputs-catalog.json": {
       "git_blob_sha": "fe89c8690763f0952b765eca775330a316f5ed4f"
@@ -42,7 +57,7 @@
       "git_blob_sha": "219848347ce48c8bc7c57774648d01c204c6ad85"
     },
     "recipe/runtime-files.json": {
-      "git_blob_sha": "59310fee97756a18c90009830e093a2bf7cd9a52"
+      "git_blob_sha": "419deb264b81248341beac4e79fd3fc47d38ea4e"
     }
   },
   "inventory": "inventory.yml",

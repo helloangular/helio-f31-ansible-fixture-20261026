@@ -1,14 +1,51 @@
 {
   "ruling": "F31-I4 option 2",
-  "status": "catalog caller/template prepared; owner-runner proofs pending",
+  "status": "Earlier caller 43edc3c9 / template 8c23e2d2 proofs PASS; runtime-closure revision requires fresh source proofs; local Helio integration pending",
   "previous_standalone_commit": "4c4b164679402071b889b50d9792ea73cec6aeab",
   "caller": ".github/workflows/f31.yml",
   "template": ".github/workflows/f31-template.yml",
   "manifest": "recipe/runtime-manifest.json",
   "unit_tests": 12,
   "actionlint": "passed",
-  "new_proof_runs": [],
-  "owner_runner_start_required": true,
+  "new_proof_runs": [
+    {
+      "proof": "build-and-deploy-all",
+      "run_id": 40417805114,
+      "status": "PASS"
+    },
+    {
+      "proof": "deploy-only-uat",
+      "run_id": 40418409522,
+      "status": "PASS"
+    },
+    {
+      "proof": "wrong-digest-refused-before-copy",
+      "run_id": 40418600931,
+      "status": "PASS",
+      "github_conclusion": "failure (expected)"
+    }
+  ],
+  "owner_runner_start_required": false,
   "local_catalog_registration": "pending",
-  "template_commit": "8c23e2d21e9032351e31a5bd52e906c3cc4a4846"
+  "template_commit": "8c23e2d21e9032351e31a5bd52e906c3cc4a4846",
+  "caller_commit": "43edc3c9141728293436f8406b82c56ce21cc157",
+  "same_artifact_digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+  "artifact_version": "0.2.0-f31-cat-20261026-p01",
+  "manifest_git_blob_sha": "8126ff5bf4e0f6ab3a0fa25ceffe1c197950400a",
+  "acceptance_executions": 0,
+  "vps_lab_requests": false,
+  "pre_dispatch_harness_adjustment": {
+    "acceptance_executions": 0,
+    "github_dispatches": 0,
+    "cause": "first external preflight expected application /health before first deployment; fresh Tomcat correctly returned 404",
+    "fix": "use existing Tomcat readiness check; verify application health after deployment"
+  },
+  "cleanup": {
+    "owned_tomcats": "removed",
+    "nexus_front_services": "stopped; named volume preserved",
+    "repo_only_runner": "idle in owner foreground terminal; Ctrl-C requested",
+    "other_containers": "untouched"
+  },
+  "runtime_closure_receipt": "runs/runtime-closure-20261026/Receipt.json",
+  "runtime_closure_unit_tests": 18
 }

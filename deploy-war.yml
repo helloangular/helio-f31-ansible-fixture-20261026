@@ -110,6 +110,7 @@
       {
         "ansible.builtin.stat": {
           "checksum_algorithm": "sha256",
+          "follow": true,
           "get_attributes": false,
           "get_mime": false,
           "path": "{{ item.path }}"
@@ -274,7 +275,7 @@
             "evidence_profile": "reported_not_pinned",
             "job_id": "{{ helio_matching_jobs[0].id }}",
             "kind": "catalog_deployment",
-            "provider_origin": "https://github.com",
+            "provider_origin": "https://api.github.com",
             "repository_id": "{{ helio_run.json.repository.id }}",
             "run_attempt": "{{ helio_run.json.run_attempt }}",
             "run_id": "{{ helio_run.json.id }}",

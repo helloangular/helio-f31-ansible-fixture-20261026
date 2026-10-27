@@ -32,10 +32,10 @@ def target(value):
     return value
 
 
-def check_files(expected):
+def check_files(expected, *, followed_paths=()):
     for name, digest in expected.items():
         p = Path(name)
-        if p.is_symlink() or not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest() != digest:
+        if (p.is_symlink() and name not in followed_paths) or not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest() != digest:
             raise ValueError("Installed runtime differs from its pinned files")
 
 
@@ -45,7 +45,7 @@ def publication(context, artifact_version, uri, digest):
         raise ValueError("SHA-256 required")
     if not uri.startswith("https://localhost:9444/repository/helio-releases/"):
         raise ValueError("Owned Nexus boundary required")
-    return dict(schema_version=1, kind="catalog_publication", provider_origin="https://github.com",
+    return dict(schema_version=1, kind="catalog_publication", provider_origin="https://api.github.com",
                 workflow_path=WORKFLOW, version=artifact_version, artifact_uri=uri,
                 artifact_digest="sha256:" + digest, **context)
 

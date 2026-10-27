@@ -59,20 +59,49 @@
         {
           "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
           "with": {
+            "clean": true,
             "persist-credentials": false,
-            "ref": "${{ github.sha }}"
+            "ref": "${{ github.sha }}",
+            "sparse-checkout": "/.github/workflows/f31-template.yml\n/.github/workflows/f31.yml\n/deploy-war.yml\n/inventory.yml\n/recipe/ansible.cfg\n/recipe/collections/community.docker/FILES.json\n/recipe/collections/community.docker/MANIFEST.json\n/recipe/collections/community.library_inventory_filtering_v1/FILES.json\n/recipe/collections/community.library_inventory_filtering_v1/MANIFEST.json\n/recipe/inputs-catalog.json\n/recipe/inputs-prod.json\n/recipe/inputs-test.json\n/recipe/inputs-uat.json\n/recipe/runtime-files.json\n/recipe/runtime-manifest.json",
+            "sparse-checkout-cone-mode": false
           }
         },
         {
           "env": {
+            "ANSIBLE_ACTION_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action",
+            "ANSIBLE_BECOME_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become",
+            "ANSIBLE_CACHE_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache",
+            "ANSIBLE_CALLBACKS_ENABLED": "ansible.builtin.default",
+            "ANSIBLE_CALLBACK_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback",
+            "ANSIBLE_CLICONF_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cliconf",
             "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
+            "ANSIBLE_COLLECTIONS_SCAN_SYS_PATH": "false",
+            "ANSIBLE_CONFIG": "${{ github.workspace }}/recipe/ansible.cfg",
+            "ANSIBLE_CONNECTION_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection",
+            "ANSIBLE_FILTER_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter",
+            "ANSIBLE_HTTPAPI_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/httpapi",
+            "ANSIBLE_INVENTORY_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory",
+            "ANSIBLE_LIBRARY": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules",
+            "ANSIBLE_LOOKUP_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup",
+            "ANSIBLE_MODULE_UTILS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils",
+            "ANSIBLE_NETCONF_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/netconf",
+            "ANSIBLE_ROLES_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/venv/NO_ROLES",
+            "ANSIBLE_STDOUT_CALLBACK": "default",
+            "ANSIBLE_STRATEGY_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy",
+            "ANSIBLE_TERMINAL_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/terminal",
+            "ANSIBLE_TEST_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test",
+            "ANSIBLE_VARS_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/vars",
             "GITHUB_TOKEN": "${{ github.token }}",
             "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
             "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
             "HELIO_TARGET": "${{ matrix.environment }}",
             "HELIO_VERSION": "${{ inputs.version }}",
             "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
+            "PATH": "/Applications/Docker.app/Contents/Resources/bin:/usr/bin:/bin",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONPATH": ""
           },
           "name": "Install and verify pinned WAR",
           "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit \"$HELIO_TARGET\" --extra-vars @recipe/inputs-catalog.json"
@@ -108,20 +137,49 @@
         {
           "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
           "with": {
+            "clean": true,
             "persist-credentials": false,
-            "ref": "${{ github.sha }}"
+            "ref": "${{ github.sha }}",
+            "sparse-checkout": "/.github/workflows/f31-template.yml\n/.github/workflows/f31.yml\n/deploy-war.yml\n/inventory.yml\n/recipe/ansible.cfg\n/recipe/collections/community.docker/FILES.json\n/recipe/collections/community.docker/MANIFEST.json\n/recipe/collections/community.library_inventory_filtering_v1/FILES.json\n/recipe/collections/community.library_inventory_filtering_v1/MANIFEST.json\n/recipe/inputs-catalog.json\n/recipe/inputs-prod.json\n/recipe/inputs-test.json\n/recipe/inputs-uat.json\n/recipe/runtime-files.json\n/recipe/runtime-manifest.json",
+            "sparse-checkout-cone-mode": false
           }
         },
         {
           "env": {
+            "ANSIBLE_ACTION_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action",
+            "ANSIBLE_BECOME_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become",
+            "ANSIBLE_CACHE_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache",
+            "ANSIBLE_CALLBACKS_ENABLED": "ansible.builtin.default",
+            "ANSIBLE_CALLBACK_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback",
+            "ANSIBLE_CLICONF_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cliconf",
             "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
+            "ANSIBLE_COLLECTIONS_SCAN_SYS_PATH": "false",
+            "ANSIBLE_CONFIG": "${{ github.workspace }}/recipe/ansible.cfg",
+            "ANSIBLE_CONNECTION_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection",
+            "ANSIBLE_FILTER_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter",
+            "ANSIBLE_HTTPAPI_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/httpapi",
+            "ANSIBLE_INVENTORY_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory",
+            "ANSIBLE_LIBRARY": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules",
+            "ANSIBLE_LOOKUP_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup",
+            "ANSIBLE_MODULE_UTILS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils",
+            "ANSIBLE_NETCONF_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/netconf",
+            "ANSIBLE_ROLES_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/venv/NO_ROLES",
+            "ANSIBLE_STDOUT_CALLBACK": "default",
+            "ANSIBLE_STRATEGY_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy",
+            "ANSIBLE_TERMINAL_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/terminal",
+            "ANSIBLE_TEST_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test",
+            "ANSIBLE_VARS_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/vars",
             "GITHUB_TOKEN": "${{ github.token }}",
             "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
             "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
             "HELIO_TARGET": "${{ matrix.environment }}",
             "HELIO_VERSION": "${{ inputs.version }}",
             "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
+            "PATH": "/Applications/Docker.app/Contents/Resources/bin:/usr/bin:/bin",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONPATH": ""
           },
           "name": "Install and verify pinned WAR",
           "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit \"$HELIO_TARGET\" --extra-vars @recipe/inputs-catalog.json"
@@ -157,20 +215,49 @@
         {
           "uses": "actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
           "with": {
+            "clean": true,
             "persist-credentials": false,
-            "ref": "${{ github.sha }}"
+            "ref": "${{ github.sha }}",
+            "sparse-checkout": "/.github/workflows/f31-template.yml\n/.github/workflows/f31.yml\n/deploy-war.yml\n/inventory.yml\n/recipe/ansible.cfg\n/recipe/collections/community.docker/FILES.json\n/recipe/collections/community.docker/MANIFEST.json\n/recipe/collections/community.library_inventory_filtering_v1/FILES.json\n/recipe/collections/community.library_inventory_filtering_v1/MANIFEST.json\n/recipe/inputs-catalog.json\n/recipe/inputs-prod.json\n/recipe/inputs-test.json\n/recipe/inputs-uat.json\n/recipe/runtime-files.json\n/recipe/runtime-manifest.json",
+            "sparse-checkout-cone-mode": false
           }
         },
         {
           "env": {
+            "ANSIBLE_ACTION_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/action",
+            "ANSIBLE_BECOME_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/become",
+            "ANSIBLE_CACHE_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cache",
+            "ANSIBLE_CALLBACKS_ENABLED": "ansible.builtin.default",
+            "ANSIBLE_CALLBACK_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/callback",
+            "ANSIBLE_CLICONF_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/cliconf",
             "ANSIBLE_COLLECTIONS_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/collections",
+            "ANSIBLE_COLLECTIONS_SCAN_SYS_PATH": "false",
+            "ANSIBLE_CONFIG": "${{ github.workspace }}/recipe/ansible.cfg",
+            "ANSIBLE_CONNECTION_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/connection",
+            "ANSIBLE_FILTER_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/filter",
+            "ANSIBLE_HTTPAPI_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/httpapi",
+            "ANSIBLE_INVENTORY_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/inventory",
+            "ANSIBLE_LIBRARY": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/modules",
+            "ANSIBLE_LOOKUP_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/lookup",
+            "ANSIBLE_MODULE_UTILS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/module_utils",
+            "ANSIBLE_NETCONF_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/netconf",
+            "ANSIBLE_ROLES_PATH": "/Users/aaryakulkarni/.helio-f31-fixture/venv/NO_ROLES",
+            "ANSIBLE_STDOUT_CALLBACK": "default",
+            "ANSIBLE_STRATEGY_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/strategy",
+            "ANSIBLE_TERMINAL_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/terminal",
+            "ANSIBLE_TEST_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/test",
+            "ANSIBLE_VARS_PLUGINS": "/Users/aaryakulkarni/.helio-f31-fixture/venv/lib/python3.12/site-packages/ansible/plugins/vars",
             "GITHUB_TOKEN": "${{ github.token }}",
             "HELIO_ARTIFACT_DIGEST": "${{ needs.build.outputs.artifact_digest || inputs.artifact_digest }}",
             "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",
             "HELIO_TARGET": "${{ matrix.environment }}",
             "HELIO_VERSION": "${{ inputs.version }}",
             "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}",
-            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}"
+            "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
+            "PATH": "/Applications/Docker.app/Contents/Resources/bin:/usr/bin:/bin",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "PYTHONPATH": ""
           },
           "name": "Install and verify pinned WAR",
           "run": "/Users/aaryakulkarni/.helio-f31-fixture/venv/bin/ansible-playbook -i inventory.yml deploy-war.yml --limit \"$HELIO_TARGET\" --extra-vars @recipe/inputs-catalog.json"

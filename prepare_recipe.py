@@ -6,6 +6,7 @@ The manifest excludes its own blob identity to avoid a self-reference; registrat
 must pin the manifest blob from the externally selected immutable commit.
 """
 import hashlib
+import configparser
 import argparse
 import re
 import compileall
@@ -55,7 +56,15 @@ def generate(template_commit):
     docker = shutil.which("docker")
     if not docker:
         raise ValueError("The pinned Docker CLI must be installed")
-    external = sorted({Path(sys.executable).resolve(), Path(docker).resolve(), HOME / ".helio-tomcat/tls/local-tls/cert.pem"})
+    external_set = {Path(sys.executable).resolve(), Path(docker).resolve(), HOME / ".helio-tomcat/tls/local-tls/cert.pem"}
+    entry_set = {str(p) for p in entries}
+    for link in links:
+        target = Path(os.path.normpath(str(Path(link["path"]).parent / link["target"])))
+        if str(target) not in entry_set:
+            if not target.is_file():
+                raise ValueError("An external runtime link has no hashable file target")
+            external_set.add(target)
+    external = sorted(external_set)
     paths = sorted(set(paths + external))
     pins = [{"path": str(p), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths]
     save("recipe/runtime-files.json", {"helio_runtime_files": pins, "helio_runtime_entries": [str(p) for p in entries],
@@ -67,6 +76,26 @@ def generate(template_commit):
         t: {"ansible_host": "helio-f31-" + t, "ansible_connection": "community.docker.docker",
             "ansible_python_interpreter": "/usr/bin/python3"} for t in ("test", "uat", "prod")}}}}}
     save("inventory.yml", inventory)
+    # The declared runtime roots must also be the effective plugin search set.
+    # A pinned playbook alone does not close user/system Ansible configuration.
+    package = Path(ansible.__file__).resolve().parent
+    plugin_kinds = ("action", "become", "cache", "callback", "cliconf", "connection", "filter", "httpapi", "inventory", "lookup", "netconf", "strategy", "terminal", "test", "vars")
+    plugin_paths = {kind: str(package / "plugins" / kind) for kind in plugin_kinds}
+    defaults = {kind + "_plugins": path for kind, path in plugin_paths.items()}
+    defaults.update(library=str(package / "modules"), module_utils=str(package / "module_utils"),
+                    roles_path=str(VENV / "NO_ROLES"), collections_path=str(COLLECTIONS),
+                    collections_scan_sys_path="False", stdout_callback="default", callbacks_enabled="ansible.builtin.default")
+    config = configparser.ConfigParser(interpolation=None)
+    config["defaults"] = defaults
+    with (ROOT / "recipe/ansible.cfg").open("w") as output:
+        config.write(output)
+    runtime_env = {"ANSIBLE_" + kind.upper() + "_PLUGINS": path for kind, path in plugin_paths.items()}
+    runtime_env.update(ANSIBLE_CONFIG="${{ github.workspace }}/recipe/ansible.cfg",
+                       ANSIBLE_LIBRARY=defaults["library"], ANSIBLE_MODULE_UTILS=defaults["module_utils"],
+                       ANSIBLE_ROLES_PATH=defaults["roles_path"], ANSIBLE_COLLECTIONS_PATH=str(COLLECTIONS),
+                       ANSIBLE_COLLECTIONS_SCAN_SYS_PATH="false", ANSIBLE_STDOUT_CALLBACK="default", ANSIBLE_CALLBACKS_ENABLED="ansible.builtin.default",
+                       PYTHONNOUSERSITE="1", PYTHONDONTWRITEBYTECODE="1", PYTHONPATH="",
+                       PATH=str(Path(docker).resolve().parent) + ":/usr/bin:/bin")
     pre = [task("Verify exact runtime versions", "ansible.builtin.assert", {"that": ["ansible_version.full == '2.19.3'"]}, delegate_to="localhost", run_once=True),
            task("Enumerate and hash only the reviewed controller roots", "ansible.builtin.find", {"paths": [str(p) for p in runtime_roots], "file_type": "any", "hidden": True, "recurse": True, "follow": False, "get_checksum": True, "checksum_algorithm": "sha256", "limit": 8193}, register="helio_runtime_found", delegate_to="localhost", run_once=True, no_log=True),
            task("Require the exact bounded runtime file set", "ansible.builtin.assert", {"that": ["helio_runtime_found.skipped_paths | length == 0", "helio_runtime_found.matched <= 8192", "helio_runtime_found.files | map(attribute='path') | sort == helio_runtime_entries | sort"]}, delegate_to="localhost", run_once=True, no_log=True),
@@ -77,7 +106,7 @@ def generate(template_commit):
                "helio_runtime_found.files | selectattr('isreg') | map(attribute='checksum') | list == helio_runtime_found.files | selectattr('isreg') | map(attribute='path') | map('extract', helio_runtime_checksums) | list"]}, delegate_to="localhost", run_once=True, no_log=True),
            task("Read pinned interpreter link targets", "ansible.builtin.stat", {"path": "{{ item.path }}", "follow": False, "get_checksum": False, "get_mime": False, "get_attributes": False}, loop="{{ helio_runtime_links }}", register="helio_runtime_link_checks", delegate_to="localhost", run_once=True, no_log=True),
            task("Refuse changed interpreter links", "ansible.builtin.assert", {"that": ["item.stat.islnk", "item.stat.lnk_target == item.item.target"]}, loop="{{ helio_runtime_link_checks.results }}", delegate_to="localhost", run_once=True, no_log=True),
-           task("Hash the external Python and Docker executables", "ansible.builtin.stat", {"path": "{{ item.path }}", "checksum_algorithm": "sha256", "get_mime": False, "get_attributes": False}, loop="{{ helio_runtime_external }}", register="helio_runtime_checks", delegate_to="localhost", run_once=True, no_log=True),
+           task("Hash the external Python and Docker executables", "ansible.builtin.stat", {"path": "{{ item.path }}", "follow": True, "checksum_algorithm": "sha256", "get_mime": False, "get_attributes": False}, loop="{{ helio_runtime_external }}", register="helio_runtime_checks", delegate_to="localhost", run_once=True, no_log=True),
            task("Refuse external executable drift", "ansible.builtin.assert", {"that": ["item.stat.isreg", "item.stat.checksum == item.item.sha256"]}, loop="{{ helio_runtime_checks.results }}", delegate_to="localhost", run_once=True, no_log=True)]
     for item in pre:
         item["tags"] = ["runtime_preflight"]
@@ -93,7 +122,7 @@ def generate(template_commit):
         task("Select this one deployment job", "ansible.builtin.set_fact", {"helio_matching_jobs": "{{ helio_jobs.json.jobs | selectattr('name', 'equalto', 'F31 catalog / ' ~ helio_target) | list }}"}),
         task("Require a unique job identity", "ansible.builtin.assert", {"that": ["helio_matching_jobs | length == 1"]}),
         task("Write deployment evidence on the controller", "ansible.builtin.copy", {"dest": "{{ playbook_dir }}/evidence/{{ helio_target }}/deployment.json", "mode": "0600", "content": "{{ helio_deployment_report | to_json }}"}, delegate_to="localhost", vars={"helio_deployment_report": {
-            "schema_version": 1, "kind": "catalog_deployment", "evidence_profile": "reported_not_pinned", "provider_origin": "https://github.com", "repository_id": "{{ helio_run.json.repository.id }}", "workflow_id": "{{ helio_run.json.workflow_id }}", "workflow_path": ".github/workflows/f31.yml", "workflow_commit": "{{ helio_run.json.head_sha }}", "run_id": "{{ helio_run.json.id }}", "run_attempt": "{{ helio_run.json.run_attempt }}", "job_id": "{{ helio_matching_jobs[0].id }}", "environment_name": "{{ helio_target }}", "artifact_uri": "{{ helio_artifact_uri }}", "artifact_digest": "{{ helio_digest_read.content }}", "version": "{{ helio_version_read.content }}"}})
+            "schema_version": 1, "kind": "catalog_deployment", "evidence_profile": "reported_not_pinned", "provider_origin": "https://api.github.com", "repository_id": "{{ helio_run.json.repository.id }}", "workflow_id": "{{ helio_run.json.workflow_id }}", "workflow_path": ".github/workflows/f31.yml", "workflow_commit": "{{ helio_run.json.head_sha }}", "run_id": "{{ helio_run.json.id }}", "run_attempt": "{{ helio_run.json.run_attempt }}", "job_id": "{{ helio_matching_jobs[0].id }}", "environment_name": "{{ helio_target }}", "artifact_uri": "{{ helio_artifact_uri }}", "artifact_digest": "{{ helio_digest_read.content }}", "version": "{{ helio_version_read.content }}"}})
     ]
     save("deploy-war.yml", [{"name": "F31 pinned WAR deployment", "hosts": "helio_target", "gather_facts": False,
                             "vars_files": ["recipe/runtime-files.json"],
@@ -110,7 +139,17 @@ def generate(template_commit):
         "helio_artifact_uri": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_URI') }}",
         "helio_artifact_digest": "{{ lookup('ansible.builtin.env', 'HELIO_ARTIFACT_DIGEST') }}"})
     input_files.append(ROOT / "recipe/inputs-catalog.json")
-    files = {str(p.relative_to(ROOT)): {"git_blob_sha": subprocess.check_output(["git", "hash-object", str(p)], cwd=ROOT, text=True).strip()} for p in [ROOT / "deploy-war.yml", ROOT / "inventory.yml", ROOT / "recipe/runtime-files.json"] + input_files}
+    collection_sources = []
+    for source in collection_roots:
+        info = json.loads(source.read_text())["collection_info"]
+        if not all(re.fullmatch(r"[a-z][a-z0-9_]*", info[key]) for key in ("namespace", "name")):
+            raise ValueError("Invalid collection identity")
+        dest = ROOT / "recipe/collections" / (info["namespace"] + "." + info["name"])
+        dest.mkdir(parents=True, exist_ok=True)
+        for name in ("MANIFEST.json", "FILES.json"):
+            shutil.copy2(source.parent / name, dest / name)
+            collection_sources.append(dest / name)
+    files = {str(p.relative_to(ROOT)): {"git_blob_sha": subprocess.check_output(["git", "hash-object", str(p)], cwd=ROOT, text=True).strip()} for p in [ROOT / "deploy-war.yml", ROOT / "inventory.yml", ROOT / "recipe/runtime-files.json", ROOT / "recipe/ansible.cfg"] + input_files + collection_sources}
     collections = []
     for p in collection_roots:
         info = json.loads(p.read_text())["collection_info"]
@@ -156,10 +195,12 @@ def generate(template_commit):
             "runs-on": "${{ fromJSON(vars.HELIO_ENVIRONMENTS).runs_on[matrix.environment] }}",
             "env": {"PYTHONDONTWRITEBYTECODE": "1"},
             "steps": [
-                {"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False}},
+                {"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False, "clean": True,
+                     "sparse-checkout-cone-mode": False,
+                     "sparse-checkout": "\n".join("/" + path for path in sorted(set(files) | {".github/workflows/f31.yml", ".github/workflows/f31-template.yml", "recipe/runtime-manifest.json"}))}},
                 {"name": "Install and verify pinned WAR",
                  "run": str(VENV / "bin/ansible-playbook") + ' -i inventory.yml deploy-war.yml --limit "$HELIO_TARGET" --extra-vars @recipe/inputs-catalog.json',
-                 "env": {"ANSIBLE_COLLECTIONS_PATH": str(COLLECTIONS), "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
+                 "env": {**runtime_env, "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",
                          "NEXUS_PASSWORD": "${{ secrets.NEXUS_PASSWORD }}", "GITHUB_TOKEN": "${{ github.token }}",
                          "HELIO_TARGET": "${{ matrix.environment }}", "HELIO_VERSION": "${{ inputs.version }}",
                          "HELIO_ARTIFACT_URI": "${{ needs.build.outputs.artifact_uri || inputs.artifact_uri }}",

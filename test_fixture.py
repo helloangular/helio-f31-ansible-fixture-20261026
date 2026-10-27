@@ -1,5 +1,6 @@
 """F31 reference-fixture unit tests; these do not consume acceptance executions."""
 import hashlib
+import configparser
 import importlib.util
 import json
 from pathlib import Path
@@ -146,8 +147,88 @@ class FixtureContractTest(unittest.TestCase):
         for name, identity in manifest["files"].items():
             actual = subprocess.check_output(["git", "hash-object", str(ROOT / name)], text=True).strip()
             self.assertEqual(actual, identity["git_blob_sha"])
-        pins = json.loads((ROOT / "recipe/runtime-files.json").read_text())["helio_runtime_files"]
-        self.kit.check_files({p["path"]: p["sha256"] for p in pins})
+        data = json.loads((ROOT / "recipe/runtime-files.json").read_text())
+        pins = data["helio_runtime_files"]
+        self.kit.check_files({p["path"]: p["sha256"] for p in pins},
+                             followed_paths={p["path"] for p in data["helio_runtime_external"]})
+
+    def test_publication_uses_the_connection_api_origin(self):
+        context = dict(repository_id=101, workflow_id=202, source_commit="a" * 40,
+                       run_id=303, run_attempt=1, job_id=404)
+        report = self.kit.publication(context, "1.0.1", "https://localhost:9444/repository/helio-releases/app.war", "b" * 64)
+        self.assertEqual("https://api.github.com", report["provider_origin"])
+        play = json.loads((ROOT / "deploy-war.yml").read_text())[0]
+        document = play["tasks"][-1]["vars"]["helio_deployment_report"]
+        self.assertEqual("https://api.github.com", document["provider_origin"])
+
+    def test_controller_configuration_is_pinned_in_the_recipe(self):
+        manifest = json.loads((ROOT / "recipe/runtime-manifest.json").read_text())
+        self.assertIn("recipe/ansible.cfg", manifest["files"])
+        path = ROOT / "recipe/ansible.cfg"
+        self.assertTrue(path.is_file())
+        if path.is_file():
+            config = configparser.ConfigParser(interpolation=None)
+            config.read(path)
+            defaults = config["defaults"]
+            package = str(Path.home() / ".helio-f31-fixture/venv/lib/python3.12/site-packages/ansible")
+            for kind in ("action", "become", "cache", "callback", "cliconf", "connection", "filter", "httpapi", "inventory", "lookup", "netconf", "strategy", "terminal", "test", "vars"):
+                self.assertEqual(package + "/plugins/" + kind, defaults[kind + "_plugins"])
+            self.assertEqual(package + "/modules", defaults["library"])
+            self.assertEqual(package + "/module_utils", defaults["module_utils"])
+            self.assertEqual("False", defaults["collections_scan_sys_path"])
+            self.assertEqual("ansible.builtin.default", defaults["callbacks_enabled"])
+
+    def test_deployment_checkout_and_environment_close_the_executable_search_set(self):
+        manifest = json.loads((ROOT / "recipe/runtime-manifest.json").read_text())
+        expected_files = set(manifest["files"]) | {"recipe/runtime-manifest.json"}
+        template = json.loads((ROOT / ".github/workflows/f31-template.yml").read_text())
+        for name, job in template["jobs"].items():
+            if name == "build":
+                continue
+            checkout = job["steps"][0]["with"]
+            self.assertTrue(checkout.get("clean"))
+            self.assertFalse(checkout.get("sparse-checkout-cone-mode", True))
+            self.assertEqual(expected_files, {p.lstrip("/") for p in checkout.get("sparse-checkout", "").splitlines()})
+            env = job["steps"][1]["env"]
+            self.assertEqual("${{ github.workspace }}/recipe/ansible.cfg", env.get("ANSIBLE_CONFIG"))
+            self.assertEqual("false", env.get("ANSIBLE_COLLECTIONS_SCAN_SYS_PATH"))
+            self.assertEqual("1", env.get("PYTHONNOUSERSITE"))
+            self.assertEqual("", env.get("PYTHONPATH"))
+            self.assertTrue(env.get("PATH", "").startswith("/Applications/Docker.app/Contents/Resources/bin:"))
+
+    def test_owned_runner_drops_inherited_ansible_and_python_overrides(self):
+        path = ROOT / "runner_env.py"
+        self.assertTrue(path.is_file())
+        if path.is_file():
+            spec = importlib.util.spec_from_file_location("f31_runner_env", path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            result = module.sanitized({"HOME": "/owned", "PATH": "/usr/bin", "KEEP": "fixture",
+                                       "ANSIBLE_ACTION_PLUGINS": "/unreviewed", "PYTHONPATH": "/unreviewed"})
+            self.assertEqual({"HOME": "/owned", "PATH": "/usr/bin", "KEEP": "fixture"}, result)
+
+    def test_registered_collection_versions_have_independently_reviewable_manifests(self):
+        manifest = json.loads((ROOT / "recipe/runtime-manifest.json").read_text())
+        for collection in manifest["collections"]:
+            base = ROOT / "recipe/collections" / collection["fqcn"]
+            for name, field in (("MANIFEST.json", "manifest_sha256"), ("FILES.json", "files_sha256")):
+                path = base / name
+                self.assertTrue(path.is_file())
+                if path.is_file():
+                    self.assertEqual(collection[field], hashlib.sha256(path.read_bytes()).hexdigest())
+                    self.assertIn(str(path.relative_to(ROOT)), manifest["files"])
+            if (base / "MANIFEST.json").is_file():
+                info = json.loads((base / "MANIFEST.json").read_text())["collection_info"]
+                self.assertEqual(collection["fqcn"], info["namespace"] + "." + info["name"])
+                self.assertEqual(collection["version"], info["version"])
+
+    def test_external_interpreter_link_target_is_hashed_at_the_actual_alias(self):
+        import os
+        data = json.loads((ROOT / "recipe/runtime-files.json").read_text())
+        pinned = {p["path"] for p in data["helio_runtime_files"]} | set(data["helio_runtime_entries"])
+        for link in data["helio_runtime_links"]:
+            target = os.path.normpath(str(Path(link["path"]).parent / link["target"]))
+            self.assertIn(target, pinned)
 
 
 if __name__ == "__main__":

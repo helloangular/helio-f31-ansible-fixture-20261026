@@ -1,0 +1,69 @@
+{
+  "proof": "deploy-only-uat",
+  "status": "PASS",
+  "run_id": 40418409522,
+  "attempt": 1,
+  "caller_commit": "43edc3c9141728293436f8406b82c56ce21cc157",
+  "jobs": [
+    {
+      "databaseId": 121906413353,
+      "name": "F31 catalog / uat",
+      "conclusion": "success"
+    },
+    {
+      "databaseId": 121906415081,
+      "name": "F31 catalog / matrix.environment",
+      "conclusion": "skipped"
+    },
+    {
+      "databaseId": 121906415335,
+      "name": "F31 catalog / matrix.environment",
+      "conclusion": "skipped"
+    },
+    {
+      "databaseId": 121906467192,
+      "name": "F31 catalog / build",
+      "conclusion": "skipped"
+    }
+  ],
+  "deployment_report": {
+    "artifact_digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+    "artifact_uri": "https://localhost:9444/repository/helio-releases/io/helio/f31/app/0.2.0-f31-cat-20261026-p01/app-0.2.0-f31-cat-20261026-p01.war",
+    "environment_name": "uat",
+    "evidence_profile": "reported_not_pinned",
+    "job_id": 121906413353,
+    "kind": "catalog_deployment",
+    "provider_origin": "https://github.com",
+    "repository_id": 1434923306,
+    "run_attempt": 1,
+    "run_id": 40418409522,
+    "schema_version": 1,
+    "version": "0.2.0-f31-cat-20261026-p01",
+    "workflow_commit": "43edc3c9141728293436f8406b82c56ce21cc157",
+    "workflow_id": 397557145,
+    "workflow_path": ".github/workflows/f31.yml"
+  },
+  "served_and_war_before_wrong_digest": {
+    "test": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489831:4213:1793056280",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    },
+    "uat": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489907:4213:1793056437",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    },
+    "prod": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489882:4213:1793056360",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    }
+  },
+  "product_integration_qualified": false,
+  "acceptance_executions": 0,
+  "vps_lab_requests": false
+}

@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import subprocess
 import time
+import runner_env
 
 ROOT = Path(__file__).resolve().parent
 PRIVATE = Path("/tmp/f31-runtime-find-qualification-20261026")
@@ -18,8 +19,12 @@ def main():
     PRIVATE.mkdir(mode=0o700, exist_ok=True)
     command = ["/usr/local/bin/with-gradle-lock", str(Path.home() / ".helio-f31-fixture/venv/bin/ansible-playbook"),
                "-i", "inventory.yml", "deploy-war.yml", "--limit", "test", "--tags", "runtime_preflight"]
-    env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1",
-               ANSIBLE_COLLECTIONS_PATH=str(Path.home() / ".helio-f31-fixture/collections"))
+    template = json.loads((ROOT / ".github/workflows/f31-template.yml").read_text())
+    declared = template["jobs"]["deploy_test"]["steps"][1]["env"]
+    env = runner_env.sanitized(os.environ)
+    env.update({key: value.replace("${{ github.workspace }}", str(ROOT))
+                for key, value in declared.items()
+                if "${{" not in value or key == "ANSIBLE_CONFIG"})
 
     def run(name):
         start = time.monotonic()

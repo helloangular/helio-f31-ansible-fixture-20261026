@@ -1,0 +1,31 @@
+{
+  "kind": "fixture-only runtime qualification",
+  "acceptance_executions": 0,
+  "deployment_executions": 0,
+  "cases": "F31 adapter runtime closure",
+  "preflight": {
+    "clean": {
+      "exit": 0,
+      "seconds": 34.545
+    },
+    "added_file": {
+      "exit": 2,
+      "seconds": 5.148
+    },
+    "changed_file": {
+      "exit": 2,
+      "seconds": 7.783
+    },
+    "restored": {
+      "exit": 0,
+      "seconds": 34.508
+    }
+  },
+  "unit_checks": {
+    "tests": 18,
+    "failures": 0,
+    "errors": 0
+  },
+  "source_qualification": "New catalog source commit and three GitHub proof runs pending; old receipts apply only to old source.",
+  "cleanup": "Owned runtime canary removed; package-manager metadata bytes/timestamps restored. No Docker services started."
+}

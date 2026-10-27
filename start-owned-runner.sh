@@ -45,4 +45,4 @@ for port in 3461 3462 3463; do
 done
 echo 'F31 local services ready. Starting the repo-only runner in this foreground terminal.'
 cd "$runner_dir"
-./run.sh
+python3 "$fixture_dir/runner_env.py" ./run.sh

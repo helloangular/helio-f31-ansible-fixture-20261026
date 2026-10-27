@@ -1,0 +1,94 @@
+{
+  "proof": "wrong-digest-refused-before-copy",
+  "status": "PASS",
+  "run_id": 40418600931,
+  "attempt": 1,
+  "caller_commit": "43edc3c9141728293436f8406b82c56ce21cc157",
+  "github_conclusion": "failure (expected checksum refusal)",
+  "jobs": [
+    {
+      "databaseId": 121907032928,
+      "name": "F31 catalog / uat",
+      "conclusion": "failure"
+    },
+    {
+      "databaseId": 121907034554,
+      "name": "F31 catalog / build",
+      "conclusion": "skipped"
+    },
+    {
+      "databaseId": 121907034611,
+      "name": "F31 catalog / matrix.environment",
+      "conclusion": "skipped"
+    },
+    {
+      "databaseId": 121907034804,
+      "name": "F31 catalog / matrix.environment",
+      "conclusion": "skipped"
+    }
+  ],
+  "last_task": "Download and verify before copying to Tomcat",
+  "install_task_reached": false,
+  "success_report_uploaded": false,
+  "before": {
+    "test": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489831:4213:1793056280",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    },
+    "uat": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489907:4213:1793056437",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    },
+    "prod": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489882:4213:1793056360",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    }
+  },
+  "after": {
+    "test": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489831:4213:1793056280",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    },
+    "uat": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489907:4213:1793056437",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    },
+    "prod": {
+      "version": "0.2.0-f31-cat-20261026-p01",
+      "artifact-digest": "sha256:30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76",
+      "war_stat": "2489882:4213:1793056360",
+      "war_sha256": "30d278305f9e19f9d3c15b52dd523bd5e51b5176bead0ca928bdea613dcf2d76"
+    }
+  },
+  "private_log_sha256": "ffcda880a758bd3ff63be2d6f7a7635019ec9fc7cb027dfc47de8b8024b1b18d",
+  "product_integration_qualified": false,
+  "acceptance_executions": 0,
+  "vps_lab_requests": false,
+  "nexus_requests_during_failed_job": [
+    {
+      "timestamp": "2026-10-26T23:17:18+00:00",
+      "method": "GET",
+      "path": "/repository/helio-releases/io/helio/f31/app/0.2.0-f31-cat-20261026-p01/app-0.2.0-f31-cat-20261026-p01.war",
+      "status": 401,
+      "source_line_sha256": "ed866f7104a95d94241bdda0e8438a86204f31dea05073a0d38ccc3ae251f9f6"
+    },
+    {
+      "timestamp": "2026-10-26T23:17:18+00:00",
+      "method": "GET",
+      "path": "/repository/helio-releases/io/helio/f31/app/0.2.0-f31-cat-20261026-p01/app-0.2.0-f31-cat-20261026-p01.war",
+      "status": 200,
+      "source_line_sha256": "d48452bda13f0e7c90e1c874783281e2f96f3ca74e750469995249eb7ebe880b"
+    }
+  ],
+  "nexus_delivery_proven": "HTTP 200 for exact published WAR during wrong-digest job; checksum task failed before install"
+}

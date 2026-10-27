@@ -5869,6 +5869,10 @@
     {
       "path": "/usr/local/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
       "sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624"
+    },
+    {
+      "path": "/usr/local/opt/python@3.12/bin/python3.12",
+      "sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624"
     }
   ],
   "helio_runtime_files": [
@@ -22146,6 +22150,10 @@
     },
     {
       "path": "/usr/local/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+      "sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624"
+    },
+    {
+      "path": "/usr/local/opt/python@3.12/bin/python3.12",
       "sha256": "9b671a740f255fb19c74132143910fd10c5fb367058f4d2e190f7abd9a404624"
     }
   ],

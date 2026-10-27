@@ -18,7 +18,7 @@
   "connection_plugin": "community.docker.docker",
   "files": {
     ".github/workflows/f31-template.yml": {
-      "git_blob_sha": "126e68474ee4d32aaf8c3c4c7b3e9993a075bc0e"
+      "git_blob_sha": "12e5d94618b42e8a581466abe78b478b0b63a307"
     },
     ".github/workflows/f31.yml": {
       "git_blob_sha": "30a8c9208ddb67d681e1205915184ab094848e32"

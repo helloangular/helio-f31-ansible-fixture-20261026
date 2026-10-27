@@ -20,7 +20,7 @@
           "with": {
             "persist-credentials": false,
             "ref": "${{ github.sha }}",
-            "sparse-checkout": "/fixture.py\n/pom.xml\n/src",
+            "sparse-checkout": "/fixture.py\n/app",
             "sparse-checkout-cone-mode": false
           }
         },

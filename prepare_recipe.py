@@ -173,7 +173,7 @@ def generate(template_commit):
                     "artifact_digest": "${{ steps.publish.outputs.artifact_digest }}"},
         "steps": [
             {"uses": CHECKOUT, "with": {"ref": "${{ github.sha }}", "persist-credentials": False,
-                                               "sparse-checkout": "/fixture.py\n/pom.xml\n/src", "sparse-checkout-cone-mode": False}},
+                                               "sparse-checkout": "/fixture.py\n/app", "sparse-checkout-cone-mode": False}},
             {"name": "Package and publish immutable WAR", "id": "publish",
              "run": str(VENV / "bin/python") + ' fixture.py build --version "$F31_VERSION"',
              "env": {"F31_VERSION": "${{ inputs.version }}", "NEXUS_USERNAME": "${{ secrets.NEXUS_USERNAME }}",

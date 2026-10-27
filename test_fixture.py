@@ -44,7 +44,7 @@ class FixtureContractTest(unittest.TestCase):
     def test_build_checkout_does_not_inherit_a_deploy_only_sparse_worktree(self):
         template = json.loads((ROOT / ".github/workflows/f31-template.yml").read_text())
         checkout = template["jobs"]["build"]["steps"][0]["with"]
-        self.assertEqual({"/fixture.py", "/pom.xml", "/src"}, set(checkout["sparse-checkout"].splitlines()))
+        self.assertEqual({"/fixture.py", "/app"}, set(checkout["sparse-checkout"].splitlines()))
         self.assertFalse(checkout["sparse-checkout-cone-mode"])
         self.assertFalse(checkout["persist-credentials"])
 

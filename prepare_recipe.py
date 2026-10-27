@@ -210,7 +210,9 @@ def generate(template_commit):
     template = {"name": "F31 catalog Ansible WAR template",
                 "on": {"workflow_call": {"inputs": shared_inputs, "secrets": secret_inputs}},
                 "permissions": {"contents": "read", "actions": "read"}, "jobs": jobs}
-    caller = {"name": "F31 catalog reference", "on": {"workflow_dispatch": {"inputs": shared_inputs}},
+    caller = {"name": "F31 catalog reference",
+              "run-name": "${{ inputs.helio_execution_id || format('F31 manual {0}', github.run_id) }}",
+              "on": {"workflow_dispatch": {"inputs": dict(shared_inputs, helio_execution_id={"type": "string", "default": ""})}},
               "permissions": {"contents": "read", "actions": "read"},
               "concurrency": {"group": "f31-local-targets", "cancel-in-progress": False},
               "jobs": {"catalog": {"name": "F31 catalog",

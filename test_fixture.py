@@ -41,6 +41,12 @@ class FixtureContractTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.kit.check_files(expected)
 
+    def test_catalog_caller_declares_managed_run_correlation(self):
+        caller = json.loads((ROOT / ".github/workflows/f31.yml").read_text())
+        self.assertEqual({"default": "", "type": "string"}, caller["on"]["workflow_dispatch"]["inputs"]["helio_execution_id"])
+        self.assertEqual("${{ inputs.helio_execution_id || format('F31 manual {0}', github.run_id) }}", caller["run-name"])
+        self.assertEqual(1, len(caller["jobs"]))
+
     def test_target_restriction(self):
         self.assertEqual(self.kit.target("uat"), "uat")
         for bad in ("localhost", "all", "prod:localhost", "uat;echo"):

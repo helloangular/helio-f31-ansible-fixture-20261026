@@ -31,6 +31,10 @@
           "default": "",
           "type": "string"
         },
+        "helio_execution_id": {
+          "default": "",
+          "type": "string"
+        },
         "helio_target_environment": {
           "default": "",
           "type": "string"
@@ -45,5 +49,6 @@
   "permissions": {
     "actions": "read",
     "contents": "read"
-  }
+  },
+  "run-name": "${{ inputs.helio_execution_id || format('F31 manual {0}', github.run_id) }}"
 }
